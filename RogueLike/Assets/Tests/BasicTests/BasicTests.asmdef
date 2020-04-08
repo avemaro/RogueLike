@@ -6,7 +6,7 @@
         "Project"
     ],
     "includePlatforms": [
-        "iOS"
+        "Editor"
     ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
