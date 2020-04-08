@@ -1,7 +1,13 @@
 ﻿<Properties StartupConfiguration="{D19E3436-A6EA-D160-E11C-37BB3D89AE6F}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/FeiTests/Fei11.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interface/BagPrinter.cs">
     <Files>
       <File FileName="Assets/Tests/FeiTests/Fei11.cs" Line="3" Column="23" />
+      <File FileName="Assets/Scripts/Interface/Controller.cs" />
+      <File FileName="Assets/Scripts/Interface/BagPrinter.cs" Line="8" Column="11" />
+      <File FileName="Assets/Scripts/Interface/GameManager.cs" />
+      <File FileName="Assets/Scripts/Interface/FloorPrinterBehaviour.cs" />
+      <File FileName="Assets/Scripts/Dungeon/Floor.cs" />
+      <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="10" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

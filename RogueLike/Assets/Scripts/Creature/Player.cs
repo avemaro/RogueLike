@@ -5,11 +5,6 @@ using UnityEngine;
 public class Player: Creature {
     public List<Item> Items { get; private set; } = new List<Item>();
     public Equipment weapon;
-    public Room Room {
-        get {
-            return floor.GetRoom(Position);
-        }
-    }
 
     public Player(Floor floor) {
         this.floor = floor;
@@ -24,7 +19,6 @@ public class Player: Creature {
     }
 
     public override bool Attack() {
-        if (state == State.Dead) return false;
         return weapon.Attack();
     }
 
