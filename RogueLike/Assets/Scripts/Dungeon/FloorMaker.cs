@@ -34,9 +34,8 @@ public static Floor Create(int roomCount) {
             floor.Rooms.Add(room02);
             floor.Rooms.Add(room03);
 
-            for (var y= boardY; y < height; y++) {
+            for (var y= boardY; y < height; y++)
                 floor.SetTerrain(boardX, y, TerrainType.land);
-            }
 
             for (var y = boardY; y < height; y++) {
                 if (floor.GetTerrain(boardX - 1, y) == TerrainType.land) break;
@@ -51,23 +50,21 @@ public static Floor Create(int roomCount) {
 
         }
 
-
-        for (var x = 0; x < width; x++) {
+        for (var x = 0; x < width; x++)
             floor.SetTerrain(x, boardY, TerrainType.land);
-        }
 
         for (var x = 0; x < width; x++) {
-            if (floor.GetTerrain(x, boardY - 1) == TerrainType.land) break;
-            if (floor.GetTerrain(x, boardY + 1) == TerrainType.land) break;
+            var isUpperAisle = floor.GetTerrain(x, boardY - 1) == TerrainType.land;
+            var isLowerAisle = floor.GetTerrain(x, boardY + 1) == TerrainType.land;
+            if (isUpperAisle || isLowerAisle) break;
             floor.SetTerrain(x, boardY, TerrainType.wall);
         }
-
         for (var x = width - 1; x > 0; x--) {
-            if (floor.GetTerrain(x, boardY - 1) == TerrainType.land) break;
-            if (floor.GetTerrain(x, boardY + 1) == TerrainType.land) break;
+            var isUpperAisle = floor.GetTerrain(x, boardY - 1) == TerrainType.land;
+            var isLowerAisle = floor.GetTerrain(x, boardY + 1) == TerrainType.land;
+            if (isUpperAisle || isLowerAisle) break;
             floor.SetTerrain(x, boardY, TerrainType.wall);
         }
-
 
 
         return floor;

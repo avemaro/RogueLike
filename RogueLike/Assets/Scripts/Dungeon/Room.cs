@@ -9,7 +9,7 @@ public class Room {
     int Width { get => endPoint.x - startPoint.x +  1; }
     int Height { get => endPoint.y - startPoint.y + 1; }
     readonly int wallThickness;
-    Direction[] neighbor;
+    readonly Direction[] neighbor;
 
     public Room(Floor floor, (int x, int y) start, (int x, int y) end, params Direction[] neighbor) {
         this.floor = floor;
