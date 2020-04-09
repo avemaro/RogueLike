@@ -45,11 +45,11 @@ public class Room {
         int x = 0;
         int y = 0;
         if (neighbor[0] == Direction.down) {
-            x = endPoint.x - Random.Range(wallThickness, endPoint.x - wallThickness);
+            x = endPoint.x - Random.Range(wallThickness, Width - wallThickness);
             y = endPoint.y;
         }
         if (neighbor[0] == Direction.up) {
-            x = startPoint.x + Random.Range(wallThickness, endPoint.x - wallThickness);
+            x = startPoint.x + Random.Range(wallThickness, Width - wallThickness);
             y = startPoint.y;
         }
         var position = new Cell(x, y);
