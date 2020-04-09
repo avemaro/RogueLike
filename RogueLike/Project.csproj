@@ -73,13 +73,13 @@
     <Compile Include="Assets\Scripts\Dungeon\Floor.cs" />
     <Compile Include="Assets\Scripts\Dungeon\FloorMaker.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Room.cs" />
-    <Compile Include="Assets\Scripts\Equipment.cs" />
     <Compile Include="Assets\Scripts\IAttacker.cs" />
     <Compile Include="Assets\Scripts\Interface\BagPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\Controller.cs" />
     <Compile Include="Assets\Scripts\Interface\FloorPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\FloorPrinterBehaviour.cs" />
     <Compile Include="Assets\Scripts\Interface\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Item\Equipment.cs" />
     <Compile Include="Assets\Scripts\Item\Herb.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\Pot.cs" />

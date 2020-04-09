@@ -16,6 +16,21 @@ public class Floor {
 
     public FloorPrinter printer;
 
+    public Floor(int width, int height) {
+        Player = new Player(this);
+        printer = new FloorPrinter(this);
+
+        floorSize = (width, height);
+
+        for (var x = 0; x < width; x++) {
+            for (var y = 0; y < height; y++) {
+                var cell = new Cell(x, y);
+                terrains.Add(new TerrainCell(this, cell, TerrainType.wall));
+            }
+        }
+    }
+
+
     public Floor(string text) {
         List<string> floorData = new List<string>();
 
@@ -92,6 +107,11 @@ public class Floor {
             if (terrain.Equals(to.Tuple)) return terrain;
         return null;
     }
+
+    public void SetTerrain(int x, int y, TerrainType terrain) {
+        GetTerrainCell(new Cell(x, y)).type = terrain;
+    }
+
 
     public TerrainType GetTerrain(int x, int y) {
         return GetTerrain(new Cell(x, y));

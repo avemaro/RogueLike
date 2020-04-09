@@ -3,43 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FloorMaker {
-    static int width = 30;
-    static int height = 30;
+    static int width = 50;
+    static int height = 50;
 
 public static Floor Create(int roomCount) {
-        var data = new List<string>();
-        for (var y = 0; y < height; y++) {
-            var line = "";
-            for (var x = 0; x < width; x++) {
-                line += "◆";
-                //if (x == 2 && y == 1) line += "試";
-                //else if (x == 3 && y == 2) line += "階";
-                //else line += "◆";
-            }
-            data.Add(line);
+        var floor = new Floor(width, height);
+        if (roomCount == 1) return floor;
+
+
+        var board = Random.Range(height * 1 / 4, height * 3 / 4);
+        var room1 = new Room(floor, (0, 0), (width - 1, board-1), Direction.down);
+        var room2 = new Room(floor, (0, board), (width - 1, height - 1), Direction.up);
+
+        floor.Rooms.Add(room1);
+        floor.Rooms.Add(room2);
+
+        for (var x = 0; x < width; x++) {
+            floor.SetTerrain(x, board, TerrainType.land);
         }
 
-        return new Floor(data.ToArray());;
+        for (var x = 0; x < width; x++) {
+            if (floor.GetTerrain(x, board-1) == TerrainType.land) break;
+            if (floor.GetTerrain(x, board+1) == TerrainType.land) break;
+            floor.SetTerrain(x, board, TerrainType.wall);
+        }
+
+        for (var x = width - 1; x > 0; x--) {
+            if (floor.GetTerrain(x, board-1) == TerrainType.land) break;
+            if (floor.GetTerrain(x, board+1) == TerrainType.land) break;
+            floor.SetTerrain(x, board, TerrainType.wall);
+        }
+
+        return floor;
     }
-
-    //public static Floor Create(string[] data) {
-    //    var floor = new Floor(data);
-    //    floor.Rooms.Add(new Room((2, 1), (8, 9)));
-    //    floor.Rooms.Add(new Room((15, 1), (22, 9)));
-
-    //    for (var y = 0; y < floor.floorSize.y; y++) {
-    //        for (var x = 0; x < floor.floorSize.x; x++) {
-    //            var cell = floor.GetTerrainCell(new Cell(x, y));
-    //            if (cell.type == TerrainType.wall ||
-    //                cell.type == TerrainType.breakableWall) continue;
-    //            if (cell.Next(Direction.upLeft))
-    //        }
-    //    }
-
-    //    return floor;
-    //}
-
-    //public static Floor Create() {
-        
-    //}
 }

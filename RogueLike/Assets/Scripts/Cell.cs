@@ -28,7 +28,7 @@ public class Cell : IEquatable<Cell>, IEquatable<(int x, int y)> {
         return new Cell(x + direction.GetValue().x, y + direction.GetValue().y);
     }
 
-    public List<Cell> Next(Direction[] directions) {
+    public List<Cell> Next(params Direction[] directions) {
         var cells = new List<Cell>();
         foreach (var direction in directions)
             cells.Add(Next(direction));
