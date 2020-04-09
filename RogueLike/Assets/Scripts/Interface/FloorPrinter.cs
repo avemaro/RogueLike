@@ -11,7 +11,7 @@ public class FloorPrinter {
         this.floor = floor;
     }
 
-    public string[] GetStrings() {
+    public string[] GetSrroundings() {
         var center = floor.Player.Position;
 
         List<string> floorText = new List<string>();
@@ -30,7 +30,7 @@ public class FloorPrinter {
     }
 
     public string GetText() {
-        var strings = GetStrings();
+        var strings = GetSrroundings();
         var text = "";
         foreach (var str in strings) {
             text += str;
@@ -58,14 +58,15 @@ public class FloorPrinter {
         return data;
     }
 
-    public List<string> GetString() {
+    public List<string> GetMap() {
         var floorData = new List<string>();
         for (var y = 0; y < floor.floorSize.y; y++) {
             var str = "";
             for (var x = 0; x < floor.floorSize.x; x++) {
                 char data = (char)floor.GetTerrain(x, y);
 
-                if (floor.StairPosition == (x, y)) data = '階';
+                if (!(floor.StairPosition is null))
+                    if (floor.StairPosition == (x, y)) data = '階';
                 var stuff = floor.GetStuff(x, y);
                 if (stuff != null) {
                     data = stuff.ID;
@@ -74,7 +75,8 @@ public class FloorPrinter {
                         if (((Enemy)stuff).state == State.Dead) data = '　';
                     }
                 }
-                if (floor.Player.Position == (x, y)) data = '試';
+                if (!(floor.Player.Position is null))
+                    if (floor.Player.Position == (x, y)) data = '試';
                 str += data;
             }
             floorData.Add(str);

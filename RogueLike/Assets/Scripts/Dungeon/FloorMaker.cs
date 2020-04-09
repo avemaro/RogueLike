@@ -11,9 +11,10 @@ public static Floor Create(int roomCount) {
         for (var y = 0; y < height; y++) {
             var line = "";
             for (var x = 0; x < width; x++) {
-                if (x == 2 && y == 1) line += "試";
-                else if (x == 3 && y == 2) line += "階";
-                else line += "◆";
+                line += "◆";
+                //if (x == 2 && y == 1) line += "試";
+                //else if (x == 3 && y == 2) line += "階";
+                //else line += "◆";
             }
             data.Add(line);
         }

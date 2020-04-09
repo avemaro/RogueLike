@@ -35,7 +35,7 @@ public class Floor {
         FloorInit(floorData.ToArray());
 
         printer = new FloorPrinter(this);
-        printer.GetStrings();
+        //printer.GetStrings();
     }
 
     public Floor(string[] floorData) {
@@ -44,7 +44,7 @@ public class Floor {
         FloorInit(floorData);
 
         printer = new FloorPrinter(this);
-        printer.GetStrings();
+        //printer.GetStrings();
     }
 
     void FloorInit(string[] floorData) {
@@ -83,7 +83,7 @@ public class Floor {
 
         Enemies.RemoveAll(enemy => enemy.state == State.Dead);
 
-        printer.GetStrings();
+        printer.GetSrroundings();
     }
 
     #region terrain
@@ -175,7 +175,7 @@ public class Floor {
 
     public List<string> Show() {
         if (printer is FloorPrinter)
-            return ((FloorPrinter)printer).GetString();
+            return printer.GetMap();
         return new List<string>();
     }
 }

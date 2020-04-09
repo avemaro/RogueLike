@@ -13,5 +13,11 @@ namespace Tests
             var floor = FloorMaker.Create(1);
             floor.Show();
         }
+
+        [Test]
+        public void MakeFloorWithTwoRoom() {
+            var floor = FloorMaker.Create(2);
+            floor.Show();
+        }
     }
 }
