@@ -42,20 +42,32 @@ public class Room {
     }
 
     void CreateExit() {
-        int x = 0;
+        if (neighbor.Length == 0) return;
+
+        int x = startPoint.x + Random.Range(wallThickness, Width - wallThickness);
         int y = 0;
-        if (neighbor[0] == Direction.down) {
-            x = endPoint.x - Random.Range(wallThickness, Width - wallThickness);
+        if (neighbor[0] == Direction.down)
             y = endPoint.y;
-        }
-        if (neighbor[0] == Direction.up) {
-            x = startPoint.x + Random.Range(wallThickness, Width - wallThickness);
+        if (neighbor[0] == Direction.up)
             y = startPoint.y;
-        }
         var position = new Cell(x, y);
         for (var i = 0; i < wallThickness; i++) {
             floor.SetTerrain(position.x, position.y, TerrainType.land);
             position = position.Next(neighbor[0].Reverse());
         }
+
+        if (neighbor.Length < 2) return;
+
+        y = startPoint.y + Random.Range(wallThickness, Height - wallThickness);
+        if (neighbor[1] == Direction.right)
+            x = endPoint.x;
+        if (neighbor[1] == Direction.left)
+            x = startPoint.x;
+        position = new Cell(x, y);
+        for (var i = 0; i < wallThickness; i++) {
+            floor.SetTerrain(position.x, position.y, TerrainType.land);
+            position = position.Next(neighbor[1].Reverse());
+        }
+
     }
 }

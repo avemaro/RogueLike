@@ -8,44 +8,49 @@ public class FloorMaker {
 
 public static Floor Create(int roomCount) {
         var floor = new Floor(width, height);
-        if (roomCount == 1) return floor;
 
-        if (roomCount == 2) {
-            var board = Random.Range(height * 1 / 4, height * 3 / 4);
-            var room1 = new Room(floor, (0, 0), (width - 1, board - 1), Direction.down);
-            var room2 = new Room(floor, (0, board), (width - 1, height - 1), Direction.up);
-
-            floor.Rooms.Add(room1);
-            floor.Rooms.Add(room2);
-
-            for (var x = 0; x < width; x++) {
-                floor.SetTerrain(x, board, TerrainType.land);
-            }
-
-            for (var x = 0; x < width; x++) {
-                if (floor.GetTerrain(x, board - 1) == TerrainType.land) break;
-                if (floor.GetTerrain(x, board + 1) == TerrainType.land) break;
-                floor.SetTerrain(x, board, TerrainType.wall);
-            }
-
-            for (var x = width - 1; x > 0; x--) {
-                if (floor.GetTerrain(x, board - 1) == TerrainType.land) break;
-                if (floor.GetTerrain(x, board + 1) == TerrainType.land) break;
-                floor.SetTerrain(x, board, TerrainType.wall);
-            }
-
+        if (roomCount == 1) {
+            var room = new Room(floor, (0, 0), (width - 1, height - 1));
+            floor.Rooms.Add(room);
             return floor;
         }
 
-        var boardX = Random.Range(height * 1 / 4, height * 3 / 4);
-        var boardY = Random.Range(height * 1 / 4, height * 3 / 4);
-        var room01 = new Room(floor, (0, 0), (width - 1, boardY - 1), Direction.down);
-        var room02 = new Room(floor, (0, boardY), (boardX - 1, height - 1), Direction.up, Direction.right);
-        var room03 = new Room(floor, (boardX, boardY), (width - 1, height - 1), Direction.up, Direction.left);
+        var boardY = 0;
+        if (roomCount == 2) {
+            boardY = Random.Range(height * 1 / 4, height * 3 / 4);
+            var room1 = new Room(floor, (0, 0), (width - 1, boardY - 1), Direction.down);
+            var room2 = new Room(floor, (0, boardY), (width - 1, height - 1), Direction.up);
 
-        floor.Rooms.Add(room01);
-        floor.Rooms.Add(room02);
-        floor.Rooms.Add(room03);
+            floor.Rooms.Add(room1);
+            floor.Rooms.Add(room2);
+        } else {
+            var boardX = Random.Range(height * 1 / 4, height * 3 / 4);
+            boardY = Random.Range(height * 1 / 4, height * 3 / 4);
+            var room01 = new Room(floor, (0, 0), (width - 1, boardY - 1), Direction.down);
+            var room02 = new Room(floor, (0, boardY), (boardX - 1, height - 1), Direction.up, Direction.right);
+            var room03 = new Room(floor, (boardX, boardY), (width - 1, height - 1), Direction.up, Direction.left);
+
+            floor.Rooms.Add(room01);
+            floor.Rooms.Add(room02);
+            floor.Rooms.Add(room03);
+
+            for (var y= boardY; y < height; y++) {
+                floor.SetTerrain(boardX, y, TerrainType.land);
+            }
+
+            for (var y = boardY; y < height; y++) {
+                if (floor.GetTerrain(boardX - 1, y) == TerrainType.land) break;
+                if (floor.GetTerrain(boardX + 1, y) == TerrainType.land) break;
+                floor.SetTerrain(boardX, y, TerrainType.wall);
+            }
+            for (var y = height - 1; y > boardY; y--) {
+                if (floor.GetTerrain(boardX - 1, y) == TerrainType.land) break;
+                if (floor.GetTerrain(boardX + 1, y) == TerrainType.land) break;
+                floor.SetTerrain(boardX, y, TerrainType.wall);
+            }
+
+        }
+
 
         for (var x = 0; x < width; x++) {
             floor.SetTerrain(x, boardY, TerrainType.land);
@@ -62,6 +67,8 @@ public static Floor Create(int roomCount) {
             if (floor.GetTerrain(x, boardY + 1) == TerrainType.land) break;
             floor.SetTerrain(x, boardY, TerrainType.wall);
         }
+
+
 
         return floor;
     }
