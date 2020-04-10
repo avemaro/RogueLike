@@ -20,6 +20,7 @@ public class Room {
 
     public Room(Floor floor, (int x, int y) start, (int x, int y) end, params Direction[] neighbors) {
         this.floor = floor;
+        this.neighbors = neighbors;
         startPoint = new Cell(start.x, start.y);
         endPoint = new Cell(end.x, end.y);
 
@@ -30,41 +31,37 @@ public class Room {
         var divRatio = Random.Range(divRatioMin, divRatioMax);
         var division = divisions[Random.Range(0, divisions.Count)];
 
-        void CreateRoom((int, int) start0, (int, int) end0, Direction direction) {
-            var directions = new List<Direction>(neighbors) { direction };
-            new Room(floor, start0, end0, directions.ToArray());
-        }
-
         switch (division) {
             case Division.vertical:
-                var endV0 = (startPoint.x + Mathf.RoundToInt(Width / divRatio) - 1, endPoint.y);
+                var borderX = startPoint.x + Mathf.RoundToInt(Width / divRatio) - 1;
+                var endV0 = (borderX, endPoint.y);
                 CreateRoom(startPoint.Tuple, endV0, Direction.right);
-
-                var startV1 = (startPoint + (Mathf.RoundToInt(Width / divRatio), 0)).Tuple;
+                var startV1 = (borderX + 1, startPoint.y);
                 CreateRoom(startV1, endPoint.Tuple, Direction.left);
-
                 for (var y = startPoint.y; y < endPoint.y + 1; y++)
-                    floor.SetTerrain(endV0.Item1, y, TerrainType.land);
+                    floor.SetTerrain(borderX, y, TerrainType.land);
                 return;
 
             case Division.horizonal:
-                var endH0 = (endPoint.x, startPoint.y + Mathf.RoundToInt(Height / divRatio) - 1);
+                var borderY = startPoint.y + Mathf.RoundToInt(Height / divRatio) - 1;
+                var endH0 = (endPoint.x, borderY);
                 CreateRoom(startPoint.Tuple, endH0, Direction.down);
-
-                var startH1 = (startPoint.x, startPoint.y + Mathf.RoundToInt(Height / divRatio));
+                var startH1 = (startPoint.x, borderY);
                 CreateRoom(startH1, endPoint.Tuple, Direction.up);
-
                 for (var x = startPoint.x; x < endPoint.x + 1; x++)
-                    floor.SetTerrain(x, endH0.Item2, TerrainType.land);
-
+                    floor.SetTerrain(x, borderY, TerrainType.land);
                 return;
 
         }
         wallThickness = Random.Range(wallMin, wallMax);
-        this.neighbors = neighbors;
         CreateLand();
         CreateExit();
         floor.Rooms.Add(this);
+    }
+
+    void CreateRoom((int, int) start0, (int, int) end0, Direction direction) {
+        var directions = new List<Direction>(neighbors) { direction };
+        new Room(floor, start0, end0, directions.ToArray());
     }
 
     public bool Contains(Cell position) {
