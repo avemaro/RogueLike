@@ -7,6 +7,8 @@ public class Room {
     static readonly int HeightLimit = 30;
     static readonly int wallMin = 4;
     static readonly int wallMax = 5;
+    static readonly float divRatioMin = 2f;
+    static readonly float divRatioMax = 4f;
 
     readonly Floor floor;
     readonly Cell startPoint;
@@ -25,7 +27,7 @@ public class Room {
         if (Width < WidthLimit) divisions.Remove(Division.vertical);
         if (Height < HeightLimit) divisions.Remove(Division.horizonal);
 
-        var divRatio = Random.Range(2f, 4f);
+        var divRatio = Random.Range(divRatioMin, divRatioMax);
         var division = divisions[Random.Range(0, divisions.Count)];
         switch (division) {
             case Division.vertical:
