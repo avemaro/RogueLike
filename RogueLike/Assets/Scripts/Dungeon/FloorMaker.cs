@@ -33,9 +33,10 @@ public static Floor Create(int roomCount) {
             var room1 = new Room(floor, (0, boardY), (boardX - 1, height - 1), Direction.up, Direction.right);
             floor.Rooms.Add(room1);
 
-            var room2 = new Room(floor, (boardX, boardY), (width - 1, height - 1), Direction.up, Direction.left);
-
-            floor.Rooms.Add(room2);
+            if (roomCount < iter + 2) {
+                var room2 = new Room(floor, (boardX, boardY), (width - 1, height - 1), Direction.up, Direction.left);
+                floor.Rooms.Add(room2);
+            }
 
             for (var y = boardY; y < height; y++)
                 floor.SetTerrain(boardX, y, TerrainType.land);
