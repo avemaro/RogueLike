@@ -29,40 +29,30 @@ public class Room {
 
         var divRatio = Random.Range(divRatioMin, divRatioMax);
         var division = divisions[Random.Range(0, divisions.Count)];
+
+        void CreateRoom((int, int) start0, (int, int) end0, Direction direction) {
+            var directions = new List<Direction>(neighbors) { direction };
+            new Room(floor, start0, end0, directions.ToArray());
+        }
+
         switch (division) {
             case Division.vertical:
-                var startV0 = startPoint.Tuple;
                 var endV0 = (startPoint.x + Mathf.RoundToInt(Width / divRatio) - 1, endPoint.y);
-                var directions = new List<Direction>(neighbors) {
-                    Direction.right
-                };
-                new Room(floor, startV0, endV0, directions.ToArray());
+                CreateRoom(startPoint.Tuple, endV0, Direction.right);
 
-                var startV1 = (startPoint.x + Mathf.RoundToInt(Width / divRatio), startPoint.y);
-                var endV1 = endPoint.Tuple;
-                directions = new List<Direction>(neighbors) {
-                    Direction.left
-                };
-                new Room(floor, startV1, endV1, directions.ToArray());
+                var startV1 = (startPoint + (Mathf.RoundToInt(Width / divRatio), 0)).Tuple;
+                CreateRoom(startV1, endPoint.Tuple, Direction.left);
 
                 for (var y = startPoint.y; y < endPoint.y + 1; y++)
                     floor.SetTerrain(endV0.Item1, y, TerrainType.land);
-
                 return;
-            case Division.horizonal:
-                var startH0 = startPoint.Tuple;
-                var endH0 = (endPoint.x, startPoint.y + Height / 2 - 1);
-                directions = new List<Direction>(neighbors) {
-                    Direction.down
-                };
-                new Room(floor, startH0, endH0, directions.ToArray());
 
-                var startH1 = (startPoint.x, startPoint.y + Height / 2);
-                var endH1 = endPoint.Tuple;
-                directions = new List<Direction>(neighbors) {
-                    Direction.up
-                };
-                new Room(floor, startH1, endH1, directions.ToArray());
+            case Division.horizonal:
+                var endH0 = (endPoint.x, startPoint.y + Mathf.RoundToInt(Height / divRatio) - 1);
+                CreateRoom(startPoint.Tuple, endH0, Direction.down);
+
+                var startH1 = (startPoint.x, startPoint.y + Mathf.RoundToInt(Height / divRatio));
+                CreateRoom(startH1, endPoint.Tuple, Direction.up);
 
                 for (var x = startPoint.x; x < endPoint.x + 1; x++)
                     floor.SetTerrain(x, endH0.Item2, TerrainType.land);
