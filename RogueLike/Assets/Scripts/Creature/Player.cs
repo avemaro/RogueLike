@@ -30,8 +30,10 @@ public class Player: Creature {
     bool PickUp() {
         var item = floor.GetItem(Position.x, Position.y);
         floor.Remove(item);
-        if (item != null) Items.Add(item);
-        return item != null;
+        if (item == null) return false;
+        if (item.ID == 'Ｇ') return true;
+        Items.Add(item);
+        return true;
     }
 
     public void Use(int index) {
