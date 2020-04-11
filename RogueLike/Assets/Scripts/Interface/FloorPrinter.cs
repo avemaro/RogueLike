@@ -41,7 +41,7 @@ public class FloorPrinter {
 
     char GetChar(int x, int y) {
         char data = '◆';
-        if (x > 0 && y > 0 &&
+        if (x >= 0 && y >= 0 &&
             x < floor.floorSize.x && y < floor.floorSize.y) {
             data = (char)floor.GetTerrain(x, y);
             if (floor.StairPosition == (x, y)) data = '階';

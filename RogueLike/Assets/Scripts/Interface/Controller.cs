@@ -64,19 +64,21 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.U)) {
             gameManager.bagPrinter.Use();
         }
+        if (Input.GetKey(KeyCode.Y)) {
+            gameManager.bagPrinter.Equip();
+        }
         if (Input.GetKey(KeyCode.T)) {
             gameManager.bagPrinter.Throw();
         }
 
         if (Input.GetKey(KeyCode.Alpha0)) {
             gameManager.bagPrinter.SelectItem(0);
-            //player.Use(0);
         }
         if (Input.GetKey(KeyCode.Alpha1)) {
-            player.Use(1);
+            gameManager.bagPrinter.SelectItem(1);
         }
-        if (Input.GetKey(KeyCode.Alpha1)) {
-            player.Use(2);
+        if (Input.GetKey(KeyCode.Alpha2)) {
+            gameManager.bagPrinter.SelectItem(2);
         }
     }
 }

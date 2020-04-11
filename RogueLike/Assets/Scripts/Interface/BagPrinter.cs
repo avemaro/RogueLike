@@ -39,6 +39,12 @@ public class BagPrinter : MonoBehaviour
         selectedItem = -1;
     }
 
+    public void Equip() {
+        if (selectedItem == -1) return;
+        player.Equip(selectedItem);
+        selectedItem = -1;
+    }
+
     public void SelectItem(int index) {
         selectedItem = index;
     }

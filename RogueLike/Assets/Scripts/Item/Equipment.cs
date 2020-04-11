@@ -15,6 +15,12 @@ public class Equipment : Item {
         ID = data;
     }
 
+    bool isEquiped = false;
+
+    public void Equip() {
+        isEquiped = true;
+    }
+
     public override bool Attack() {
         var player = floor.Player;
         var to = player.Position.Next(player.direction);
@@ -23,6 +29,13 @@ public class Equipment : Item {
         if (enemy != null) return enemy.IsAttacked(this);
 
         var cell = floor.GetTerrainCell(to);
+        if (cell is null) return false;
         return cell.IsAttacked(this);
+    }
+
+    public override string ToString() {
+        var appendix = "";
+        if (isEquiped) appendix = "E";
+        return base.ToString() + appendix;
     }
 }

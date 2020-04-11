@@ -54,6 +54,7 @@ public class Player: Creature {
         var item = GetItem(index);
         if (!(item is Equipment)) return;
         weapon = (Equipment)item;
+        weapon.Equip();
     }
 
     Item GetItem(int index) {

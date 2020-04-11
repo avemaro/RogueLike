@@ -41,6 +41,7 @@ public abstract class Creature : Stuff, IAttacker {
 
     bool IsRegalMove() {
         var to = Position.Next(direction);
+        if (to is null) return false;
         if (!IsAbleToGo(to)) return false;
 
         if (!direction.IsDiagonal()) return true;
@@ -52,6 +53,7 @@ public abstract class Creature : Stuff, IAttacker {
     }
 
     bool IsAbleToGo(Cell to) {
+        if (floor.GetTerrainCell(to) is null) return false;
         if (floor.GetTerrain(to) != TerrainType.land) return false;
         if (floor.GetEnemy(to) != null) return false;
         if (floor.Player.Position == to) return false;
