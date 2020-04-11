@@ -132,10 +132,10 @@ public class Floor {
 
     #region getter
     public Stuff GetStuff(int x, int y) {
-        var item = GetItem(x, y);
-        if (item != null) return item;
         var enemy = GetEnemy(x, y);
         if (enemy != null) return enemy;
+        var item = GetItem(x, y);
+        if (item != null) return item;
         var trap = GetTrap(x, y);
         if (trap != null) return trap;
         return null;
