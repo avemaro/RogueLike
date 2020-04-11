@@ -86,30 +86,31 @@ public class Room {
         foreach (var neighbor in neighbors) {
             int x = 0;
             int y = 0;
-            if (neighbor == Direction.up || neighbor == Direction.down) {
-                x = startPoint.x + Random.Range(wallThickness, Width - wallThickness);
-                if (neighbor == Direction.up)
+            int dx = Random.Range(wallThickness, Width - wallThickness);
+            int dy = Random.Range(wallThickness, Height - wallThickness);
+            switch (neighbor) {
+                case Direction.up:
+                    x = startPoint.x + dx;
                     y = startPoint.y;
-                if (neighbor == Direction.down)
+                    break;
+                case Direction.down:
+                    x = startPoint.x + dx;
                     y = endPoint.y;
-                var position = new Cell(x, y);
-                for (var i = 0; i < wallThickness; i++) {
-                    floor.SetTerrain(position.x, position.y, TerrainType.land);
-                    position = position.Next(neighbor.Reverse());
-                }
+                    break;
+                case Direction.left:
+                    x = startPoint.x;
+                    y = startPoint.y + dy;
+                    break;
+                case Direction.right:
+                    x = endPoint.x;
+                    y = startPoint.y + dy;
+                    break;
             }
 
-            if (neighbor == Direction.left || neighbor == Direction.right) {
-                y = startPoint.y + Random.Range(wallThickness, Height - wallThickness);
-                if (neighbor == Direction.right)
-                    x = endPoint.x;
-                if (neighbor == Direction.left)
-                    x = startPoint.x;
-                var position = new Cell(x, y);
-                for (var i = 0; i < wallThickness; i++) {
-                    floor.SetTerrain(position.x, position.y, TerrainType.land);
-                    position = position.Next(neighbor.Reverse());
-                }
+            var position = new Cell(x, y);
+            for (var i = 0; i < wallThickness; i++) {
+                floor.SetTerrain(position.x, position.y, TerrainType.land);
+                position = position.Next(neighbor.Reverse());
             }
         }
     }
