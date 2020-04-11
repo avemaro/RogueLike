@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4056834122451689773
+--- !u!1 &8280114586152539151
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1640117498570569484}
-  - component: {fileID: 7800942823913320133}
-  - component: {fileID: 5498889478003195722}
-  - component: {fileID: 5221332561987562578}
+  - component: {fileID: 8280114586152539150}
+  - component: {fileID: 8280114586152539144}
+  - component: {fileID: 8280114586152539145}
+  - component: {fileID: 4179976647619110918}
   m_Layer: 5
-  m_Name: FloorPrinter
+  m_Name: MessagePrinter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1640117498570569484
+--- !u!224 &8280114586152539150
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4056834122451689773}
+  m_GameObject: {fileID: 8280114586152539151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -35,24 +35,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 750, y: 950}
+  m_AnchoredPosition: {x: 0, y: -480}
+  m_SizeDelta: {x: 750, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7800942823913320133
+--- !u!222 &8280114586152539144
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4056834122451689773}
+  m_GameObject: {fileID: 8280114586152539151}
   m_CullTransparentMesh: 0
---- !u!114 &5498889478003195722
+--- !u!114 &8280114586152539145
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4056834122451689773}
+  m_GameObject: {fileID: 8280114586152539151}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -78,16 +78,15 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &5221332561987562578
+--- !u!114 &4179976647619110918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4056834122451689773}
+  m_GameObject: {fileID: 8280114586152539151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a3338a3f8644e2e8b33e0fdca3e986, type: 3}
+  m_Script: {fileID: 11500000, guid: be67b4c4ef46f4210b9f96d1bda2ac86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}

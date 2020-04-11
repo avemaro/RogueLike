@@ -23,10 +23,10 @@ public class GameManager : MonoBehaviour
     public void ShowMap() {
         if (mapPrinter.gameObject.activeInHierarchy) {
             mapPrinter.gameObject.SetActive(false);
-            floorPrinter.gameObject.SetActive(true);
+            //floorPrinter.gameObject.SetActive(true);
         } else {
             mapPrinter.gameObject.SetActive(true);
-            floorPrinter.gameObject.SetActive(false);
+            //floorPrinter.gameObject.SetActive(false);
         }
     }
 }
