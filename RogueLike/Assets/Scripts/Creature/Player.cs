@@ -22,8 +22,9 @@ public class Player: Creature {
     public override bool Attack() {
         if (state == State.Dead) return false;
         Debug.Log("ATTACK");
+        weapon.Attack();
         floor.Work();
-        return weapon.Attack();
+        return true;
     }
 
     bool PickUp() {
