@@ -61,8 +61,16 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.M)) {
             gameManager.ShowMap();
         }
+        if (Input.GetKey(KeyCode.U)) {
+            gameManager.bagPrinter.Use();
+        }
+        if (Input.GetKey(KeyCode.T)) {
+            gameManager.bagPrinter.Throw();
+        }
+
         if (Input.GetKey(KeyCode.Alpha0)) {
-            player.Use(0);
+            gameManager.bagPrinter.SelectItem(0);
+            //player.Use(0);
         }
         if (Input.GetKey(KeyCode.Alpha1)) {
             player.Use(1);

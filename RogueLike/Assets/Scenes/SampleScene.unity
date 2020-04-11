@@ -1160,7 +1160,7 @@ PrefabInstance:
         type: 3}
       propertyPath: floorPrefab
       value: 
-      objectReference: {fileID: 7800540521327442333, guid: 57d20387abe444b4d8c8a025178bc98f,
+      objectReference: {fileID: 693593820585399912, guid: 7f1529e7ddce342b9b71591ef8f197c8,
         type: 3}
     - target: {fileID: 8480222110415011036, guid: 3633cb595faa542b695efa7f8490c5d6,
         type: 3}

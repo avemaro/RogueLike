@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Text floorPrefab;
     public MapPrinter mapPrinter;
     public FloorPrinterBehaviour floorPrinter;
+    public BagPrinter bagPrinter;
 
     // Start is called before the first frame update
     void Start() {
