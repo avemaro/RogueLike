@@ -10,25 +10,25 @@ namespace Tests
     {
         [Test]
         public void MakeFloorWithOneRoom() {
-            var floor = FloorMaker.Create(1);
+            var floor = FloorMaker.Create();
             floor.Show();
         }
 
         [Test]
         public void MakeFloorWithTwoRoom() {
-            var floor = FloorMaker.Create(2);
+            var floor = FloorMaker.Create();
             floor.Show();
         }
 
         [Test]
         public void MakeFloorWithThreeRoom() {
-            var floor = FloorMaker.Create(3);
+            var floor = FloorMaker.Create();
             floor.Show();
         }
 
         [Test]
         public void MakeFloorWithFourRoom() {
-            var floor = FloorMaker.Create(4);
+            var floor = FloorMaker.Create();
             floor.Show();
         }
     }

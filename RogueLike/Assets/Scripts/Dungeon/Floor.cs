@@ -5,7 +5,7 @@ using UnityEngine;
 public class Floor {
     public (int x, int y) floorSize;
     readonly List<TerrainCell> terrains = new List<TerrainCell>();
-    public Cell StairPosition { get; private set; }
+    public Cell StairPosition;
     public Player Player { get; private set; }
 
     public List<Room> Rooms { get; private set; } = new List<Room>();

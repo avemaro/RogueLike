@@ -674,6 +674,11 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1860425640}
+    - target: {fileID: 4463594682852475259, guid: c7df0a3864eda453981cef10aa987939,
+        type: 3}
+      propertyPath: timeOut
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6785653314117871817, guid: c7df0a3864eda453981cef10aa987939,
         type: 3}
       propertyPath: m_Name

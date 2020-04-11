@@ -6,7 +6,7 @@ public class FloorMaker {
     static int width = 50;
     static int height = 50;
 
-public static Floor Create(int roomCount) {
+public static Floor Create() {
         var floor = new Floor(width, height);
         new Room(floor, (0, 0), (width - 1, height - 1));
 
@@ -34,6 +34,21 @@ public static Floor Create(int roomCount) {
                 return true;
             floor.SetTerrain(x, y, TerrainType.wall);
             return false;
+        }
+
+        while (true) {
+            var x = Random.Range(0, width - 1);
+            var y = Random.Range(0, height - 1);
+            if (floor.GetTerrain(x, y) == TerrainType.wall) continue;
+            floor.Player.Position = new Cell(x, y);
+            break;
+        }
+        while (true) {
+            var x = Random.Range(0, width - 1);
+            var y = Random.Range(0, height - 1);
+            if (floor.GetTerrain(x, y) == TerrainType.wall) continue;
+            floor.StairPosition = new Cell(x, y);
+            break;
         }
 
         return floor;

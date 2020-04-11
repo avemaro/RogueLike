@@ -8,6 +8,9 @@ public class Controller : MonoBehaviour
     Player player;
     public GameManager gameManager;
 
+    public float timeOut;
+    private float timeElapsed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,37 +18,47 @@ public class Controller : MonoBehaviour
         player = floor.Player;
     }
 
+    void Update() {
+        timeElapsed += Time.deltaTime;
+
+        if (timeElapsed >= timeOut) {
+            ProcessInput();
+            timeElapsed = 0.0f;
+        }
+    }
+
+
     // Update is called once per frame
-    void Update()
+    void ProcessInput()
     {
-        if (Input.GetKeyUp(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.W)) {
             player.Move(Direction.up);
         }
-        if (Input.GetKeyUp(KeyCode.E)) {
+        if (Input.GetKey(KeyCode.E)) {
             player.Move(Direction.upRight);
         }
-        if (Input.GetKeyUp(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.D)) {
             player.Move(Direction.right);
         }
-        if (Input.GetKeyUp(KeyCode.C)) {
+        if (Input.GetKey(KeyCode.C)) {
             player.Move(Direction.downRight);
         }
-        if (Input.GetKeyUp(KeyCode.X)) {
+        if (Input.GetKey(KeyCode.X)) {
             player.Move(Direction.down);
         }
-        if (Input.GetKeyUp(KeyCode.Z)) {
+        if (Input.GetKey(KeyCode.Z)) {
             player.Move(Direction.downLeft);
         }
-        if (Input.GetKeyUp(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.A)) {
             player.Move(Direction.left);
         }
-        if (Input.GetKeyUp(KeyCode.Q)) {
+        if (Input.GetKey(KeyCode.Q)) {
             player.Move(Direction.upLeft);
         }
-        if (Input.GetKeyUp(KeyCode.S)) {
+        if (Input.GetKey(KeyCode.S)) {
             player.Attack();
         }
-        if (Input.GetKeyUp(KeyCode.Alpha0)) {
+        if (Input.GetKey(KeyCode.Alpha0)) {
             player.Use(0);
         }
     }
