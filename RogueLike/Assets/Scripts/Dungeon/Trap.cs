@@ -9,6 +9,8 @@ public class Trap: Stuff, IAttacker {
         return new Trap(floor, cell, data);
     }
 
+    bool isStepedOn;
+
     private Trap(Floor floor, Cell cell, char data) {
         this.floor = floor;
         Position = cell;
@@ -18,7 +20,9 @@ public class Trap: Stuff, IAttacker {
 
     public void Work() {
         var player = floor.Player;
-        if (player.Position != Position) return;
+
+        if (!isAbleToWork()) return;
+
         isVisible = true;
 
         switch (ID) {
@@ -44,5 +48,15 @@ public class Trap: Stuff, IAttacker {
 
     public bool IsAttacked(IAttacker attacker) {
         throw new System.NotImplementedException();
+    }
+
+    bool isAbleToWork() {
+        if (floor.Player.Position != Position) {
+            isStepedOn = false;
+            return false;
+        }
+        if (isStepedOn) return false;
+        isStepedOn = true;
+        return true;
     }
 }

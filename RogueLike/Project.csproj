@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Dungeon\Floor.cs" />
     <Compile Include="Assets\Scripts\Dungeon\FloorMaker.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Room.cs" />
+    <Compile Include="Assets\Scripts\Dungeon\Trap.cs" />
     <Compile Include="Assets\Scripts\IAttacker.cs" />
     <Compile Include="Assets\Scripts\Interface\BagPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\Controller.cs" />
@@ -91,7 +92,6 @@
     <Compile Include="Assets\Scripts\Stuff.cs" />
     <Compile Include="Assets\Scripts\TerrainCell.cs" />
     <Compile Include="Assets\Scripts\TerrainType.cs" />
-    <Compile Include="Assets\Scripts\Trap.cs" />
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/yamasaki/GitHub/RogueLike/RogueLike/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>

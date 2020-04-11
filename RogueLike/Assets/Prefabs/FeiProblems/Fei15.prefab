@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2683220555769182501
+--- !u!1 &2977178459191695337
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2125167672207876187}
-  - component: {fileID: 7265532084397843505}
-  - component: {fileID: 418136636997712036}
+  - component: {fileID: 1230531997498936983}
+  - component: {fileID: 7546339754662005501}
+  - component: {fileID: 693593820585399912}
   m_Layer: 5
   m_Name: Fei5
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2125167672207876187
+--- !u!224 &1230531997498936983
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2683220555769182501}
+  m_GameObject: {fileID: 2977178459191695337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,21 +37,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7265532084397843505
+--- !u!222 &7546339754662005501
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2683220555769182501}
+  m_GameObject: {fileID: 2977178459191695337}
   m_CullTransparentMesh: 0
---- !u!114 &418136636997712036
+--- !u!114 &693593820585399912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2683220555769182501}
+  m_GameObject: {fileID: 2977178459191695337}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -76,4 +76,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\n\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u25C6\n\u25C6\u3000\u3000\u5DFB\u8A66\u5439\u3000\u3000\u25C6\n\u25C6\u25C7\u25C7\u25C7\u25C7\u25C7\u25C6\u3000\u25C6\n\u25C6\u3000\u3000\u3000\u30AE\u3000\u3000\u3000\u25C6\n\u25C6\u3000\u25C6\u25C7\u25C7\u25C7\u25C6\u3000\u25C6\n\u25C6\u3000\u25C6\u25C7\u25C7\u25C7\u25C6\u3000\u25C6\n\u25C6\u3000\u3000\u3000\u968E\u3000\u3000\u3000\u25C6\n\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6"
+  m_Text: "\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\n\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u25C6\n\u25C6\u3000\u30C8\u3000\u3000\u3000\u8A66\u3000\u25C6\n\u25C6\u25C7\u25C7\u25C7\u25C7\u25C7\u25C7\u25C7\u25C6\n\u25C6\u3000\u3000\u3000\u25C7\u3000\u3000\u3000\u25C6\n\u25C6\u3000\u6756\u3000\u3000\u3000\u6B66\u3000\u25C6\n\u25C6\u3000\u3000\u3000\u968E\u3000\u3000\u3000\u25C6\n\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6"
