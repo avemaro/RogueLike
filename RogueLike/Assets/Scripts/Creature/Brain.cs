@@ -26,10 +26,7 @@ public class Brain {
     }
 
     void SetDestination() {
-        var room = floor.GetRoom(enemy.Position);
-        var playerRoom = floor.GetRoom(floor.Player.Position);
-
-        if (room != playerRoom) return;
+        if (enemy.Room != floor.Player.Room) return;
         destination = floor.Player.Position;
     }
 

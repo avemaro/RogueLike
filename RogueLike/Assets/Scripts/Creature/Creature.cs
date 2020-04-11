@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Creature: Stuff, IAttacker {
+public abstract class Creature : Stuff, IAttacker {
     public Direction direction;
     public State state;
     public int HP;
+    public Room Room { get { return floor.GetRoom(Position); } }
 
     public abstract bool Attack();
 

@@ -157,6 +157,13 @@ public class Floor {
         return null;
     }
 
+    public Enemy[] GetEnemies(Room room) {
+        var enemyList = new List<Enemy>();
+        foreach (var enemy in Enemies)
+            if (enemy.Room == room) enemyList.Add(enemy);
+        return enemyList.ToArray();
+    }
+
     public Enemy GetEnemy(Cell from, Direction direction, List<TerrainType> blockTerrans) {
         var nextCell = GetTerrainCell(from);
 

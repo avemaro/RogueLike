@@ -48,7 +48,7 @@ public static Floor Create() {
 
         for (var i = 0; i < 10; i++) {
             var position = floor.GetPosition(TerrainType.land);
-            var item = Item.Create(floor, position, '薬');
+            var item = Item.Create(floor, position, '真');
             floor.Items.Add(item);
         }
 

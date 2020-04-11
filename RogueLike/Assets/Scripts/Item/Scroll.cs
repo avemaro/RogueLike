@@ -27,9 +27,8 @@ public class Scroll : Item {
     public override bool Use(Player player) {
         player.Items.Remove(this);
 
-        foreach (var enemy in floor.Enemies) {
+        foreach (var enemy in floor.GetEnemies(player.Room))
             Work(player, enemy);
-        }
 
         return true;
     }
