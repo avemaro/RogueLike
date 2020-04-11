@@ -61,5 +61,8 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha0)) {
             player.Use(0);
         }
+        if (Input.GetKey(KeyCode.M)) {
+            gameManager.ShowMap();
+        }
     }
 }

@@ -7,13 +7,26 @@ public class GameManager : MonoBehaviour
 {
     public Floor floor;
     public Text floorPrefab;
+    public MapPrinter mapPrinter;
+    public FloorPrinterBehaviour floorPrinter;
 
     // Start is called before the first frame update
     void Start() {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
+
+    }
+
+    public void ShowMap() {
+        if (mapPrinter.gameObject.activeInHierarchy) {
+            mapPrinter.gameObject.SetActive(false);
+            floorPrinter.gameObject.SetActive(true);
+        } else {
+            mapPrinter.gameObject.SetActive(true);
+            floorPrinter.gameObject.SetActive(false);
+        }
     }
 }

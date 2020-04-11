@@ -14,16 +14,7 @@ public class FloorPrinterBehaviour : MonoBehaviour
         text = Instantiate(gameManager.floorPrefab, transform);
         floor = FloorMaker.Create();
         gameManager.floor = floor;
-        //text.text = floor.printer.GetText();
-
-        //if (gameManager.floorPrefab != null) {
-        //    text = Instantiate(gameManager.floorPrefab, transform);
-        //    floor = new Floor(text.text);
-        //} else {
-        //    floor = FloorMaker.Create();
-        //    text = gameObject.AddComponent<Text>();
-        //}
-        //gameManager.floor = floor;
+        gameManager.floorPrinter = this;
     }
 
     void Update() {
