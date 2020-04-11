@@ -66,9 +66,9 @@ public class Room {
 
     public bool Contains(Cell position) {
         var fromStartPoint = position - startPoint;
-        if (fromStartPoint.x < 0 || fromStartPoint.y < 0) return false;
+        if (fromStartPoint.x < wallThickness || fromStartPoint.y < wallThickness) return false;
         var toEndPoint = endPoint - position;
-        if (toEndPoint.x < 0 || toEndPoint.y < 0) return false;
+        if (toEndPoint.x < wallThickness || toEndPoint.y < wallThickness) return false;
         return true;
     }
 

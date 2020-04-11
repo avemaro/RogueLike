@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Brain {
-    Floor floor;
-    Enemy enemy;
+    readonly Floor floor;
+    readonly Enemy enemy;
     Cell destination;
 
     public Brain(Floor floor, Enemy enemy) {
@@ -14,12 +14,25 @@ public class Brain {
 
     public void Work() {
         if (enemy.state != State.Alive) return;
-        destination = floor.Player.Position;
-        var difference = floor.Player.Position - enemy.Position;
+
+        SetDestination();
+        if (destination is null) return;
+
+        var difference = destination - enemy.Position;
         enemy.direction = difference.Direction;
         if (enemy.Attack()) return;
         if (enemy.ID == 'マ' || enemy.ID == 'ギ') return;
         DecideMove();
+    }
+
+    void SetDestination() {
+        var room = floor.GetRoom(enemy.Position);
+        var playerRoom = floor.GetRoom(floor.Player.Position);
+        Debug.Log(room);
+        Debug.Log(playerRoom);
+
+        if (room != playerRoom) return;
+        destination = floor.Player.Position;
     }
 
     void DecideMove() {
