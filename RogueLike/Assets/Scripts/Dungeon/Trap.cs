@@ -31,6 +31,7 @@ public class Trap: Stuff, IAttacker {
                 player.Jump();
                 return;
             case '爆':
+                player.IsAttacked(this);
                 foreach (var cell in Position.Around) {
                     var enemy = floor.GetEnemy(cell);
                     if (enemy != null) enemy.IsAttacked(this);

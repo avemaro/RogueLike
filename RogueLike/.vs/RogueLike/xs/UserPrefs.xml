@@ -1,23 +1,24 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Scroll.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/FeiTests/Fei12.cs">
     <Files>
       <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="71" Column="37" IsPinned="True" />
       <File FileName="Assets/Scripts/Interface/FloorPrinterBehaviour.cs" Line="9" Column="1" />
       <File FileName="Assets/Scripts/Interface/GameManager.cs" Line="10" Column="34" />
       <File FileName="Assets/Scripts/Cell.cs" Line="57" Column="6" />
-      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei1.cs" />
-      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="57" Column="35" />
+      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei1.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="152" Column="6" />
       <File FileName="Assets/Scripts/Interface/Controller.cs" Line="56" Column="43" />
       <File FileName="Assets/Scripts/Dungeon/Trap.cs" Line="11" Column="1" />
       <File FileName="Assets/Scripts/Item/Item.cs" Line="22" Column="44" />
-      <File FileName="Assets/Scripts/Item/Scroll.cs" Line="25" Column="6" />
+      <File FileName="Assets/Scripts/Item/Scroll.cs" Line="28" Column="35" />
       <File FileName="Assets/Scripts/Dungeon/Room.cs" Line="124" Column="2" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Player.cs" Line="36" Column="21" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Creature.cs" Line="13" Column="14" NotebookId="1" />
-      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="58" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Creature.cs" Line="6" Column="32" NotebookId="1" />
+      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="51" Column="55" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Equipment.cs" Line="5" Column="14" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Brain.cs" Line="30" Column="63" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Brain.cs" Line="20" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Interface/BagPrinter.cs" Line="24" Column="45" NotebookId="1" />
+      <File FileName="Assets/Tests/FeiTests/Fei12.cs" Line="18" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

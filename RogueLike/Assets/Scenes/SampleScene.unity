@@ -521,6 +521,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &693593820582373503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1862172431147701884, guid: a83a45ba71f794000963e4ce8708fda0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1186663395070475779}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1180385272850995259 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3659683010374139570, guid: 0eacae74d1a4544cb9925595945b965b,
@@ -639,10 +651,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1862172431147701884, guid: a83a45ba71f794000963e4ce8708fda0,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\n\u25C6\u3000\u6B66\u3000\u3000\u6B66\u3000\u3000\u3000\u3000\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\n\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\n\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u25C6\u3000\u3000\u25C6\u25C6\u25C6\u25C6\u25C6\n\u25C6\u3000\u3000\u3000\u3000\u773C\u3000\u3000\u3000\u3000\u25C6\u25C6\u25C6\u25C6\u3000\u3000\u3000\u25C6\n\u25C6\u6B66\u3000\u3000\u85AC\u7206\u85AC\u3000\u3000\u6B66\u3000\u3000\u3000\u3000\u3000\u3000\u968E\u25C6\n\u25C6\u3000\u3000\u3000\u8A66\u773C\u3000\u3000\u3000\u3000\u25C6\u25C6\u25C6\u25C6\u3000\u3000\u3000\u25C6\n\u25C6\u3000\u3000
+        \u3000\u3000\u3000 \u3000\u3000\u25C6\u3000\u3000\u25C6\u25C6\u25C6\u25C6\u25C6\n\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u3000\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\n\u25C6\u3000\u6B66\u3000\u3000\u6B66\u3000\u3000\u6B66\u3000\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000\n\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u25C6\u3000\u3000\u3000\u3000\u3000\u3000\u3000"
+      objectReference: {fileID: 0}
     - target: {fileID: 4118242908004636669, guid: a83a45ba71f794000963e4ce8708fda0,
         type: 3}
       propertyPath: m_Name
-      value: Fei11
+      value: Fei12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83a45ba71f794000963e4ce8708fda0, type: 3}
@@ -1279,7 +1297,7 @@ PrefabInstance:
         type: 3}
       propertyPath: floorPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 693593820582373503}
     - target: {fileID: 8480222110415011036, guid: 3633cb595faa542b695efa7f8490c5d6,
         type: 3}
       propertyPath: m_LocalPosition.x
