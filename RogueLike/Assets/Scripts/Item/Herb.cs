@@ -27,6 +27,9 @@ public class Herb : Item {
             if (enemy == null) return;
             enemy.IsAttacked(player);
         }
+        if (ID == '薬') {
+            player.HP += 5;
+        }
     }
 
     public override bool Use(Player player) {

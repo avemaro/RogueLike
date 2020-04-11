@@ -176,11 +176,11 @@ public class Floor {
         return null;
     }
 
-    public Cell GetPosition(TerrainType without) {
+    public Cell GetPosition(TerrainType type) {
         while (true) {
             var x = UnityEngine.Random.Range(0, floorSize.x - 1);
             var y = UnityEngine.Random.Range(0, floorSize.y - 1);
-            if (GetTerrain(x, y) == without) continue;
+            if (GetTerrain(x, y) != type) continue;
             return new Cell(x, y);
         }
     }

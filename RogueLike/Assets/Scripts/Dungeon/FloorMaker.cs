@@ -36,14 +36,20 @@ public static Floor Create() {
             return false;
         }
 
-        floor.Player.Position = floor.GetPosition(TerrainType.wall);
-        floor.StairPosition = floor.GetPosition(TerrainType.wall);
+        floor.Player.Position = floor.GetPosition(TerrainType.land);
+        floor.StairPosition = floor.GetPosition(TerrainType.land);
 
 
         for (var i = 0; i < 10; i++) {
-            var position = floor.GetPosition(TerrainType.wall);
+            var position = floor.GetPosition(TerrainType.land);
             var enemy = Enemy.Create(floor, position, '武');
             floor.Enemies.Add(enemy);
+        }
+
+        for (var i = 0; i < 10; i++) {
+            var position = floor.GetPosition(TerrainType.land);
+            var item = Item.Create(floor, position, '薬');
+            floor.Items.Add(item);
         }
 
         return floor;
