@@ -175,6 +175,15 @@ public class Floor {
             if (trap.Position == (x, y)) return trap;
         return null;
     }
+
+    public Cell GetPosition(TerrainType without) {
+        while (true) {
+            var x = UnityEngine.Random.Range(0, floorSize.x - 1);
+            var y = UnityEngine.Random.Range(0, floorSize.y - 1);
+            if (GetTerrain(x, y) == without) continue;
+            return new Cell(x, y);
+        }
+    }
     #endregion
 
     public void Remove(Item item) {

@@ -8,6 +8,7 @@ public class Player: Creature {
 
     public Player(Floor floor) {
         this.floor = floor;
+        HP = 10;
         weapon = Equipment.Create(floor, Position, '拳');
     }
 
@@ -19,6 +20,9 @@ public class Player: Creature {
     }
 
     public override bool Attack() {
+        if (state == State.Dead) return false;
+        Debug.Log("ATTACK");
+        floor.Work();
         return weapon.Attack();
     }
 

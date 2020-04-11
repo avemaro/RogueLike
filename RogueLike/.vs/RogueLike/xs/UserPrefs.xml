@@ -1,16 +1,26 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interface/Controller.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/FeiTests/Fei1-10/Fei9.cs">
     <Files>
-      <File FileName="Assets/Scripts/Interface/GameManager.cs" Line="12" Column="19" />
-      <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="24" Column="14" />
-      <File FileName="Assets/Scripts/Cell.cs" Line="78" Column="1" />
+      <File FileName="Assets/Scripts/Interface/GameManager.cs" Line="17" Column="6" />
+      <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" />
+      <File FileName="Assets/Scripts/Cell.cs" />
       <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei1.cs" />
-      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="8" Column="31" />
+      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="94" Column="39" />
+      <File FileName="Assets/Scripts/Creature/Enemy.cs" />
+      <File FileName="Assets/Scripts/Interface/StatusPrinter.cs" Line="9" Column="19" />
+      <File FileName="Assets/Scripts/Interface/Controller.cs" Line="28" Column="6" />
+      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei10.cs" Line="23" Column="33" />
       <File FileName="Assets/Scripts/Dungeon/Room.cs" Line="25" Column="24" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Player.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="8" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Interface/FloorPrinterBehaviour.cs" Line="10" Column="17" NotebookId="1" />
-      <File FileName="Assets/Scripts/Interface/Controller.cs" Line="21" Column="27" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Player.cs" Line="24" Column="29" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Creature.cs" Line="9" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Interface/FloorPrinterBehaviour.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/Equipment.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Interface/BagPrinter.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets/Tests/FeiTests/Fei11.cs" Line="30" Column="27" NotebookId="1" />
+      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei3.cs" Line="58" Column="27" NotebookId="1" />
+      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei6.cs" Line="66" Column="27" NotebookId="1" />
+      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei9.cs" Line="29" Column="27" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -19,6 +29,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.BasicTests PreferredExecutionTarget="559b617e-5f04-450f-96ee-e819cca97ef7" />
+  <MonoDevelop.Ide.ItemProperties.BasicTests PreferredExecutionTarget="0b3691ff-c63a-458b-8874-2419745fd281" />
   <MultiItemStartupConfigurations />
 </Properties>

@@ -5,11 +5,13 @@ using UnityEngine;
 public abstract class Creature: Stuff, IAttacker {
     public Direction direction;
     public State state;
+    public int HP;
 
     public abstract bool Attack();
 
     public virtual bool IsAttacked(IAttacker attacker) {
-        state = State.Dead;
+        HP--;
+        if (HP <= 0) state = State.Dead;
         return true;
     }
 

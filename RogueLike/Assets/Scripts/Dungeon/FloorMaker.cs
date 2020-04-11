@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FloorMaker {
-    static int width = 50;
-    static int height = 50;
+    static readonly int width = 50;
+    static readonly int height = 50;
 
 public static Floor Create() {
         var floor = new Floor(width, height);
@@ -36,19 +36,14 @@ public static Floor Create() {
             return false;
         }
 
-        while (true) {
-            var x = Random.Range(0, width - 1);
-            var y = Random.Range(0, height - 1);
-            if (floor.GetTerrain(x, y) == TerrainType.wall) continue;
-            floor.Player.Position = new Cell(x, y);
-            break;
-        }
-        while (true) {
-            var x = Random.Range(0, width - 1);
-            var y = Random.Range(0, height - 1);
-            if (floor.GetTerrain(x, y) == TerrainType.wall) continue;
-            floor.StairPosition = new Cell(x, y);
-            break;
+        floor.Player.Position = floor.GetPosition(TerrainType.wall);
+        floor.StairPosition = floor.GetPosition(TerrainType.wall);
+
+
+        for (var i = 0; i < 10; i++) {
+            var position = floor.GetPosition(TerrainType.wall);
+            var enemy = Enemy.Create(floor, position, '武');
+            floor.Enemies.Add(enemy);
         }
 
         return floor;

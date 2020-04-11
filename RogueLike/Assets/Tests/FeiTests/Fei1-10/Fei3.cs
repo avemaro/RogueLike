@@ -69,6 +69,7 @@ namespace Tests
         public void PlayerHasAttacked() {
             var floor = new Floor(data);
             var player = floor.Player;
+            player.HP = 0;
 
             int[] moves = { 2, 2, 2, 2, 2,
                             2, 2, 0, 0, 0,
@@ -84,6 +85,7 @@ namespace Tests
         public void Test_Fei3() {
             var floor = new Floor(data);
             var player = floor.Player;
+            player.HP = 0;
 
             int[] moves = { 2, 2, 2, 2, 2,
                             2, 2, 0, 0, 0,

@@ -25,6 +25,7 @@ namespace Tests
             };
             floor = new Floor(data);
             player = floor.Player;
+            player.HP = 0;
         }
 
         [Test]
