@@ -43,4 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aa6965a096534679a59ddac0649eac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorPrefab: {fileID: 0}
+  floorPrefab: {fileID: 693593820585399912, guid: 7f1529e7ddce342b9b71591ef8f197c8,
+    type: 3}
+  mapPrinter: {fileID: 0}
+  floorPrinter: {fileID: 0}
+  bagPrinter: {fileID: 0}

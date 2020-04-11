@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FloorPrinter {
     readonly Floor floor;
-    readonly int width = 11;
-    readonly int height = 9;
+    int width = 11;
+    int height = 9;
 
     public FloorPrinter(Floor floor) {
         this.floor = floor;
@@ -29,7 +29,10 @@ public class FloorPrinter {
         return floorText.ToArray();
     }
 
-    public string GetText() {
+    public string GetText(int width, int height) {
+        this.width = width;
+        this.height = height;
+
         var strings = GetSrroundings();
         var text = "";
         foreach (var str in strings) {

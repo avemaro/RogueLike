@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class FloorPrinterBehaviour : MonoBehaviour
 {
     public GameManager gameManager;
+    public int width = 15;
+    public int height = 11;
 
     Floor floor;
     Text text;
@@ -27,6 +29,6 @@ public class FloorPrinterBehaviour : MonoBehaviour
     }
 
     public void Show() {
-        text.text = floor.printer.GetText();
+        text.text = floor.printer.GetText(width, height);
     }
 }

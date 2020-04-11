@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FloorMaker {
     static readonly int width = 50;
-    static readonly int height = 50;
+    static readonly int height = 30;
 
 public static Floor Create() {
         var floor = new Floor(width, height);

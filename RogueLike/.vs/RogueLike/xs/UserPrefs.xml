@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/FeiTests/Fei14.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interface/Controller.cs">
     <Files>
       <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="33" Column="40" IsPinned="True" />
       <File FileName="Assets/Scripts/Interface/FloorPrinterBehaviour.cs" Line="9" Column="1" />
@@ -7,7 +7,7 @@
       <File FileName="Assets/Scripts/Cell.cs" Line="62" Column="1" />
       <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei1.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="120" Column="47" />
-      <File FileName="Assets/Scripts/Interface/Controller.cs" Line="58" Column="39" />
+      <File FileName="Assets/Scripts/Interface/Controller.cs" Line="60" Column="10" />
       <File FileName="Assets/Scripts/Dungeon/Trap.cs" Line="30" Column="22" />
       <File FileName="Assets/Scripts/Item/Item.cs" Line="19" Column="39" />
       <File FileName="Assets/Scripts/Item/Scroll.cs" Line="21" Column="23" />
@@ -24,7 +24,6 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.FeiTests PreferredExecutionTarget="559b617e-5f04-450f-96ee-e819cca97ef7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
