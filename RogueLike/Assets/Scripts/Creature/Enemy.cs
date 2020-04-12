@@ -24,9 +24,12 @@ public class Enemy : Creature {
     }
 
     public override bool Attack() {
-        var to = Position.Next(direction);
-        if (to == floor.Player.Position) return floor.Player.IsAttacked(this);
-        return false;
+        foreach (var direction in DirectionExtend.AllCases()) {
+            var to = Position.Next(direction);
+            if (to == floor.Player.Position) return floor.Player.IsAttacked(this);
+            if (floor.GetPiece(to) != null) return floor.GetPiece(to).IsAttacked(this);
+        }
+       return false;
     }
 
     public override bool IsAttacked(IAttacker attacker) {

@@ -7,6 +7,12 @@ public abstract class Creature : Stuff, IAttacker {
     public State state;
     public int HP = 1;
     public Room Room { get { return floor.GetRoom(Position); } }
+    public Cell Front { get { return Position.Next(direction); } }
+    public Cell Back { get { return Position.Next(direction.Reverse()); } }
+    public Cell RightFront { get { return Position.Next(direction.TurnRight()); } }
+    public Cell LeftFront { get { return Position.Next(direction.TurnLeft()); } }
+    public Cell RightBack { get { return Position.Next(direction.TurnLeft().Reverse()); } }
+    public Cell LeftBack { get { return Position.Next(direction.TurnRight().Reverse()); } }
 
     protected List<TerrainType> canGo = new List<TerrainType>() { TerrainType.land };
 
@@ -41,7 +47,7 @@ public abstract class Creature : Stuff, IAttacker {
         return Move(directions);
     }
 
-    protected bool IsRegalMove() {
+    protected virtual bool IsRegalMove() {
         var to = Position.Next(direction);
         if (to is null) return false;
         if (!IsAbleToGo(to)) return false;

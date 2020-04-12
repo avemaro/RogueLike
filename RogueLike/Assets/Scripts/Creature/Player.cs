@@ -5,8 +5,6 @@ using UnityEngine;
 public class Player: Creature {
     public List<Item> Items { get; private set; } = new List<Item>();
     public Equipment weapon;
-    public Cell Front { get { return Position.Next(direction); } }
-    public Cell Back { get { return Position.Next(direction.Reverse()); } }
 
     public List<Piece> Pieces { get; private set; } = new List<Piece>();
 
@@ -20,9 +18,9 @@ public class Player: Creature {
     public override bool Move(Direction direction) {
         if (!base.Move(direction)) return false;
         PickUp();
-        floor.Work();
         foreach (var piece in Pieces)
             piece.Move(direction);
+        floor.Work();
         return true;
     }
 
@@ -37,6 +35,8 @@ public class Player: Creature {
         if (state == State.Dead) return false;
         Debug.Log("ATTACK");
         weapon.Attack();
+        foreach (var piece in Pieces)
+            piece.Attack();
         floor.Work();
         return true;
     }
