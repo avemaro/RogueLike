@@ -14,7 +14,6 @@ public class Piece : Creature {
         this.direction = direction;
 
         if (!IsRegalMove()) {
-            Debug.Log("NotRegal");
             Position = Position.Next(direction);
             floor.Remove(this);
             return false;
@@ -30,16 +29,11 @@ public class Piece : Creature {
         var to = Position.Next(direction);
         if (to is null) return false;
         if (!IsAbleToGo(to)) return false;
-
         return true;
     }
 
-    protected override bool IsAbleToGo(Cell to) {
-        if (floor.GetTerrainCell(to) is null) return false;
-        if (!canGo.Contains(floor.GetTerrain(to))) return false;
-        if (floor.GetEnemy(to) != null) return false;
-        Debug.Log("IsAbleToGo");
-        return true;
+    protected override bool IsBlockingCreatrue(Cell to) {
+        return floor.GetEnemy(to) != null;
     }
 
     public override bool Attack() {

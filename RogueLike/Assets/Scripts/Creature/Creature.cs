@@ -14,7 +14,8 @@ public abstract class Creature : Stuff, IAttacker {
     public Cell RightBack { get { return Position.Next(direction.TurnLeft().Reverse()); } }
     public Cell LeftBack { get { return Position.Next(direction.TurnRight().Reverse()); } }
 
-    protected List<TerrainType> canGo = new List<TerrainType>() { TerrainType.land };
+    protected List<TerrainType> blockingTerrain = new List<TerrainType>()
+    { TerrainType.wall, TerrainType.water, TerrainType.breakableWall };
 
     public abstract bool Attack();
 
@@ -60,11 +61,15 @@ public abstract class Creature : Stuff, IAttacker {
         return true;
     }
 
-    protected virtual bool IsAbleToGo(Cell to) {
+    public virtual bool IsAbleToGo(Cell to) {
         if (floor.GetTerrainCell(to) is null) return false;
-        if (!canGo.Contains(floor.GetTerrain(to))) return false;
-        if (floor.GetCreature(to) != null) return false;
+        if (blockingTerrain.Contains(floor.GetTerrain(to))) return false;
+        if (IsBlockingCreatrue(to)) return false;
         return true;
+    }
+
+    protected virtual bool IsBlockingCreatrue(Cell to) {
+        return floor.GetCreature(to) != null;
     }
 
     public void Fly(Direction direction) {

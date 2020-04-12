@@ -24,11 +24,8 @@ public class Player: Creature {
         return true;
     }
 
-    protected override bool IsAbleToGo(Cell to) {
-        if (floor.GetTerrainCell(to) is null) return false;
-        if (!canGo.Contains(floor.GetTerrain(to))) return false;
-        if (floor.GetEnemy(to) != null) return false;
-        return true;
+    protected override bool IsBlockingCreatrue(Cell to) {
+        return floor.GetEnemy(to) != null;
     }
 
     public override bool Attack() {
@@ -78,6 +75,7 @@ public class Player: Creature {
 
     public Piece Spawn(Chess type) {
         var piece = new Piece(floor, Front);
+        if (!piece.IsAbleToGo(Front)) return null;
         Pieces.Add(piece);
         floor.Pieces.Add(piece);
         return piece;
