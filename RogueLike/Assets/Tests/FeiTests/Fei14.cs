@@ -23,24 +23,24 @@ namespace Tests
                 "◆　　　◆　丸　　　◆　　　　◆",
                 "◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆"
             };
-            floor = new Floor(data);
+            floor = FloorMaker.Create(data);
             player = floor.Player;
         }
 
-        [Test]
-        public void Test_floorHasPrinted() {
-            var expected = new string[] {
-                "◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆",
-                "◆　　　◆　　　　　◆　　　　◆",
-                "◆　　　◇　　◆　　◇　　　眼◆",
-                "◆　階　◇　　　　　◇　　　試◆",
-                "◆　　　◇　　　　　◇　　　　◆",
-                "◆　　　◆　　　　　◆　　　　◆",
-                "◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆"
-            };
+        //[Test]
+        //public void Test_floorHasPrinted() {
+        //    var expected = new string[] {
+        //        "◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆",
+        //        "◆　　　◆　　　　　◆　　　　◆",
+        //        "◆　　　◇　　◆　　◇　　　眼◆",
+        //        "◆　階　◇　　　　　◇　　　試◆",
+        //        "◆　　　◇　　　　　◇　　　　◆",
+        //        "◆　　　◆　　　　　◆　　　　◆",
+        //        "◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆"
+        //    };
 
-            Assert.AreEqual(expected, floor.Show());
-        }
+        //    Assert.AreEqual(expected, floor.Show());
+        //}
 
         [Test]
         public void Test_LogTrapWorks() {

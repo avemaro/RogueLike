@@ -25,15 +25,15 @@ namespace Tests
             };
         }
 
-        [Test]
-        public void Test_Fei5HasPrinted() {
-            var floor = new Floor(data);
-            Assert.AreEqual(data, floor.Show());
-        }
+        //[Test]
+        //public void Test_Fei5HasPrinted() {
+        //    var floor = FloorMaker.Create(data);
+        //    Assert.AreEqual(data, floor.Show());
+        //}
 
         [Test]
         public void Test_Fei5() {
-            var floor = new Floor(data);
+            var floor = FloorMaker.Create(data);
             var player = floor.Player;
             var enemy = floor.GetEnemy(4, 4);
 

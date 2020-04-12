@@ -29,7 +29,8 @@ namespace Tests
 
         [Test]
         public void DangeonDataHasLoaded() {
-            var floor = new Floor(data);
+            var floor = FloorMaker.Create(data);
+            floor.Show();
             Assert.AreEqual(TerrainType.wall, floor.GetTerrain(0, 0));
             Assert.AreEqual(TerrainType.land, floor.GetTerrain(1, 1));
             Assert.AreEqual(TerrainType.water, floor.GetTerrain(4, 1));
@@ -40,7 +41,7 @@ namespace Tests
 
         [Test]
         public void PlayerMoves() {
-            var floor = new Floor(data);
+            var floor = FloorMaker.Create(data);
             var player = floor.Player;
 
             Assert.True(player.Move(Direction.down));
@@ -54,7 +55,7 @@ namespace Tests
 
         [Test]
         public void Test_Fei1() {
-            var floor = new Floor(data);
+            var floor = FloorMaker.Create(data);
             var player = floor.Player;
 
             int[] wrongMoves = new int[18];
@@ -63,7 +64,7 @@ namespace Tests
             player.Move(DirectionExtend.GetDirections(wrongMoves));
             Assert.AreNotEqual((8, 8), player.Position);
 
-            floor = new Floor(data);
+            floor = FloorMaker.Create(data);
             player = floor.Player;
             int[] correctMoves = { 4, 4, 5, 3, 3,
                                    2, 2, 1, 7, 7,

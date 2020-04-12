@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Floor {
     public (int x, int y) floorSize;
-    readonly List<TerrainCell> terrains = new List<TerrainCell>();
+    public List<TerrainCell> Terrains { get; private set; } = new List<TerrainCell>();
     public Cell StairPosition;
     public Player Player { get; private set; }
 
@@ -26,68 +26,10 @@ public class Floor {
         for (var x = 0; x < width; x++) {
             for (var y = 0; y < height; y++) {
                 var cell = new Cell(x, y);
-                terrains.Add(new TerrainCell(this, cell, TerrainType.wall));
+                Terrains.Add(new TerrainCell(this, cell, TerrainType.wall));
             }
         }
     }
-
-
-    public Floor(string text) {
-        List<string> floorData = new List<string>();
-
-        var str = "";
-        foreach (var c in text) {
-            if (c == '\n') {
-                floorData.Add(str);
-                str = "";
-                continue;
-            }
-            str += c;
-        }
-        floorData.Add(str);
-
-        Player = new Player(this);
-
-        FloorInit(floorData.ToArray());
-
-        printer = new FloorPrinter(this);
-        //printer.GetStrings();
-    }
-
-    public Floor(string[] floorData) {
-        Player = new Player(this);
-
-        FloorInit(floorData);
-
-        printer = new FloorPrinter(this);
-        //printer.GetStrings();
-    }
-
-    void FloorInit(string[] floorData) {
-        floorSize.x = floorData[0].Length;
-        foreach (var data in floorData)
-            if (floorSize.x < data.Length) floorSize.x = data.Length;
-
-        floorSize.y = floorData.Length;
-
-        for (var x = 0; x < floorSize.x; x++) {
-            for (var y = 0; y < floorSize.y; y++) {
-                var cell = new Cell(x, y);
-                var data = floorData[y].ToCharArray()[x];
-                TerrainType terrain = TerrainTypeExtend.GetTrrainType(data);
-                terrains.Add(new TerrainCell(this, cell, terrain));
-
-                if (data == '試') Player.Position = cell;
-                if (data == '階') StairPosition = cell;
-
-                var stuff = Stuff.Create(this, cell, data);
-                if (stuff is Item) Items.Add((Item)stuff);
-                if (stuff is Enemy) Enemies.Add((Enemy)stuff);
-                if (stuff is Trap) Traps.Add((Trap)stuff);
-            }
-        }
-    }
-
 
     public void Work() {
         Enemies.RemoveAll(enemy => enemy.state == State.Dead);
@@ -104,7 +46,7 @@ public class Floor {
 
     #region terrain
     public TerrainCell GetTerrainCell(Cell to) {
-        foreach (var terrain in terrains)
+        foreach (var terrain in Terrains)
             if (terrain.Equals(to.Tuple)) return terrain;
         return null;
     }

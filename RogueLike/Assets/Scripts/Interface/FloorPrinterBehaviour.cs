@@ -15,7 +15,7 @@ public class FloorPrinterBehaviour : MonoBehaviour
     void Awake() {
         if (gameManager.floorPrefab != null) {
             text = Instantiate(gameManager.floorPrefab, transform);
-            floor = new Floor(text.text);
+            floor = FloorMaker.Create(text.text);
         } else {
             text = gameObject.GetComponent<Text>();
             floor = FloorMaker.Create();

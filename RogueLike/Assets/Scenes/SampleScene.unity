@@ -1155,7 +1155,8 @@ PrefabInstance:
         type: 3}
       propertyPath: floorPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2202837973828936615, guid: a9dc8d74a7be44714981508a4dd8fbf3,
+        type: 3}
     - target: {fileID: 8480222110415011036, guid: 3633cb595faa542b695efa7f8490c5d6,
         type: 3}
       propertyPath: m_LocalPosition.x

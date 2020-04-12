@@ -27,7 +27,7 @@ namespace Tests
                 "◆　◇　◇　◇　　　◆",
                 "◆◆◆◆◆◆◆◆◆◆◆"
             };
-            floor = new Floor(data);
+            floor = FloorMaker.Create(data);
             player = floor.Player;
         }
 
@@ -68,7 +68,7 @@ namespace Tests
                 "◆　　　　　◆◆◆◆◆◆",
                 "◆◆◆◆◆◆◆　　　　　"
             };
-            floor = new Floor(data);
+            floor = FloorMaker.Create(data);
             player = floor.Player;
             var enemy = floor.GetEnemy(4, 3);
             enemy.HP = 10;

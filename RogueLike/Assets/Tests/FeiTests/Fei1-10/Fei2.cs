@@ -37,7 +37,7 @@ namespace Tests
 
         [Test]
         public void Test_Fei2() {
-            var floor = new Floor(data);
+            var floor = FloorMaker.Create(data);
             var player = floor.Player;
             floor.Show();
 
