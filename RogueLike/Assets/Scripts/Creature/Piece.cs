@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Piece : Creature {
+    readonly Player player;
+
     public Piece(Floor floor, Cell position) {
         this.floor = floor;
+        player = floor.Player;
         Position = position;
         ID = 'P';
         HP = 10;
@@ -46,5 +49,12 @@ public class Piece : Creature {
         to = LeftBack;
         if (floor.GetEnemy(to) != null) return floor.GetEnemy(to).IsAttacked(this);
         return false;
+    }
+
+    public override bool IsAttacked(IAttacker attacker) {
+        base.IsAttacked(attacker);
+        if (HP > 0) return true;
+        player.Pieces.Remove(this);
+        return true;
     }
 }

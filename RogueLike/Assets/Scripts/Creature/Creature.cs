@@ -21,7 +21,9 @@ public abstract class Creature : Stuff, IAttacker {
 
     public virtual bool IsAttacked(IAttacker attacker) {
         HP--;
-        if (HP <= 0) state = State.Dead;
+        if (HP > 0) return true;
+        state = State.Dead;
+        floor.Remove(this);
         return true;
     }
 
