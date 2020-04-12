@@ -135,6 +135,8 @@ public class Floor {
     public Stuff GetStuff(int x, int y) {
         var enemy = GetEnemy(x, y);
         if (enemy != null) return enemy;
+        var piece = GetPiece(new Cell(x, y));
+        if (piece != null) return piece;
         var item = GetItem(x, y);
         if (item != null) return item;
         var trap = GetTrap(x, y);

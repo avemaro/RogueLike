@@ -9,6 +9,7 @@ public class Player: Creature {
 
     public Player(Floor floor) {
         this.floor = floor;
+        direction = Direction.down;
         HP = 10;
         weapon = Equipment.Create(floor, Position, '拳');
     }
@@ -63,7 +64,8 @@ public class Player: Creature {
         return Items[index];
     }
 
-    public void Spawn(Chess piece) {
-
+    public void Spawn(Chess type) {
+        var piece = new Piece(floor, Front);
+        floor.Pieces.Add(piece);
     }
 }
