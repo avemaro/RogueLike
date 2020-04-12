@@ -9,6 +9,20 @@ public class Piece : Creature {
         ID = 'P';
     }
 
+    public override bool Move(Direction direction) {
+        this.direction = direction;
+
+        if (IsRegalMove()) {
+            if (!floor.Pieces.Contains(this))
+                floor.Pieces.Add(this);
+            base.Move(direction);
+            return true;
+        }
+        Position = Position.Next(direction);
+        floor.Remove(this);
+        return false;
+    }
+
     public override bool Attack() {
         throw new System.NotImplementedException();
     }

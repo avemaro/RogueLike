@@ -70,6 +70,9 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.T)) {
             gameManager.bagPrinter.Throw();
         }
+        if (Input.GetKey(KeyCode.P)) {
+            player.Spawn(Chess.Pawn);
+        }
 
         if (Input.GetKey(KeyCode.Alpha0)) {
             gameManager.bagPrinter.SelectItem(0);

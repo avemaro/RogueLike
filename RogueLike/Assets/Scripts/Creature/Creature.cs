@@ -8,6 +8,8 @@ public abstract class Creature : Stuff, IAttacker {
     public int HP;
     public Room Room { get { return floor.GetRoom(Position); } }
 
+    protected List<TerrainType> canGo = new List<TerrainType>() { TerrainType.land };
+
     public abstract bool Attack();
 
     public virtual bool IsAttacked(IAttacker attacker) {
@@ -39,7 +41,7 @@ public abstract class Creature : Stuff, IAttacker {
         return Move(directions);
     }
 
-    bool IsRegalMove() {
+    protected bool IsRegalMove() {
         var to = Position.Next(direction);
         if (to is null) return false;
         if (!IsAbleToGo(to)) return false;
@@ -52,11 +54,10 @@ public abstract class Creature : Stuff, IAttacker {
         return true;
     }
 
-    bool IsAbleToGo(Cell to) {
+    protected virtual bool IsAbleToGo(Cell to) {
         if (floor.GetTerrainCell(to) is null) return false;
-        if (floor.GetTerrain(to) != TerrainType.land) return false;
-        if (floor.GetEnemy(to) != null) return false;
-        if (floor.Player.Position == to) return false;
+        if (!canGo.Contains(floor.GetTerrain(to))) return false;
+        if (floor.GetCreature(to) != null) return false;
         return true;
     }
 

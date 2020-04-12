@@ -217,6 +217,7 @@ public class Floor {
 
     public void Remove(Creature creature) {
         if (creature is Enemy) Enemies.Remove((Enemy)creature);
+        if (creature is Piece) Pieces.Remove((Piece)creature);
     }
 
     public Room GetRoom(Cell position) {

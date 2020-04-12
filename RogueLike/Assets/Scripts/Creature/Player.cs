@@ -6,6 +6,9 @@ public class Player: Creature {
     public List<Item> Items { get; private set; } = new List<Item>();
     public Equipment weapon;
     public Cell Front { get { return Position.Next(direction); } }
+    public Cell Back { get { return Position.Next(direction.Reverse()); } }
+
+    public List<Piece> Pieces { get; private set; } = new List<Piece>();
 
     public Player(Floor floor) {
         this.floor = floor;
@@ -18,6 +21,15 @@ public class Player: Creature {
         if (!base.Move(direction)) return false;
         PickUp();
         floor.Work();
+        foreach (var piece in Pieces)
+            piece.Move(direction);
+        return true;
+    }
+
+    protected override bool IsAbleToGo(Cell to) {
+        if (floor.GetTerrainCell(to) is null) return false;
+        if (!canGo.Contains(floor.GetTerrain(to))) return false;
+        if (floor.GetEnemy(to) != null) return false;
         return true;
     }
 
@@ -66,6 +78,7 @@ public class Player: Creature {
 
     public void Spawn(Chess type) {
         var piece = new Piece(floor, Front);
+        Pieces.Add(piece);
         floor.Pieces.Add(piece);
     }
 }

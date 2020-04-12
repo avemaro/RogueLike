@@ -44,8 +44,14 @@ namespace Tests
             player.Spawn(Chess.Pawn);
             Assert.True(player.Move(Direction.down));
             var pawn = floor.GetCreature(player.Front);
-            floor.Show();
             Assert.AreEqual(player.Front, pawn.Position);
+            Assert.NotNull(floor.GetCreature(player.Front));
+            floor.Show();
+            Assert.True(player.Move(Direction.down));
+            Assert.Null(floor.GetCreature(player.Front));
+            floor.Show();
+            Assert.True(player.Move(Direction.up));
+            Assert.NotNull(floor.GetCreature(player.Back));
             floor.Show();
         }
     }
