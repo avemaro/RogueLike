@@ -9,7 +9,7 @@ public class Piece : Creature {
         this.floor = floor;
         player = floor.Player;
         Position = position;
-        ID = 'P';
+        ID = 'Ｐ';
         HP = 10;
     }
 

@@ -38,10 +38,22 @@ public class Floor {
             enemy.Work();
         foreach (var trap in Traps)
             trap.Work();
+        if (StairPosition == Player.Position) GoNextFloor();
 
         Enemies.RemoveAll(enemy => enemy.state == State.Dead);
 
         printer.GetSrroundings();
+    }
+
+    void GoNextFloor() {
+        var newFloor = FloorMaker.Create();
+        Terrains = newFloor.Terrains;
+        StairPosition = newFloor.StairPosition;
+        Player.Position = newFloor.Player.Position;
+        Rooms = newFloor.Rooms;
+        Enemies = newFloor.Enemies;
+        Items = newFloor.Items;
+        Traps = newFloor.Traps;
     }
 
     #region terrain

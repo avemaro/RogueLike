@@ -32,7 +32,7 @@ public class Player: Creature {
         if (state == State.Dead) return false;
         Debug.Log("ATTACK");
         weapon.Attack();
-        foreach (var piece in Pieces)
+        foreach (var piece in floor.Pieces)
             piece.Attack();
         floor.Work();
         return true;
