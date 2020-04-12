@@ -7,6 +7,7 @@ public class Piece : Creature {
         this.floor = floor;
         Position = position;
         ID = 'P';
+        HP = 10;
     }
 
     public override bool Move(Direction direction) {

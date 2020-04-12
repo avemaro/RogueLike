@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Creature : Stuff, IAttacker {
     public Direction direction;
     public State state;
-    public int HP;
+    public int HP = 1;
     public Room Room { get { return floor.GetRoom(Position); } }
 
     protected List<TerrainType> canGo = new List<TerrainType>() { TerrainType.land };

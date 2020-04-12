@@ -76,9 +76,10 @@ public class Player: Creature {
         return Items[index];
     }
 
-    public void Spawn(Chess type) {
+    public Piece Spawn(Chess type) {
         var piece = new Piece(floor, Front);
         Pieces.Add(piece);
         floor.Pieces.Add(piece);
+        return piece;
     }
 }
