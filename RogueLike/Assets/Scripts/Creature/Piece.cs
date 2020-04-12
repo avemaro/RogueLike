@@ -12,15 +12,16 @@ public class Piece : Creature {
     public override bool Move(Direction direction) {
         this.direction = direction;
 
-        if (IsRegalMove()) {
-            if (!floor.Pieces.Contains(this))
-                floor.Pieces.Add(this);
-            base.Move(direction);
-            return true;
+        if (!IsRegalMove()) {
+            Position = Position.Next(direction);
+            floor.Remove(this);
+            return false;
         }
-        Position = Position.Next(direction);
-        floor.Remove(this);
-        return false;
+
+        if (!floor.Pieces.Contains(this))
+            floor.Pieces.Add(this);
+
+        return base.Move(direction);
     }
 
     public override bool Attack() {
