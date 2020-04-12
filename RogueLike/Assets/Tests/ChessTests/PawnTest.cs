@@ -38,5 +38,15 @@ namespace Tests
             Assert.AreEqual(player.Front, pawn.Position);
             floor.Show();
         }
+
+        [Test]
+        public void PawnFollows() {
+            player.Spawn(Chess.Pawn);
+            Assert.True(player.Move(Direction.down));
+            var pawn = floor.GetCreature(player.Front);
+            floor.Show();
+            Assert.AreEqual(player.Front, pawn.Position);
+            floor.Show();
+        }
     }
 }
