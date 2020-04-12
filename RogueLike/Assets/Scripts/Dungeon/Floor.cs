@@ -10,6 +10,7 @@ public class Floor {
 
     public List<Room> Rooms { get; private set; } = new List<Room>();
 
+    public List<Piece> Pieces { get; private set; } = new List<Piece>();
     public List<Enemy> Enemies { get; private set; } = new List<Enemy>();
     public List<Item> Items { get; private set; } = new List<Item>();
     public List<Trap> Traps { get; private set; } = new List<Trap>();
@@ -144,6 +145,21 @@ public class Floor {
     public Item GetItem(int x, int y) {
         foreach (var item in Items)
             if (item.Position == (x, y)) return item;
+        return null;
+    }
+
+    public Creature GetCreature(Cell cell) {
+        if (Player.Position == cell) return Player;
+        var enemy = GetEnemy(cell);
+        if (enemy != null) return enemy;
+        var piece = GetPiece(cell);
+        if (piece != null) return piece;
+        return null;
+    }
+
+    public Piece GetPiece(Cell cell) {
+        foreach (var piece in Pieces)
+            if (piece.Position == cell) return piece;
         return null;
     }
 

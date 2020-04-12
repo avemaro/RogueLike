@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player: Creature {
     public List<Item> Items { get; private set; } = new List<Item>();
     public Equipment weapon;
+    public Cell Front { get { return Position.Next(direction); } }
 
     public Player(Floor floor) {
         this.floor = floor;
@@ -60,5 +61,9 @@ public class Player: Creature {
     Item GetItem(int index) {
         if (index > Items.Count - 1) return null;
         return Items[index];
+    }
+
+    public void Spawn(Chess piece) {
+
     }
 }
