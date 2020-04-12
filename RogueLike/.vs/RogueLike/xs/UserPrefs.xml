@@ -1,25 +1,28 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dungeon/Floor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interface/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="51" Column="33" IsPinned="True" />
+      <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="15" Column="44" IsPinned="True" />
       <File FileName="Assets/Scripts/Interface/FloorPrinterBehaviour.cs" />
       <File FileName="Assets/Scripts/Creature/Creature.cs" />
       <File FileName="Assets/Scripts/Interface/Controller.cs" />
-      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei8.cs" />
-      <File FileName="Assets/Tests/ChessTests/PawnTest.cs" />
-      <File FileName="Assets/Scripts/Creature/Chess.cs" Line="6" Column="9" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Enemy.cs" NotebookId="1" />
+      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei8.cs" Line="44" Column="44" />
+      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="18" Column="8" />
+      <File FileName="Assets/Scripts/Interface/GameManager.cs" Line="27" Column="55" />
+      <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Brain.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Piece.cs" Line="12" Column="16" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Player.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="7" Column="38" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Player.cs" Line="60" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="55" Column="36" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>ChessTests.csproj</String>
+  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.BasicTests PreferredExecutionTarget="72cef20c-3407-480c-83b4-501dd613a509" />
+  <MonoDevelop.Ide.ItemProperties.BasicTests PreferredExecutionTarget="3f1d31bd-6f07-4087-bb0d-86d5d8dadd0f" />
   <MultiItemStartupConfigurations />
 </Properties>

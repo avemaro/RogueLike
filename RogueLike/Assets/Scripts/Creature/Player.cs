@@ -80,4 +80,8 @@ public class Player: Creature {
         floor.Pieces.Add(piece);
         return piece;
     }
+
+    public void StorePieces() {
+        Pieces = new List<Piece>();
+    }
 }

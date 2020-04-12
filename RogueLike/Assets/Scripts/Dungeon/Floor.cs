@@ -46,10 +46,12 @@ public class Floor {
     }
 
     void GoNextFloor() {
-        var newFloor = FloorMaker.Create();
+        var newFloor = FloorMaker.NextFloor(this);
         Terrains = newFloor.Terrains;
         StairPosition = newFloor.StairPosition;
         Player.Position = newFloor.Player.Position;
+        Player.StorePieces();
+        Pieces = newFloor.Pieces;
         Rooms = newFloor.Rooms;
         Enemies = newFloor.Enemies;
         Items = newFloor.Items;

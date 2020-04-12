@@ -6,6 +6,55 @@ public class FloorMaker {
     static readonly int width = 50;
     static readonly int height = 30;
 
+    public static Floor NextFloor(Floor floor) {
+        var nextFloor = new Floor(width, height);
+        new Room(nextFloor, (0, 0), (width - 1, height - 1));
+
+        for (var x = 0; x < width; x++)
+            if (nextFloor.GetTerrain(x, 0) == TerrainType.land ||
+                nextFloor.GetTerrain(x, height - 1) == TerrainType.land) {
+                for (var y = 0; y < height; y++)
+                    if (SetWall(x, 1, y, 0)) break;
+                for (var y = 0; y < height; y++)
+                    if (SetWall(x, 1, height - y - 1, 0)) break;
+            }
+
+        for (var y = 0; y < height; y++)
+            if (nextFloor.GetTerrain(0, y) == TerrainType.land ||
+                nextFloor.GetTerrain(width - 1, y) == TerrainType.land) {
+                for (var x = 0; x < width; x++)
+                    if (SetWall(x, 0, y, 1)) break;
+                for (var x = 0; x < width; x++)
+                    if (SetWall(width - x - 1, 0, y, 1)) break;
+            }
+
+        bool SetWall(int x, int dx, int y, int dy) {
+            if (nextFloor.GetTerrain(x - dx, y - dy) == TerrainType.land ||
+                nextFloor.GetTerrain(x + dx, y + dy) == TerrainType.land)
+                return true;
+            nextFloor.SetTerrain(x, y, TerrainType.wall);
+            return false;
+        }
+
+        nextFloor.Player.Position = nextFloor.GetPosition(TerrainType.land);
+        nextFloor.StairPosition = nextFloor.GetPosition(TerrainType.land);
+
+
+        for (var i = 0; i < 10; i++) {
+            var position = nextFloor.GetPosition(TerrainType.land);
+            var enemy = Enemy.Create(floor, position, '武');
+            nextFloor.Enemies.Add(enemy);
+        }
+
+        for (var i = 0; i < 10; i++) {
+            var position = nextFloor.GetPosition(TerrainType.land);
+            var item = Item.Create(floor, position, '真');
+            nextFloor.Items.Add(item);
+        }
+
+        return nextFloor;
+    }
+
     public static Floor Create() {
         var floor = new Floor(width, height);
         new Room(floor, (0, 0), (width - 1, height - 1));
