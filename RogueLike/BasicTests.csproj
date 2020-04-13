@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Tests\BasicTests\Satiation.cs" />
     <Compile Include="Assets\Tests\BasicTests\TestFloorMaker.cs" />
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>/Users/yamasaki/GitHub/RogueLike/RogueLike/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
