@@ -49,7 +49,7 @@ namespace Tests
             player.Move(4, 5, 6, 6, 3);
             Assert.AreEqual((2, 1), player.Position);
             player.Move(4, 4);
-            Assert.AreEqual(floor.StairPosition, player.Position);
+            Assert.AreEqual(2, floor.NumberOfStairs);
         }
     }
 }

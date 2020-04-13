@@ -111,7 +111,7 @@ namespace Tests
             player.Move(moves);
             floor.Show();
             Assert.AreEqual(State.Alive, player.state);
-            Assert.AreEqual(floor.StairPosition, player.Position);
+            Assert.AreEqual(2, floor.NumberOfStairs);
         }
     }
 }

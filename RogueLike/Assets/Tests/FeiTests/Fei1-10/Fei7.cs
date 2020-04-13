@@ -47,7 +47,7 @@ namespace Tests
             player.Use(0);
             player.Move(2, 2, 1);
             floor.Show();
-            Assert.AreEqual(floor.StairPosition, player.Position);
+            Assert.AreEqual(2, floor.NumberOfStairs);
         }
 
         [Test]

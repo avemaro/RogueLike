@@ -6,6 +6,7 @@ public class Floor {
     public (int x, int y) floorSize;
     public List<TerrainCell> Terrains { get; private set; } = new List<TerrainCell>();
     public Cell StairPosition;
+    public int NumberOfStairs { get; private set; } = 1;
     public Player Player { get; private set; }
 
     public List<Room> Rooms { get; private set; } = new List<Room>();
@@ -46,6 +47,7 @@ public class Floor {
     }
 
     void GoNextFloor() {
+        NumberOfStairs++;
         var newFloor = FloorMaker.NextFloor(this);
         Terrains = newFloor.Terrains;
         StairPosition = newFloor.StairPosition;

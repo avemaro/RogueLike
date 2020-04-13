@@ -58,7 +58,7 @@ namespace Tests
                                 4, 4 };
             Assert.True(player.Move(DirectionExtend.GetDirections(moves)));
             floor.Show();
-            Assert.AreEqual(floor.StairPosition, player.Position);
+            Assert.AreEqual(2, floor.NumberOfStairs);
         }
 
     }

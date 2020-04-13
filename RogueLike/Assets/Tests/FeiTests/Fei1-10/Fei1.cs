@@ -71,7 +71,7 @@ namespace Tests
                                    1, 2, 2, 3, 3,
                                    5, 4, 4};
             player.Move(DirectionExtend.GetDirections(correctMoves));
-            Assert.AreEqual(floor.StairPosition, player.Position);
+            Assert.AreEqual(2, floor.NumberOfStairs);
         }
 
 
