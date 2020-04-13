@@ -18,18 +18,18 @@ public class Player: Creature {
         weapon = Equipment.Create(floor, Position, '拳');
     }
 
+    void PassTurn() {
+        satiation -= 0.1f;
+        floor.Work();
+    }
+
     public override bool Move(Direction direction) {
         if (!base.Move(direction)) return false;
-        satiation -= 0.1f;
         PickUp();
         foreach (var piece in Pieces)
             piece.Move(direction);
-        floor.Work();
+        PassTurn();
         return true;
-    }
-
-    protected override bool IsBlockingCreatrue(Cell to) {
-        return floor.GetEnemy(to) != null;
     }
 
     public override bool Attack() {
@@ -38,8 +38,30 @@ public class Player: Creature {
         weapon.Attack();
         foreach (var piece in floor.Pieces)
             piece.Attack();
-        floor.Work();
+        PassTurn();
         return true;
+    }
+
+    public void Use(int index) {
+        var item = GetItem(index);
+        if (item == null) return;
+        item.Use(this);
+        PassTurn();
+    }
+
+    public void Throw(int index) {
+        var item = GetItem(index);
+        if (item == null) return;
+        item.Throw(this);
+        PassTurn();
+    }
+
+    public void Equip(int index) {
+        var item = GetItem(index);
+        if (!(item is Equipment)) return;
+        weapon = (Equipment)item;
+        weapon.Equip();
+        PassTurn();
     }
 
     bool PickUp() {
@@ -51,30 +73,13 @@ public class Player: Creature {
         return true;
     }
 
-    public void Use(int index) {
-        var item = GetItem(index);
-        if (item == null) return;
-        item.Use(this);
-        floor.Work();
-    }
-
-    public void Throw(int index) {
-        var item = GetItem(index);
-        if (item == null) return;
-        item.Throw(this);
-        floor.Work();
-    }
-
-    public void Equip(int index) {
-        var item = GetItem(index);
-        if (!(item is Equipment)) return;
-        weapon = (Equipment)item;
-        weapon.Equip();
-    }
-
     Item GetItem(int index) {
         if (index > Items.Count - 1) return null;
         return Items[index];
+    }
+
+    protected override bool IsBlockingCreatrue(Cell to) {
+        return floor.GetEnemy(to) != null;
     }
 
     public Piece Spawn(Chess type) {
