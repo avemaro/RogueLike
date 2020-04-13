@@ -5,7 +5,18 @@ using UnityEngine;
 public abstract class Creature : Stuff, IAttacker {
     public Direction direction;
     public State state;
-    public int HP = 1;
+
+    public int HP {
+        get { return hp; }
+        set { hp = value;
+            if (hp <= 0) {
+                state = State.Dead;
+                floor.Remove(this);
+            }
+        }
+    }
+    int hp = 1;
+
     public Room Room { get { return floor.GetRoom(Position); } }
     public Cell Front { get { return Position.Next(direction); } }
     public Cell Back { get { return Position.Next(direction.Reverse()); } }
@@ -21,9 +32,6 @@ public abstract class Creature : Stuff, IAttacker {
 
     public virtual bool IsAttacked(IAttacker attacker) {
         HP--;
-        if (HP > 0) return true;
-        state = State.Dead;
-        floor.Remove(this);
         return true;
     }
 

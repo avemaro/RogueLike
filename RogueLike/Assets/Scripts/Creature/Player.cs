@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player: Creature {
-    public int Satiation { get { return (int)satiation; } }
-    float satiation = 100f;
+    public int Satiation { get { return Mathf.CeilToInt(satiation/10.0f); } }
+    int satiation = 1000;
 
     public List<Item> Items { get; private set; } = new List<Item>();
     public Equipment weapon;
@@ -19,7 +19,8 @@ public class Player: Creature {
     }
 
     void PassTurn() {
-        satiation -= 0.1f;
+        if (Satiation > 0) satiation--;
+        else HP--;
         floor.Work();
     }
 

@@ -26,7 +26,7 @@ namespace Tests
             };
             floor = FloorMaker.Create(data);
             player = floor.Player;
-            player.HP = 0;
+            player.HP = 1;
         }
 
         //[Test]

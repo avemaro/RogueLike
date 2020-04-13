@@ -48,15 +48,18 @@ namespace Tests
         [Test]
         public void HPDecreases1per1TurnWhenSatiation0() {
             var hp = player.HP;
-            for (var i = 0; i < 500; i++)
+            for (var i = 0; i < 499; i++) {
                 player.Move(0, 4);
+                Assert.AreNotEqual(0, player.Satiation);
+            }
+            player.Move(0, 4);
             Assert.AreEqual(0, player.Satiation);
             Assert.AreEqual(hp, player.HP);
 
             player.Move(0);
             Assert.AreEqual(hp - 1, player.HP);
             player.Move(4);
-            Assert.AreEqual(hp - 1, player.HP);
+            Assert.AreEqual(hp - 2, player.HP);
         }
     }
 }
