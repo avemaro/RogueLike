@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player: Creature {
+    public int Satiation { get { return (int)satiation; } }
+    float satiation = 100f;
+
     public List<Item> Items { get; private set; } = new List<Item>();
     public Equipment weapon;
 
@@ -17,6 +20,7 @@ public class Player: Creature {
 
     public override bool Move(Direction direction) {
         if (!base.Move(direction)) return false;
+        satiation -= 0.1f;
         PickUp();
         foreach (var piece in Pieces)
             piece.Move(direction);
