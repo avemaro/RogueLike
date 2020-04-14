@@ -88,6 +88,7 @@
     <Compile Include="Assets\Scripts\Item\Equipment.cs" />
     <Compile Include="Assets\Scripts\Item\Herb.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemMaker.cs" />
     <Compile Include="Assets\Scripts\Item\Pot.cs" />
     <Compile Include="Assets\Scripts\Item\Scroll.cs" />
     <Compile Include="Assets\Scripts\Item\Wand.cs" />
