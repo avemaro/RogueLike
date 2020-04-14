@@ -36,7 +36,7 @@ namespace Tests
         [Test]
         public void Test_Fail() {
             player.Move(Direction.right);
-            Assert.AreEqual(State.Dead, player.state);
+            Assert.True(player.IsState(State.Dead));
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace Tests
             floor.Show();
             player.Move(3, 7);
             floor.Show();
-            Assert.AreEqual(State.Alive, player.state);
+            Assert.False(player.IsState(State.Dead));
         }
     }
 }

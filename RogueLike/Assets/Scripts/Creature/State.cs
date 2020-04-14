@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum State {
-    Alive, Dead, Sleep
+    Dead, Sleep, Bind, Scapegoat, Confusion
 }

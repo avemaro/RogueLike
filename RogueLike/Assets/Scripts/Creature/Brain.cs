@@ -5,6 +5,7 @@ using UnityEngine;
 public class Brain {
     readonly Floor floor;
     readonly Enemy enemy;
+    public Creature Target { get; private set; }
     Cell destination;
 
     public Brain(Floor floor, Enemy enemy) {
@@ -13,7 +14,9 @@ public class Brain {
     }
 
     public void Work() {
-        if (enemy.state != State.Alive) return;
+        if (enemy.IsState(State.Dead)) return;
+        if (enemy.IsState(State.Sleep)) return;
+        if (enemy.IsState(State.Bind)) return;
 
         SetDestination();
         if (destination is null) return;
@@ -26,8 +29,12 @@ public class Brain {
     }
 
     void SetDestination() {
-        if (enemy.Room != floor.Player.Room) return;
-        destination = floor.Player.Position;
+        Target = floor.Player;
+        foreach (var enemy in floor.Enemies)
+            if (enemy.IsState(State.Scapegoat)) Target = enemy;
+
+        if (enemy.Room != Target.Room) return;
+        destination = Target.Position;
     }
 
     void DecideMove() {

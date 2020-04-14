@@ -52,9 +52,9 @@ public class FloorPrinter {
             if (stuff != null) {
                 data = stuff.ID;
                 if (!stuff.isVisible) data = '　';
-                if (stuff is Enemy) {
-                    if (((Enemy)stuff).state == State.Dead) data = '　';
-                }
+                //if (stuff is Enemy) {
+                //    if (((Enemy)stuff).IsState(State.Dead)) data = '　';
+                //}
             }
             if (floor.Player.Position == (x, y)) data = '試';
         }
@@ -74,9 +74,9 @@ public class FloorPrinter {
                 if (stuff != null) {
                     data = stuff.ID;
                     if (!stuff.isVisible) data = '　';
-                    if (stuff is Enemy) {
-                        if (((Enemy)stuff).state == State.Dead) data = '　';
-                    }
+                    //if (stuff is Enemy) {
+                    //    if (((Enemy)stuff).state == State.Dead) data = '　';
+                    //}
                 }
                 if (!(floor.Player.Position is null))
                     if (floor.Player.Position == (x, y)) data = '試';

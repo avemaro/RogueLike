@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Creature : Stuff, IAttacker {
     public Direction direction;
-    public State state;
+    public List<(State, int)> states = new List<(State, int)>();
 
     public int Level {
         get { return level; }
@@ -20,7 +20,8 @@ public abstract class Creature : Stuff, IAttacker {
         set { hp = value;
             if (hp > MaxHP) hp = MaxHP;
             if (hp <= 0) {
-                state = State.Dead;
+                Debug.Log("DEAD");
+                states.Add((State.Dead, 99));
                 Floor.Remove(this);
             }
         }
@@ -38,6 +39,12 @@ public abstract class Creature : Stuff, IAttacker {
     protected List<TerrainType> blockingTerrain = new List<TerrainType>()
     { TerrainType.wall, TerrainType.water, TerrainType.breakableWall };
 
+    public bool IsState(State state) {
+        foreach (var aState in states)
+            if (aState.Item1 == state) return true;
+        return false;
+    }
+
     public abstract bool Attack();
 
     public virtual bool IsAttacked(IAttacker attacker) {
@@ -46,7 +53,7 @@ public abstract class Creature : Stuff, IAttacker {
     }
 
     public virtual bool Move(Direction direction) {
-        if (state == State.Dead) return false;
+        if (IsState(State.Dead)) return false;
 
         this.direction = direction;
 

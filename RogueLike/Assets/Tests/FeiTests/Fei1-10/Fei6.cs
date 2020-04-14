@@ -66,7 +66,7 @@ namespace Tests
             player.HP = 0;
 
             player.Move(3, 2, 2, 2, 2);
-            Assert.AreEqual(State.Dead, player.state);
+            Assert.True(player.IsState(State.Dead));
         }
     }
 }

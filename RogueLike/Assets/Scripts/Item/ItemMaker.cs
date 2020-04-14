@@ -12,8 +12,9 @@ public static class ItemMaker {
         if (name == "EyewashHerb") return new EyewashHerb(floor, cell);
         if (name == "DragonHerb") return new DragonHerb(floor, cell);
 
-        if (name == "WandOfBlowAway") return Wand.Create(floor, cell, '吹');
-        if (name == "WandOfUnhappiness") return Wand.Create(floor, cell, '不');
+        if (name == "WandOfBlowAway") return new Wand(floor, cell, '吹');
+        if (name == "WandOfUnhappiness") return new Wand(floor, cell, '不');
+        if (name == "WandOfScapegoat") return new Wand(floor, cell, '身');
 
         return null;
     }

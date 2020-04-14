@@ -12,7 +12,7 @@ public class Wand : Item {
 
     protected int durability = 3;
 
-    protected Wand(Floor floor, Cell cell, char data) : base(floor, cell, data) {
+    public Wand(Floor floor, Cell cell, char data) : base(floor, cell, data) {
         this.Floor = floor;
         Position = cell;
         ID = data;
@@ -30,9 +30,13 @@ public class Wand : Item {
         if (ID == '吹')
             enemy.Fly(player.direction);
         if (ID == '縛')
-            enemy.state = State.Sleep;
+            enemy.states.Add((State.Bind, 50));
         if (ID == '不')
             enemy.Level -= 1;
+        if (ID == '身') {
+            enemy.states.Add((State.Confusion, 50));
+            enemy.states.Add((State.Scapegoat, 50));
+        }
     }
 
     public override void Work(Player player) {

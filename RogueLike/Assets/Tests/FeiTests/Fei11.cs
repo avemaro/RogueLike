@@ -39,7 +39,7 @@ namespace Tests
         public void Test_Fail() {
             player.Move(2, 2, 1);
             floor.Show();
-            Assert.AreEqual(State.Dead, player.state);
+            Assert.True(player.IsState(State.Dead));
         }
 
         //[Test]

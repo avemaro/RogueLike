@@ -44,6 +44,11 @@ public class Player: Creature {
     void PassTurn() {
         if (Satiation > 0) satiation--;
         else HP--;
+
+        for (var i = 0; i < states.Count; i++)
+            states[i] = (states[i].Item1, states[i].Item2 - 1);
+        states.RemoveAll(state => state.Item2 <= 0);
+
         Floor.Work();
     }
 
@@ -57,7 +62,7 @@ public class Player: Creature {
     }
 
     public override bool Attack() {
-        if (state == State.Dead) return false;
+        if (IsState(State.Dead)) return false;
         Debug.Log("ATTACK");
         weapon.Attack();
         foreach (var piece in Floor.Pieces)

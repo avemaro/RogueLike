@@ -26,15 +26,10 @@ public class Enemy : Creature {
     public override bool Attack() {
         foreach (var direction in DirectionExtend.AllCases()) {
             var to = Position.Next(direction);
-            if (to == Floor.Player.Position) return Floor.Player.IsAttacked(this);
+            if (to == brain.Target.Position) return brain.Target.IsAttacked(this);
             if (Floor.GetPiece(to) != null) return Floor.GetPiece(to).IsAttacked(this);
         }
        return false;
-    }
-
-    public override bool IsAttacked(IAttacker attacker) {
-        if (attacker is Enemy) return false;
-        return base.IsAttacked(attacker);
     }
 }
 

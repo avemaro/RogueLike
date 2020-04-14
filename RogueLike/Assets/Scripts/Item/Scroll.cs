@@ -19,7 +19,7 @@ public class Scroll : Item {
     protected override void Work(Player player, Stuff stuff) {
         var enemy = (Enemy)stuff;
         if (ID == '眠')
-            enemy.state = State.Sleep;
+            enemy.states.Add((State.Sleep, 5));
         if (ID == '真')
             enemy.IsAttacked(this);
     }

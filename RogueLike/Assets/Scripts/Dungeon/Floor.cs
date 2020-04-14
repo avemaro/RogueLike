@@ -33,7 +33,7 @@ public class Floor {
     }
 
     public void Work() {
-        Enemies.RemoveAll(enemy => enemy.state == State.Dead);
+        Enemies.RemoveAll(enemy => enemy.IsState(State.Dead));
 
         foreach (var enemy in Enemies)
             enemy.Work();
@@ -41,7 +41,7 @@ public class Floor {
             trap.Work();
         if (StairPosition == Player.Position) GoNextFloor();
 
-        Enemies.RemoveAll(enemy => enemy.state == State.Dead);
+        Enemies.RemoveAll(enemy => enemy.IsState(State.Dead));
 
         printer.GetSrroundings();
     }

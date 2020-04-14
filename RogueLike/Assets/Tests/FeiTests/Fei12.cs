@@ -62,7 +62,7 @@ namespace Tests
             player.Move(2, 2, 2, 2, 2,
                         2, 2, 2, 2);
             floor.Show();
-            Assert.AreEqual(State.Alive, player.state);
+            Assert.False(player.IsState(State.Dead));
             Assert.AreEqual(2, floor.NumberOfStairs);
         }
     }
