@@ -31,6 +31,8 @@ public class Wand : Item {
             enemy.Fly(player.direction);
         if (ID == '縛')
             enemy.state = State.Sleep;
+        if (ID == '不')
+            enemy.Level -= 1;
     }
 
     public override void Work(Player player) {

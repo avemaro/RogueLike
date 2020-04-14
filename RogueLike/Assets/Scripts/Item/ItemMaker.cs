@@ -11,6 +11,10 @@ public static class ItemMaker {
         if (name == "StomachEnlargingSeed") return new Drag(floor, cell, 0, 0, 0, 10);
         if (name == "EyewashHerb") return new EyewashHerb(floor, cell);
         if (name == "DragonHerb") return new DragonHerb(floor, cell);
+
+        if (name == "WandOfBlowAway") return Wand.Create(floor, cell, '吹');
+        if (name == "WandOfUnhappiness") return Wand.Create(floor, cell, '不');
+
         return null;
     }
 

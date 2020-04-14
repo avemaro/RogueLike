@@ -6,6 +6,14 @@ public abstract class Creature : Stuff, IAttacker {
     public Direction direction;
     public State state;
 
+    public int Level {
+        get { return level; }
+        set { level = value;
+            if (level < 1) level = 1;
+        }
+    }
+    int level = 1;
+
     public int MaxHP = 1;
     public int HP {
         get { return hp; }
