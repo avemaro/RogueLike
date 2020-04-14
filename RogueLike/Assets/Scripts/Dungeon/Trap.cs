@@ -12,14 +12,14 @@ public class Trap: Stuff, IAttacker {
     bool isStepedOn;
 
     private Trap(Floor floor, Cell cell, char data) {
-        this.floor = floor;
+        this.Floor = floor;
         Position = cell;
         ID = data;
         isVisible = false;
     }
 
     public void Work() {
-        var player = floor.Player;
+        var player = Floor.Player;
 
         if (!isAbleToWork()) return;
 
@@ -33,7 +33,7 @@ public class Trap: Stuff, IAttacker {
             case '爆':
                 player.IsAttacked(this);
                 foreach (var cell in Position.Around) {
-                    var enemy = floor.GetEnemy(cell);
+                    var enemy = Floor.GetEnemy(cell);
                     if (enemy != null) enemy.IsAttacked(this);
                 }
                 return;
@@ -52,7 +52,7 @@ public class Trap: Stuff, IAttacker {
     }
 
     bool isAbleToWork() {
-        if (floor.Player.Position != Position) {
+        if (Floor.Player.Position != Position) {
             isStepedOn = false;
             return false;
         }

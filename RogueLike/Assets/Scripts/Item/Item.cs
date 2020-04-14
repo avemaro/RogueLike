@@ -7,6 +7,9 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
     static readonly List<char> IDs = new List<char>()
     { 'Ｇ'};
     public new static Item Create(Floor floor, Cell cell, char data) {
+        if (data == '草') return ItemMaker.Create(floor, cell, "DragonHerb");
+        if (data == '眼') return ItemMaker.Create(floor, cell, "EyewashHerb");
+
         var equipment = Equipment.Create(floor, cell, data);
         if (equipment != null) return equipment;
         var scroll = Scroll.Create(floor, cell, data);
@@ -23,7 +26,7 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
     }
 
     protected Item(Floor floor, Cell cell, char data) {
-        this.floor = floor;
+        this.Floor = floor;
         Position = cell;
         ID = data;
     }
@@ -36,12 +39,12 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
 
     }
 
-    public virtual bool Use(Player player) {
-        return true;
+    public virtual void Work(Player player) {
+        return;
     }
 
     public virtual bool Throw(Player player) {
-        var enemy = floor.GetEnemy(player.Position, player.direction,
+        var enemy = Floor.GetEnemy(player.Position, player.direction,
             new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
         if (enemy == null) return true;
         Work(player, enemy);

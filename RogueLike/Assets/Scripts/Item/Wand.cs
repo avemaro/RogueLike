@@ -13,7 +13,7 @@ public class Wand : Item {
     protected int durability = 3;
 
     protected Wand(Floor floor, Cell cell, char data) : base(floor, cell, data) {
-        this.floor = floor;
+        this.Floor = floor;
         Position = cell;
         ID = data;
     }
@@ -33,15 +33,13 @@ public class Wand : Item {
             enemy.state = State.Sleep;
     }
 
-    public override bool Use(Player player) {
+    public override void Work(Player player) {
         durability--;
         if (durability <= 0) player.Items.Remove(this);
 
-        var enemy = floor.GetEnemy(player.Position, player.direction,
+        var enemy = Floor.GetEnemy(player.Position, player.direction,
             new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
-        if (enemy == null) return true;
+        if (enemy == null) return;
         Work(player, enemy);
-
-        return true;
     }
 }

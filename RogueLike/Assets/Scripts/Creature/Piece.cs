@@ -6,7 +6,7 @@ public class Piece : Creature {
     readonly Player player;
 
     public Piece(Floor floor, Cell position) {
-        this.floor = floor;
+        this.Floor = floor;
         player = floor.Player;
         Position = position;
         ID = 'Ｐ';
@@ -18,12 +18,12 @@ public class Piece : Creature {
 
         if (!IsRegalMove()) {
             Position = Position.Next(direction);
-            floor.Remove(this);
+            Floor.Remove(this);
             return false;
         }
 
-        if (!floor.Pieces.Contains(this))
-            floor.Pieces.Add(this);
+        if (!Floor.Pieces.Contains(this))
+            Floor.Pieces.Add(this);
 
         return base.Move(direction);
     }
@@ -36,18 +36,18 @@ public class Piece : Creature {
     }
 
     protected override bool IsBlockingCreatrue(Cell to) {
-        return floor.GetEnemy(to) != null;
+        return Floor.GetEnemy(to) != null;
     }
 
     public override bool Attack() {
         var to = RightFront;
-        if (floor.GetEnemy(to) != null) return floor.GetEnemy(to).IsAttacked(this);
+        if (Floor.GetEnemy(to) != null) return Floor.GetEnemy(to).IsAttacked(this);
         to = LeftFront;
-        if (floor.GetEnemy(to) != null) return floor.GetEnemy(to).IsAttacked(this);
+        if (Floor.GetEnemy(to) != null) return Floor.GetEnemy(to).IsAttacked(this);
         to = RightBack;
-        if (floor.GetEnemy(to) != null) return floor.GetEnemy(to).IsAttacked(this);
+        if (Floor.GetEnemy(to) != null) return Floor.GetEnemy(to).IsAttacked(this);
         to = LeftBack;
-        if (floor.GetEnemy(to) != null) return floor.GetEnemy(to).IsAttacked(this);
+        if (Floor.GetEnemy(to) != null) return Floor.GetEnemy(to).IsAttacked(this);
         return false;
     }
 

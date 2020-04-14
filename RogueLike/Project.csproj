@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Interface\MapPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\MessagePrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\StatusPrinter.cs" />
+    <Compile Include="Assets\Scripts\Item\Drag.cs" />
     <Compile Include="Assets\Scripts\Item\Equipment.cs" />
     <Compile Include="Assets\Scripts\Item\Herb.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
@@ -641,7 +642,6 @@
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Hub/Editor/2019.3.2f1/Unity.app/Contents/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
-    <Compile Include="Assets\Scripts\Item\Drag.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

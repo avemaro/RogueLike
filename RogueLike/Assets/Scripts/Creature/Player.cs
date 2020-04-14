@@ -12,16 +12,25 @@ public class Player: Creature {
     public List<Piece> Pieces { get; private set; } = new List<Piece>();
 
     public Player(Floor floor) {
-        this.floor = floor;
+        this.Floor = floor;
         direction = Direction.down;
+        MaxHP = 10;
         HP = 10;
+        weapon = Equipment.Create(floor, Position, '拳');
+    }
+
+    public Player(Floor floor, int MaxHP) {
+        this.Floor = floor;
+        direction = Direction.down;
+        this.MaxHP = MaxHP;
+        HP = MaxHP;
         weapon = Equipment.Create(floor, Position, '拳');
     }
 
     void PassTurn() {
         if (Satiation > 0) satiation--;
         else HP--;
-        floor.Work();
+        Floor.Work();
     }
 
     public override bool Move(Direction direction) {
@@ -37,7 +46,7 @@ public class Player: Creature {
         if (state == State.Dead) return false;
         Debug.Log("ATTACK");
         weapon.Attack();
-        foreach (var piece in floor.Pieces)
+        foreach (var piece in Floor.Pieces)
             piece.Attack();
         PassTurn();
         return true;
@@ -46,12 +55,13 @@ public class Player: Creature {
     public void Use(int index) {
         var item = GetItem(index);
         if (item == null) return;
-        item.Use(this);
+        item.Work(this);
         PassTurn();
     }
 
     public void Use(Item item) {
-
+        item.Work(this);
+        PassTurn();
     }
 
     public void Throw(int index) {
@@ -70,8 +80,8 @@ public class Player: Creature {
     }
 
     bool PickUp() {
-        var item = floor.GetItem(Position.x, Position.y);
-        floor.Remove(item);
+        var item = Floor.GetItem(Position.x, Position.y);
+        Floor.Remove(item);
         if (item == null) return false;
         if (item.ID == 'Ｇ') return true;
         Items.Add(item);
@@ -84,14 +94,14 @@ public class Player: Creature {
     }
 
     protected override bool IsBlockingCreatrue(Cell to) {
-        return floor.GetEnemy(to) != null;
+        return Floor.GetEnemy(to) != null;
     }
 
     public Piece Spawn(Chess type) {
-        var piece = new Piece(floor, Front);
+        var piece = new Piece(Floor, Front);
         if (!piece.IsAbleToGo(Front)) return null;
         Pieces.Add(piece);
-        floor.Pieces.Add(piece);
+        Floor.Pieces.Add(piece);
         return piece;
     }
 

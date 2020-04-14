@@ -13,34 +13,33 @@ public class Pot : Item {
     readonly List<Item> contents = new List<Item>();
 
     protected Pot(Floor floor, Cell cell, char data) : base(floor, cell, data) {
-        this.floor = floor;
+        this.Floor = floor;
         Position = cell;
         ID = data;
     }
 
-    public override bool Use(Player player) {
+    public override void Work(Player player) {
         if (ID == 'ト') {
-            var nextCell = floor.GetTerrainCell(player.Position);
+            var nextCell = Floor.GetTerrainCell(player.Position);
 
             while (true) {
                 nextCell = nextCell.Next(player.direction);
                 if (nextCell.type != TerrainType.land &&
                     nextCell.type != TerrainType.water) break;
-                if (floor.GetEnemy(nextCell.x, nextCell.y) != null) break;
-                var item = floor.GetItem(nextCell.x, nextCell.y);
+                if (Floor.GetEnemy(nextCell.x, nextCell.y) != null) break;
+                var item = Floor.GetItem(nextCell.x, nextCell.y);
                 if (item == null) continue;
                 contents.Add(item);
-                floor.Remove(item);
+                Floor.Remove(item);
                 break;
             }
         }
-        return true;
     }
 
     public override bool Throw(Player player) {
         player.Items.Remove(this);
 
-        var nextCell = floor.GetTerrainCell(player.Position);
+        var nextCell = Floor.GetTerrainCell(player.Position);
         while (true) {
             nextCell = nextCell.Next(player.direction);
 
@@ -50,7 +49,7 @@ public class Pot : Item {
 
             contents[0].Position = nextCell;
         }
-        floor.Items.Add(contents[0]);
+        Floor.Items.Add(contents[0]);
 
         return true;
     }

@@ -13,7 +13,7 @@ public class Enemy : Creature {
     readonly Brain brain;
 
     protected Enemy(Floor floor, Cell cell, char data) {
-        this.floor = floor;
+        this.Floor = floor;
         Position = cell;
         ID = data;
         brain = new Brain(floor, this);
@@ -26,8 +26,8 @@ public class Enemy : Creature {
     public override bool Attack() {
         foreach (var direction in DirectionExtend.AllCases()) {
             var to = Position.Next(direction);
-            if (to == floor.Player.Position) return floor.Player.IsAttacked(this);
-            if (floor.GetPiece(to) != null) return floor.GetPiece(to).IsAttacked(this);
+            if (to == Floor.Player.Position) return Floor.Player.IsAttacked(this);
+            if (Floor.GetPiece(to) != null) return Floor.GetPiece(to).IsAttacked(this);
         }
        return false;
     }
@@ -46,8 +46,8 @@ public class Bowboy : Enemy {
         var nextCell = Position;
         while (true) {
             nextCell = nextCell.Next(direction);
-            if (nextCell == floor.Player.Position) return floor.Player.IsAttacked(this);
-            if (floor.GetTerrain(nextCell) == TerrainType.wall) return false;
+            if (nextCell == Floor.Player.Position) return Floor.Player.IsAttacked(this);
+            if (Floor.GetTerrain(nextCell) == TerrainType.wall) return false;
         }
     }
 }

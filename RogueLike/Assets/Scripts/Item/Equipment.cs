@@ -10,7 +10,7 @@ public class Equipment : Item {
     }
 
     protected Equipment(Floor floor, Cell cell, char data): base(floor, cell, data) {
-        this.floor = floor;
+        this.Floor = floor;
         Position = cell;
         ID = data;
     }
@@ -22,13 +22,13 @@ public class Equipment : Item {
     }
 
     public override bool Attack() {
-        var player = floor.Player;
+        var player = Floor.Player;
         var to = player.Position.Next(player.direction);
 
-        var enemy = floor.GetEnemy(to);
+        var enemy = Floor.GetEnemy(to);
         if (enemy != null) return enemy.IsAttacked(this);
 
-        var cell = floor.GetTerrainCell(to);
+        var cell = Floor.GetTerrainCell(to);
         if (cell is null) return false;
         return cell.IsAttacked(this);
     }

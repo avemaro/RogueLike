@@ -11,7 +11,7 @@ public class Scroll : Item {
     }
 
     protected Scroll(Floor floor, Cell cell, char data): base(floor, cell, data) {
-        this.floor = floor;
+        this.Floor = floor;
         Position = cell;
         ID = data;
     }
@@ -24,12 +24,10 @@ public class Scroll : Item {
             enemy.IsAttacked(this);
     }
 
-    public override bool Use(Player player) {
+    public override void Work(Player player) {
         player.Items.Remove(this);
 
-        foreach (var enemy in floor.GetEnemies(player.Room))
+        foreach (var enemy in Floor.GetEnemies(player.Room))
             Work(player, enemy);
-
-        return true;
     }
 }

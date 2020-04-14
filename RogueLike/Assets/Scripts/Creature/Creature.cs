@@ -6,18 +6,20 @@ public abstract class Creature : Stuff, IAttacker {
     public Direction direction;
     public State state;
 
+    public int MaxHP = 1;
     public int HP {
         get { return hp; }
         set { hp = value;
+            if (hp > MaxHP) hp = MaxHP;
             if (hp <= 0) {
                 state = State.Dead;
-                floor.Remove(this);
+                Floor.Remove(this);
             }
         }
     }
     int hp = 1;
 
-    public Room Room { get { return floor.GetRoom(Position); } }
+    public Room Room { get { return Floor.GetRoom(Position); } }
     public Cell Front { get { return Position.Next(direction); } }
     public Cell Back { get { return Position.Next(direction.Reverse()); } }
     public Cell RightFront { get { return Position.Next(direction.TurnRight()); } }
@@ -66,24 +68,24 @@ public abstract class Creature : Stuff, IAttacker {
         if (!direction.IsDiagonal()) return true;
 
         var forwards = Position.Next(direction.Forwards());
-        if (floor.GetTerrain(forwards).Contains(TerrainType.wall)) return false;
+        if (Floor.GetTerrain(forwards).Contains(TerrainType.wall)) return false;
 
         return true;
     }
 
     public virtual bool IsAbleToGo(Cell to) {
-        if (floor.GetTerrainCell(to) is null) return false;
-        if (blockingTerrain.Contains(floor.GetTerrain(to))) return false;
+        if (Floor.GetTerrainCell(to) is null) return false;
+        if (blockingTerrain.Contains(Floor.GetTerrain(to))) return false;
         if (IsBlockingCreatrue(to)) return false;
         return true;
     }
 
     protected virtual bool IsBlockingCreatrue(Cell to) {
-        return floor.GetCreature(to) != null;
+        return Floor.GetCreature(to) != null;
     }
 
     public void Fly(Direction direction) {
-        var nextCell = floor.GetTerrainCell(Position);
+        var nextCell = Floor.GetTerrainCell(Position);
         while (true) {
             nextCell = nextCell.Next(direction);
             if (nextCell.type != TerrainType.land &&
@@ -95,8 +97,8 @@ public abstract class Creature : Stuff, IAttacker {
     public void Jump() {
         Cell to = Position;
         for (var i = 0; i < 100; i++) {
-            var x = Random.Range(0, floor.floorSize.x);
-            var y = Random.Range(0, floor.floorSize.y);
+            var x = Random.Range(0, Floor.floorSize.x);
+            var y = Random.Range(0, Floor.floorSize.y);
             to = new Cell(x, y);
             if (IsAbleToGo(to)) break;
         }

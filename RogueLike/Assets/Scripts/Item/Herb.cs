@@ -11,18 +11,18 @@ public class Herb : Item {
     }
 
     protected Herb(Floor floor, Cell cell, char data) : base(floor, cell, data) {
-        this.floor = floor;
+        this.Floor = floor;
         Position = cell;
         ID = data;
     }
 
     protected override void Work(Player player, Stuff stuff) {
         if (ID == '眼')
-            foreach (var trap in floor.Traps)
+            foreach (var trap in Floor.Traps)
                 trap.isVisible = true;
 
         if (ID == '草') {
-            var enemy = floor.GetEnemy(player.Position, player.direction,
+            var enemy = Floor.GetEnemy(player.Position, player.direction,
             new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
             if (enemy == null) return;
             enemy.IsAttacked(player);
@@ -32,9 +32,8 @@ public class Herb : Item {
         }
     }
 
-    public override bool Use(Player player) {
+    public override void Work(Player player) {
         player.Items.Remove(this);
         Work(player, null);
-        return true;
     }
 }
