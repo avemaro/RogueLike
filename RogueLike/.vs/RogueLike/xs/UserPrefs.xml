@@ -1,22 +1,23 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/FeiTests/Fei1-10/Fei3.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/ItemMaker.cs">
     <Files>
       <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="15" Column="44" IsPinned="True" />
       <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="36" Column="26" />
-      <File FileName="Assets/Scripts/Item/Herb.cs" Line="8" Column="71" />
-      <File FileName="Assets/Scripts/Creature/Creature.cs" Line="5" Column="37" />
-      <File FileName="Assets/Scripts/Item/ItemMaker.cs" Line="10" Column="33" />
-      <File FileName="Assets/Scripts/Item/Drag.cs" Line="25" Column="1" />
-      <File FileName="Assets/Scripts/Item/Item.cs" Line="10" Column="64" />
-      <File FileName="Assets/Scripts/Creature/Player.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/Item/Herb.cs" Line="37" Column="1" />
+      <File FileName="Assets/Scripts/Creature/Creature.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/Item/ItemMaker.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/Item/Drag.cs" Line="54" Column="1" />
+      <File FileName="Assets/Scripts/Creature/Player.cs" Line="10" Column="49" />
       <File FileName="Assets/Scripts/Stuff.cs" Line="5" Column="30" />
-      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei3.cs" Line="85" Column="1" />
+      <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei3.cs" Line="53" Column="1" />
+      <File FileName="Assets/Scripts/Item/Wand.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Brain.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Piece.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="22" Column="35" NotebookId="1" />
       <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei1.cs" NotebookId="1" />
-      <File FileName="Assets/Tests/BasicTests/ItemTests.cs" Line="58" Column="45" NotebookId="1" />
+      <File FileName="Assets/Tests/BasicTests/ItemTests.cs" Line="63" Column="26" NotebookId="1" />
       <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei6.cs" Line="65" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

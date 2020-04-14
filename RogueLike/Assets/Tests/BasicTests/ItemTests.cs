@@ -62,5 +62,23 @@ namespace Tests
             player.Use(item);
             floor.Show();
         }
+
+        [Test]
+        public void TestLifeHerb() {
+            Assert.AreEqual(10, player.HP);
+            Assert.AreEqual(10, player.MaxHP);
+            var item = ItemMaker.Create("LifeHerb");
+            player.Use(item);
+            Assert.AreEqual(10, player.HP);
+            Assert.AreEqual(15, player.MaxHP);
+        }
+
+        [Test]
+        public void StomachEnlargingSeed() {
+            Assert.AreEqual(100, player.Satiation);
+            var item = ItemMaker.Create("StomachEnlargingSeed");
+            player.Use(item);
+            Assert.AreEqual(110, player.MaxSatiation);
+        }
     }
 }

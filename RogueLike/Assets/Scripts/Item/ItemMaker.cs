@@ -5,8 +5,10 @@ using UnityEngine;
 
 public static class ItemMaker {
     public static Item Create(Floor floor, Cell cell, string name) {
-        if (name == "MedicinalHerb") return new Drag(floor, cell, 25, 1);
-        if (name == "OtogiriHerb") return new Drag(floor, cell, 100, 2);
+        if (name == "MedicinalHerb") return new Drag(floor, cell, 25, 1, 0, 0);
+        if (name == "OtogiriHerb") return new Drag(floor, cell, 100, 2, 0, 0);
+        if (name == "LifeHerb") return new Drag(floor, cell, 0, 0, 5, 0);
+        if (name == "StomachEnlargingSeed") return new Drag(floor, cell, 0, 0, 0, 10);
         if (name == "EyewashHerb") return new EyewashHerb(floor, cell);
         if (name == "DragonHerb") return new DragonHerb(floor, cell);
         return null;
