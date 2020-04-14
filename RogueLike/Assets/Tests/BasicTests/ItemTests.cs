@@ -14,6 +14,7 @@ namespace Tests
             var player = floor.Player;
 
             var item = ItemMaker.Create("MedicinalHerb");
+            player.HP -= 5;
             var hp = player.HP;
             player.Use(item);
             Assert.Greater(player.HP, hp);

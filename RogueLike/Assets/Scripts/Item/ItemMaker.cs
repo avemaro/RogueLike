@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemMaker {
-    public Item Create(string name) {
-        
+public static class ItemMaker {
+    public static Item Create(string name) {
+        return new Drag();
     }
 }

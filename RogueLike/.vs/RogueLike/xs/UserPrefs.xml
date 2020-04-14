@@ -1,23 +1,23 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/ItemMaker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Tests/BasicTests/ItemTests.cs">
     <Files>
       <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="15" Column="44" IsPinned="True" />
-      <File FileName="Assets/Scripts/Interface/FloorPrinterBehaviour.cs" />
-      <File FileName="Assets/Scripts/Interface/Controller.cs" />
       <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" />
       <File FileName="Assets/Tests/BasicTests/Satiation.cs" Line="49" Column="59" />
       <File FileName="Assets/Scripts/Item/Herb.cs" Line="31" Column="1" />
       <File FileName="Assets/Scripts/Creature/Creature.cs" Line="12" Column="27" />
       <File FileName="Assets/Tests/ChessTests/PawnTest.cs" Line="82" Column="39" />
-      <File FileName="Assets/Scripts/Item/ItemMaker.cs" Line="5" Column="25" />
+      <File FileName="Assets/Scripts/Item/ItemMaker.cs" Line="9" Column="2" />
+      <File FileName="Assets/Scripts/Item/Drag.cs" Line="1" Column="22" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="28" Column="19" />
+      <File FileName="Assets/Scripts/Creature/Player.cs" Line="54" Column="1" />
       <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Brain.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Piece.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Player.cs" Line="13" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="194" Column="2" NotebookId="1" />
       <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei1.cs" NotebookId="1" />
       <File FileName="Assets/Tests/FeiTests/Fei1-10/Fei8.cs" NotebookId="1" />
-      <File FileName="Assets/Tests/BasicTests/ItemTests.cs" Line="16" Column="33" NotebookId="1" />
+      <File FileName="Assets/Tests/BasicTests/ItemTests.cs" Line="4" Column="13" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

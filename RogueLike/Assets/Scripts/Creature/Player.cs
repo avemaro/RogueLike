@@ -50,6 +50,10 @@ public class Player: Creature {
         PassTurn();
     }
 
+    public void Use(Item item) {
+
+    }
+
     public void Throw(int index) {
         var item = GetItem(index);
         if (item == null) return;

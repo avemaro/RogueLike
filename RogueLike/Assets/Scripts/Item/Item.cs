@@ -28,6 +28,10 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
         ID = data;
     }
 
+    public Item() {
+
+    }
+
     protected virtual void Work(Player player, Stuff stuff) {
 
     }
