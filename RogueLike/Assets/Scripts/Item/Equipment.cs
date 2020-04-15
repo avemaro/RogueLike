@@ -34,18 +34,21 @@ public class Equipment : Item {
     public override bool Attack() {
         var player = Floor.Player;
 
+        var towards = new List<Direction>();
         if (directions.Count != 0) {
-            directions = new List<Direction> {
-                player.direction,
-                player.direction.TurnLeft(),
-                player.direction.TurnRight()
-            };
-        } else
-            directions.Add(player.direction);
-        foreach (var direction in directions)
-            Debug.Log(direction);
+            towards = new List<Direction>(player.direction.Forwards());
+        } else {
+            towards.Add(player.direction);
 
-        var cells = player.Position.Next(directions.ToArray());
+            if (player.direction.IsDiagonal()) {
+                var forwards = player.Position.Next(player.direction.Forwards());
+                if (Floor.GetTerrain(forwards).Contains(TerrainType.wall))
+                    return false;
+            }
+
+        }
+
+        var cells = player.Position.Next(towards.ToArray());
 
         foreach (var to in cells) {
             var enemy = Floor.GetEnemy(to);

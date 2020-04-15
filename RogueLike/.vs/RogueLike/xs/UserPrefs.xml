@@ -1,23 +1,23 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Equipment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Creature/Enemy.cs">
     <Files>
       <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="72" Column="59" IsPinned="True" />
       <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="39" Column="26" />
       <File FileName="Assets/Scripts/Item/Scroll.cs" />
       <File FileName="Assets/Scripts/Creature/State.cs" />
       <File FileName="Assets/Scripts/Item/Item.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Item/ItemMaker.cs" Line="26" Column="71" />
-      <File FileName="Assets/Scripts/Creature/Player.cs" Line="11" Column="67" />
-      <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="14" Column="26" />
-      <File FileName="Assets/Scripts/Item/Equipment.cs" Line="38" Column="29" />
+      <File FileName="Assets/Scripts/Item/ItemMaker.cs" Line="18" Column="77" />
+      <File FileName="Assets/Scripts/Creature/Player.cs" Line="67" Column="22" />
+      <File FileName="Assets/Scripts/Item/Equipment.cs" Line="39" Column="62" />
       <File FileName="Assets/Scripts/Creature/Brain.cs" Line="29" Column="6" NotebookId="1" />
       <File FileName="Assets/Tests/KobamiTests/WandTests.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="134" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Wand.cs" Line="11" Column="6" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Creature.cs" Line="18" Column="1" NotebookId="1" />
-      <File FileName="Assets/Tests/BasicTests/ItemTests.cs" Line="114" Column="10" NotebookId="1" />
+      <File FileName="Assets/Tests/BasicTests/ItemTests.cs" Line="109" Column="42" NotebookId="1" />
       <File FileName="Assets/Scripts/Stuff.cs" Line="14" Column="27" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Drag.cs" Line="60" Column="2" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="14" Column="26" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

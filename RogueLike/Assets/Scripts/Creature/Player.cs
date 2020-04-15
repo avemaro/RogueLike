@@ -79,6 +79,7 @@ public class Player: Creature {
     public override bool Attack() {
         if (IsState(State.Dead)) return false;
         Debug.Log("ATTACK");
+        Debug.Log(weapon.ID);
         weapon.Attack();
         foreach (var piece in Floor.Pieces)
             piece.Attack();

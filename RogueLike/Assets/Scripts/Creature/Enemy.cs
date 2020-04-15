@@ -42,6 +42,13 @@ public class Enemy : Creature {
     public override bool Attack() {
         foreach (var direction in DirectionExtend.AllCases()) {
             var to = Position.Next(direction);
+
+            if (direction.IsDiagonal()) {
+                var forwards = Position.Next(direction.Forwards());
+                if (Floor.GetTerrain(forwards).Contains(TerrainType.wall))
+                    return false;
+            }
+
             if (to == brain.Target.Position) return brain.Target.IsAttacked(this);
             if (Floor.GetPiece(to) != null) return Floor.GetPiece(to).IsAttacked(this);
         }
