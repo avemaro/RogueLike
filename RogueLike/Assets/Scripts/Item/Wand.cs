@@ -30,13 +30,21 @@ public class Wand : Item {
         if (ID == '吹')
             enemy.Fly(player.direction);
         if (ID == '縛')
-            enemy.states.Add((State.Bind, 50));
+            enemy.states.Add((State.Bind, 9999));
         if (ID == '不')
             enemy.Level -= 1;
         if (ID == '身') {
             enemy.states.Add((State.Confusion, 50));
             enemy.states.Add((State.Scapegoat, 50));
         }
+        if (ID == '一') {
+            enemy.states.Add((State.Bind, 9999));
+            if (Floor.GetCreature(Floor.StairPosition) == null)
+                enemy.Position = Floor.StairPosition;
+        }
+        if (ID == '痛')
+            enemy.states.Add((State.PainSharing, 9999));
+
     }
 
     public override void Work(Player player) {

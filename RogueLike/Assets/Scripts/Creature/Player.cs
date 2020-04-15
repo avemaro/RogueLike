@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player: Creature {
+    public override int HP {
+        get => base.HP;
+        set {
+            if (value < base.HP)
+                foreach (var enemy in Floor.Enemies)
+                    if (enemy.IsState(State.PainSharing)) enemy.HP -= base.HP - value;
+            base.HP = value;
+        }
+    }
+
     public int MaxSatiation {
         get { return maxSatiation; }
         set {

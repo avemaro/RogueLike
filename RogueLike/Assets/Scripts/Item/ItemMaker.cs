@@ -15,6 +15,11 @@ public static class ItemMaker {
         if (name == "WandOfBlowAway") return new Wand(floor, cell, '吹');
         if (name == "WandOfUnhappiness") return new Wand(floor, cell, '不');
         if (name == "WandOfScapegoat") return new Wand(floor, cell, '身');
+        if (name == "WandOfPlaceSwitching") return new Wand(floor, cell, '杖');
+        if (name == "WandOfBinding") return new Wand(floor, cell, '縛');
+        if (name == "WandOfTemporaryAvoid") return new Wand(floor, cell, '一');
+        if (name == "WandOfPainSharing") return new Wand(floor, cell, '痛');
+        
 
         return null;
     }

@@ -34,7 +34,6 @@ public class Enemy : Creature {
         for (var i = 0; i < states.Count; i++)
         {
             states[i] = (states[i].Item1, states[i].Item2 - 1);
-            Debug.Log(states[i].Item1);
         }
         states.RemoveAll(state => state.Item2 <= 0);
     }

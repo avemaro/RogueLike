@@ -15,7 +15,8 @@ public abstract class Creature : Stuff, IAttacker {
     int level = 1;
 
     public int MaxHP = 1;
-    public int HP {
+
+    public virtual int HP {
         get { return hp; }
         set { hp = value;
             if (hp > MaxHP) hp = MaxHP;

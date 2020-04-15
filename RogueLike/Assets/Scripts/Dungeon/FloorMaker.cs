@@ -48,7 +48,7 @@ public class FloorMaker {
 
         for (var i = 0; i < 10; i++) {
             var position = floor.GetPosition(TerrainType.land);
-            var item = ItemMaker.Create(floor, position, "WandOfScapegoat");
+            var item = ItemMaker.Create(floor, position, "WandOfPainSharing");
             floor.Items.Add(item);
         }
 

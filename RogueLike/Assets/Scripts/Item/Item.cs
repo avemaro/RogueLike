@@ -10,6 +10,8 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
         if (data == '草') return ItemMaker.Create(floor, cell, "DragonHerb");
         if (data == '眼') return ItemMaker.Create(floor, cell, "EyewashHerb");
         if (data == '吹') return ItemMaker.Create(floor, cell, "WandOfBlowAway");
+        if (data == '杖') return ItemMaker.Create(floor, cell, "WandOfPlaceSwitching");
+        if (data == '縛') return ItemMaker.Create(floor, cell, "WandOfBinding");
 
         var equipment = Equipment.Create(floor, cell, data);
         if (equipment != null) return equipment;
