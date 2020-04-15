@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : Creature {
@@ -13,14 +14,29 @@ public class Enemy : Creature {
     readonly Brain brain;
 
     protected Enemy(Floor floor, Cell cell, char data) {
-        this.Floor = floor;
+        Floor = floor;
         Position = cell;
         ID = data;
         brain = new Brain(floor, this);
     }
 
     public void Work() {
-        brain.Work();
+        if (IsState(State.Confusion)) {
+            var directions = DirectionExtend.AllCases();
+            var toward = directions[Random.Range(0, directions.Count())];
+            direction = toward;
+            if (IsRegalMove()) Move(direction);
+        } else
+        {
+            brain.Work();
+        }
+
+        for (var i = 0; i < states.Count; i++)
+        {
+            states[i] = (states[i].Item1, states[i].Item2 - 1);
+            Debug.Log(states[i].Item1);
+        }
+        states.RemoveAll(state => state.Item2 <= 0);
     }
 
     public override bool Attack() {

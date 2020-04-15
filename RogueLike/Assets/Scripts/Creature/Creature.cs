@@ -22,7 +22,6 @@ public abstract class Creature : Stuff, IAttacker {
             if (hp <= 0) {
                 Debug.Log("DEAD");
                 states.Add((State.Dead, 99));
-                Floor.Remove(this);
             }
         }
     }
