@@ -21,12 +21,12 @@ public abstract class Creature : Stuff, IAttacker {
         set { hp = value;
             if (hp > MaxHP) hp = MaxHP;
             if (hp <= 0) {
-                Debug.Log("DEAD");
                 states.Add((State.Dead, 99));
             }
         }
     }
     int hp = 1;
+    public virtual int AP { get; set; } = 1;
 
     public Room Room { get { return Floor.GetRoom(Position); } }
     public Cell Front { get { return Position.Next(direction); } }

@@ -20,6 +20,13 @@ public static class ItemMaker {
         if (name == "WandOfTemporaryAvoid") return new Wand(floor, cell, '一');
         if (name == "WandOfPainSharing") return new Wand(floor, cell, (State.PainSharing, 9999));
 
+        if (name == "SpikedClub") return new Equipment(floor, cell, 2);
+        if (name == "Glaive") return new Equipment(floor, cell, 4);
+        if (name == "Katana") return new Equipment(floor, cell, 6);
+        if (name == "Doutanuki") return new Equipment(floor, cell, 8);
+        if (name == "Kamaitachi")
+            return new Equipment(floor, cell, 3, Direction.upLeft, Direction.upRight);
+
         return null;
     }
 

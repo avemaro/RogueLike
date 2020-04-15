@@ -80,5 +80,55 @@ namespace Tests
             player.Use(item);
             Assert.AreEqual(110, player.MaxSatiation);
         }
+
+        [Test]
+        public void WeaponTest() {
+            Assert.AreEqual(5, player.AP);
+            var item = ItemMaker.Create("SpikedClub");
+            player.Equip(item);
+            Assert.AreEqual(6, player.AP);
+            item = ItemMaker.Create("Glaive");
+            player.Equip(item);
+            Assert.AreEqual(6, player.AP);
+            item = ItemMaker.Create("Katana");
+            player.Equip(item);
+            Assert.AreEqual(7, player.AP);
+        }
+
+        [Test]
+        public void KamaitachiTest() {
+            player.Position = new Cell(4, 4);
+            player.direction = Direction.up;
+            var item = ItemMaker.Create(floor, new Cell(0, 0), "Kamaitachi");
+            player.Equip(item);
+            var enemy0 = Enemy.Create(floor, new Cell(3, 3), '武');
+            var enemy1 = Enemy.Create(floor, new Cell(4, 3), '武');
+            var enemy2 = Enemy.Create(floor, new Cell(5, 3), '武');
+            Assert.False(enemy0.IsState(State.Dead));
+            Assert.False(enemy1.IsState(State.Dead));
+            Assert.False(enemy2.IsState(State.Dead));
+            Debug.Log(player.direction);
+            player.Attack();
+            Assert.True(enemy0.IsState(State.Dead));
+            Assert.True(enemy1.IsState(State.Dead));
+            Assert.True(enemy2.IsState(State.Dead));
+        }
+
+        [Test]
+        public void NotKamaitachiTest() {
+            player.Position = new Cell(4, 4);
+            player.direction = Direction.up;
+            var enemy0 = Enemy.Create(floor, new Cell(3, 3), '武');
+            var enemy1 = Enemy.Create(floor, new Cell(4, 3), '武');
+            var enemy2 = Enemy.Create(floor, new Cell(5, 3), '武');
+            Assert.False(enemy0.IsState(State.Dead));
+            Assert.False(enemy1.IsState(State.Dead));
+            Assert.False(enemy2.IsState(State.Dead));
+            Debug.Log(player.direction);
+            player.Attack();
+            Assert.False(enemy0.IsState(State.Dead));
+            Assert.True(enemy1.IsState(State.Dead));
+            Assert.False(enemy2.IsState(State.Dead));
+        }
     }
 }

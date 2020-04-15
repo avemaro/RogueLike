@@ -13,6 +13,11 @@ public class Player: Creature {
         }
     }
 
+    public int BasicAP { get; protected set; } = 5;
+    public int strength = 8;
+    public override int AP =>
+        BasicAP + Mathf.RoundToInt(BasicAP * (weapon.AP + strength - 8) / 16.0f);
+
     public int MaxSatiation {
         get { return maxSatiation; }
         set {
@@ -83,12 +88,11 @@ public class Player: Creature {
 
     public void Use(int index) {
         var item = GetItem(index);
-        if (item == null) return;
-        item.Work(this);
-        PassTurn();
+        Use(item);
     }
 
     public void Use(Item item) {
+        if (item == null) return;
         item.Work(this);
         PassTurn();
     }
@@ -102,6 +106,10 @@ public class Player: Creature {
 
     public void Equip(int index) {
         var item = GetItem(index);
+        Equip(item);
+    }
+
+    public void Equip(Item item) {
         if (!(item is Equipment)) return;
         weapon = (Equipment)item;
         weapon.Equip();

@@ -15,6 +15,7 @@ public class Enemy : Creature {
 
     protected Enemy(Floor floor, Cell cell, char data) {
         Floor = floor;
+        floor.Enemies.Add(this);
         Position = cell;
         ID = data;
         brain = new Brain(floor, this);

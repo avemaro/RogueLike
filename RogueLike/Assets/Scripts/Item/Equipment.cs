@@ -9,10 +9,20 @@ public class Equipment : Item {
         return new Equipment(floor, cell, data);
     }
 
+    public int AP { get; private set; } = 0;
+    List<Direction> directions = new List<Direction>();
+
     protected Equipment(Floor floor, Cell cell, char data): base(floor, cell, data) {
-        this.Floor = floor;
+        Floor = floor;
         Position = cell;
         ID = data;
+    }
+
+    public Equipment(Floor floor, Cell cell, int AP, params Direction[] directions) {
+        Floor = floor;
+        Position = cell;
+        this.AP = AP;
+        this.directions = new List<Direction>(directions);
     }
 
     bool isEquiped = false;
@@ -23,14 +33,29 @@ public class Equipment : Item {
 
     public override bool Attack() {
         var player = Floor.Player;
-        var to = player.Position.Next(player.direction);
 
-        var enemy = Floor.GetEnemy(to);
-        if (enemy != null) return enemy.IsAttacked(this);
+        if (directions.Count != 0) {
+            directions = new List<Direction> {
+                player.direction,
+                player.direction.TurnLeft(),
+                player.direction.TurnRight()
+            };
+        } else
+            directions.Add(player.direction);
+        foreach (var direction in directions)
+            Debug.Log(direction);
 
-        var cell = Floor.GetTerrainCell(to);
-        if (cell is null) return false;
-        return cell.IsAttacked(this);
+        var cells = player.Position.Next(directions.ToArray());
+
+        foreach (var to in cells) {
+            var enemy = Floor.GetEnemy(to);
+            if (enemy != null) enemy.IsAttacked(this);
+
+            var cell = Floor.GetTerrainCell(to);
+            if (!(cell is null)) cell.IsAttacked(this);
+        }
+
+        return true;
     }
 
     public override string ToString() {

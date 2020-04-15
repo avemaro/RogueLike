@@ -42,13 +42,12 @@ public class FloorMaker {
 
         for (var i = 0; i < 10; i++) {
             var position = floor.GetPosition(TerrainType.land);
-            var enemy = Enemy.Create(floor, position, '武');
-            floor.Enemies.Add(enemy);
+            Enemy.Create(floor, position, '武');
         }
 
         for (var i = 0; i < 10; i++) {
             var position = floor.GetPosition(TerrainType.land);
-            var item = ItemMaker.Create(floor, position, "WandOfPainSharing");
+            var item = ItemMaker.Create(floor, position, "WandOfBlowAway");
             floor.Items.Add(item);
         }
 
@@ -96,7 +95,7 @@ public class FloorMaker {
 
                 var stuff = Stuff.Create(floor, cell, data);
                 if (stuff is Item) floor.Items.Add((Item)stuff);
-                if (stuff is Enemy) floor.Enemies.Add((Enemy)stuff);
+                //if (stuff is Enemy) (Enemy)stuff;
                 if (stuff is Trap) floor.Traps.Add((Trap)stuff);
             }
         }
@@ -139,8 +138,7 @@ public class FloorMaker {
 
         for (var i = 0; i < 10; i++) {
             var position = nextFloor.GetPosition(TerrainType.land);
-            var enemy = Enemy.Create(floor, position, '武');
-            nextFloor.Enemies.Add(enemy);
+            Enemy.Create(floor, position, '武');
         }
 
         for (var i = 0; i < 10; i++) {
