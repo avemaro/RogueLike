@@ -11,15 +11,14 @@ public static class ItemMaker {
         if (name == "StomachEnlargingSeed") return new Drag(floor, cell, 0, 0, 0, 10);
         if (name == "EyewashHerb") return new EyewashHerb(floor, cell);
         if (name == "DragonHerb") return new DragonHerb(floor, cell);
-
+        
         if (name == "WandOfBlowAway") return new Wand(floor, cell, '吹');
         if (name == "WandOfUnhappiness") return new Wand(floor, cell, '不');
-        if (name == "WandOfScapegoat") return new Wand(floor, cell, '身');
+        if (name == "WandOfScapegoat") return new Wand(floor, cell, (State.Confusion, 50), (State.Scapegoat, 50));
         if (name == "WandOfPlaceSwitching") return new Wand(floor, cell, '杖');
-        if (name == "WandOfBinding") return new Wand(floor, cell, '縛');
+        if (name == "WandOfBinding") return new Wand(floor, cell, (State.Bind, 9999));
         if (name == "WandOfTemporaryAvoid") return new Wand(floor, cell, '一');
-        if (name == "WandOfPainSharing") return new Wand(floor, cell, '痛');
-        
+        if (name == "WandOfPainSharing") return new Wand(floor, cell, (State.PainSharing, 9999));
 
         return null;
     }
