@@ -49,7 +49,7 @@ public static class ItemMaker {
         ("PotOfStorage**", 81), ("PotOfHideout**", 24),
         ("PotOfIdentify**", 35), ("PotOfBackMassage**", 35),
         ("PotOfStoreroom**", 23), ("PotOfConversion**", 23),
-        ("PotOfSynthesys**", 12), ("PotOfStealSeal**", 23),
+        ("PotOfSynthesys**", 12), ("PotOfStealSeal", 23),
     };
 
     public static Item PopItem(Floor floor, Cell cell) {
@@ -63,8 +63,6 @@ public static class ItemMaker {
                 break;
             }
         }
-        Debug.Log(rand);
-        Debug.Log(type);
         switch (type) {
             case "weapon": return SelectItem(floor, cell, weapons);
             case "shield": return SelectItem(floor, cell, shield);
@@ -96,12 +94,12 @@ public static class ItemMaker {
         if (name == "EyewashHerb") return new EyewashHerb(floor, cell, name);
         if (name == "DragonHerb") return new DragonHerb(floor, cell, name);
         
-        if (name == "WandOfBlowAway") return new Wand(floor, cell, '吹', name);
-        if (name == "WandOfUnhappiness") return new Wand(floor, cell, '不', name);
+        if (name == "WandOfBlowAway") return new Wand(floor, cell, name);
+        if (name == "WandOfUnhappiness") return new Wand(floor, cell, name);
         if (name == "WandOfScapegoat") return new Wand(floor, cell, name, (State.Confusion, 50), (State.Scapegoat, 50));
-        if (name == "WandOfPlaceSwitching") return new Wand(floor, cell, '杖', name);
+        if (name == "WandOfPlaceSwitching") return new Wand(floor, cell, name);
         if (name == "WandOfBinding") return new Wand(floor, cell, name, (State.Bind, 9999));
-        if (name == "WandOfTemporaryAvoid") return new Wand(floor, cell, '一', name);
+        if (name == "WandOfTemporaryAvoid") return new Wand(floor, cell, name);
         if (name == "WandOfPainSharing") return new Wand(floor, cell, name, (State.PainSharing, 9999));
 
         if (name == "SpikedClub") return new Equipment(floor, cell, 2, name);
@@ -148,7 +146,7 @@ public static class ItemMaker {
         if (name == "PotOfStoreroom**") return new Pot(floor, cell, name);
         if (name == "PotOfConversion**") return new Pot(floor, cell, name);
         if (name == "PotOfSynthesys**") return new Pot(floor, cell, name);
-        if (name == "PotOfStealSeal**") return new Pot(floor, cell, name);
+        if (name == "PotOfStealSeal") return new Pot(floor, cell, name);
 
         if (name == "BraceletOfDiscount**") return new Equipment(floor, cell, 0, name);
         if (name == "BraceletOfRustProof**") return new Equipment(floor, cell, 0, name);

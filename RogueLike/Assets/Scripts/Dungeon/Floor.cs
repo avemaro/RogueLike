@@ -163,6 +163,13 @@ public class Floor {
         return null;
     }
 
+    public Cell GetVacantPosition(TerrainType type) {
+        while (true) {
+            var cell = GetPosition(type);
+            if (GetStuff(cell.x, cell.y) == null) return cell;
+        }
+    }
+
     public Cell GetPosition(TerrainType type) {
         while (true) {
             var x = UnityEngine.Random.Range(0, floorSize.x - 1);

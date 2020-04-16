@@ -18,11 +18,8 @@ public class Equipment : Item {
         ID = data;
     }
 
-    public Equipment(Floor floor, Cell cell, int AP, string name, params Direction[] directions) {
+    public Equipment(Floor floor, Cell cell, int AP, string name, params Direction[] directions): base(floor, cell, name) {
         Image = '武';
-        Name = name;
-        Floor = floor;
-        Position = cell;
         this.AP = AP;
         this.directions = new List<Direction>(directions);
     }

@@ -8,6 +8,40 @@ public class FloorMaker {
 
     public static Floor Create() {
         var floor = new Floor(width, height);
+        FloorInit(floor);
+
+        SetEnemies(floor, 10);
+        SetItems(floor, 10);
+
+        return floor;
+    }
+
+    static void SetEnemies(Floor floor, int count) {
+        for (var i = 0; i < count; i++) {
+            var position = floor.GetVacantPosition(TerrainType.land);
+            Enemy.Create(floor, position, '武');
+        }
+    }
+
+    static void SetItems(Floor floor, int count) {
+        for (var i = 0; i < count; i++) {
+            var position = floor.GetVacantPosition(TerrainType.land);
+            var item = ItemMaker.PopItem(floor, position);
+            floor.Items.Add(item);
+        }
+    }
+
+    public static Floor NextFloor(Floor floor) {
+        var nextFloor = new Floor(width, height);
+        FloorInit(nextFloor);
+
+        SetEnemies(floor, 10);
+        SetItems(floor, 10);
+
+        return nextFloor;
+    }
+
+    static void FloorInit(Floor floor) {
         new Room(floor, (0, 0), (width - 1, height - 1));
 
         for (var x = 0; x < width; x++)
@@ -36,23 +70,11 @@ public class FloorMaker {
             return false;
         }
 
-        floor.Player.Position = floor.GetPosition(TerrainType.land);
-        floor.StairPosition = floor.GetPosition(TerrainType.land);
-
-
-        for (var i = 0; i < 10; i++) {
-            var position = floor.GetPosition(TerrainType.land);
-            Enemy.Create(floor, position, '武');
-        }
-
-        for (var i = 0; i < 10; i++) {
-            var position = floor.GetPosition(TerrainType.land);
-            var item = ItemMaker.PopItem(floor, position);
-            floor.Items.Add(item);
-        }
-
-        return floor;
+        floor.Player.Position = floor.GetVacantPosition(TerrainType.land);
+        floor.StairPosition = floor.GetVacantPosition(TerrainType.land);
     }
+
+
 
     public static Floor Create(string[] floorData) {
         var floor = new Floor(width, height);
@@ -95,58 +117,8 @@ public class FloorMaker {
 
                 var stuff = Stuff.Create(floor, cell, data);
                 if (stuff is Item) floor.Items.Add((Item)stuff);
-                //if (stuff is Enemy) (Enemy)stuff;
                 if (stuff is Trap) floor.Traps.Add((Trap)stuff);
             }
         }
-    }
-
-
-    public static Floor NextFloor(Floor floor) {
-        var nextFloor = new Floor(width, height);
-        new Room(nextFloor, (0, 0), (width - 1, height - 1));
-
-        for (var x = 0; x < width; x++)
-            if (nextFloor.GetTerrain(x, 0) == TerrainType.land ||
-                nextFloor.GetTerrain(x, height - 1) == TerrainType.land) {
-                for (var y = 0; y < height; y++)
-                    if (SetWall(x, 1, y, 0)) break;
-                for (var y = 0; y < height; y++)
-                    if (SetWall(x, 1, height - y - 1, 0)) break;
-            }
-
-        for (var y = 0; y < height; y++)
-            if (nextFloor.GetTerrain(0, y) == TerrainType.land ||
-                nextFloor.GetTerrain(width - 1, y) == TerrainType.land) {
-                for (var x = 0; x < width; x++)
-                    if (SetWall(x, 0, y, 1)) break;
-                for (var x = 0; x < width; x++)
-                    if (SetWall(width - x - 1, 0, y, 1)) break;
-            }
-
-        bool SetWall(int x, int dx, int y, int dy) {
-            if (nextFloor.GetTerrain(x - dx, y - dy) == TerrainType.land ||
-                nextFloor.GetTerrain(x + dx, y + dy) == TerrainType.land)
-                return true;
-            nextFloor.SetTerrain(x, y, TerrainType.wall);
-            return false;
-        }
-
-        nextFloor.Player.Position = nextFloor.GetPosition(TerrainType.land);
-        nextFloor.StairPosition = nextFloor.GetPosition(TerrainType.land);
-
-
-        for (var i = 0; i < 10; i++) {
-            var position = nextFloor.GetPosition(TerrainType.land);
-            Enemy.Create(floor, position, '武');
-        }
-
-        for (var i = 0; i < 10; i++) {
-            var position = nextFloor.GetPosition(TerrainType.land);
-            var item = ItemMaker.PopItem(floor, position);
-            nextFloor.Items.Add(item);
-        }
-
-        return nextFloor;
     }
 }

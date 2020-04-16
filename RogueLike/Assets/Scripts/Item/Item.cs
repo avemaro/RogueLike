@@ -9,33 +9,37 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
     public new static Item Create(Floor floor, Cell cell, char data) {
         if (data == '草') return ItemMaker.Create(floor, cell, "DragonHerb");
         if (data == '眼') return ItemMaker.Create(floor, cell, "EyewashHerb");
+        if (data == '薬') return ItemMaker.Create(floor, cell, "MedicinalHerb");
         if (data == '吹') return ItemMaker.Create(floor, cell, "WandOfBlowAway");
         if (data == '杖') return ItemMaker.Create(floor, cell, "WandOfPlaceSwitching");
         if (data == '縛') return ItemMaker.Create(floor, cell, "WandOfBinding");
+        if (data == '杖') return ItemMaker.Create(floor, cell, "WandOfPlaceSwitching");
+        if (data == '縛') return ItemMaker.Create(floor, cell, "WandOfBinding");
+        if (data == '吹') return ItemMaker.Create(floor, cell, "WandOfBlowAway");
+
+        if (data == '巻') return ItemMaker.Create(floor, cell, "ScrollOfIdentify**");
+        if (data == '眠') return ItemMaker.Create(floor, cell, "ScrollOfDeepSleep**");
+        if (data == '真') return ItemMaker.Create(floor, cell, "ScrollOfWindCutter**");
+
+        if (data == 'ト') return ItemMaker.Create(floor, cell, "PotOfStealSeal");
 
         var equipment = Equipment.Create(floor, cell, data);
         if (equipment != null) return equipment;
-        var scroll = Scroll.Create(floor, cell, data);
-        if (scroll != null) return scroll;
-        var wand = Wand.Create(floor, cell, data);
-        if (wand != null) return wand;
-        var pot = Pot.Create(floor, cell, data);
-        if (pot != null) return pot;
-        var herb = Herb.Create(floor, cell, data);
-        if (herb != null) return herb;
 
         if (!IDs.Contains(data)) return null;
         return new Item(floor, cell, data);
     }
 
     protected Item(Floor floor, Cell cell, char data) {
-        this.Floor = floor;
+        Floor = floor;
         Position = cell;
         ID = data;
     }
 
-    public Item() {
-
+    public Item(Floor floor, Cell cell, string name) {
+        Floor = floor;
+        Position = cell;
+        Name = name;
     }
 
     protected virtual void Work(Player player, Stuff stuff) {

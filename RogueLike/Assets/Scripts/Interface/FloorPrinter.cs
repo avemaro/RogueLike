@@ -23,7 +23,6 @@ public class FloorPrinter {
                 line += data;
             }
             floorText.Add(line);
-            //Debug.Log(line);
         }
 
         return floorText.ToArray();
@@ -52,9 +51,6 @@ public class FloorPrinter {
             if (stuff != null) {
                 data = stuff.Image;
                 if (!stuff.isVisible) data = '　';
-                //if (stuff is Enemy) {
-                //    if (((Enemy)stuff).IsState(State.Dead)) data = '　';
-                //}
             }
             if (floor.Player.Position == (x, y)) data = '試';
         }
@@ -65,25 +61,9 @@ public class FloorPrinter {
         var floorData = new List<string>();
         for (var y = 0; y < floor.floorSize.y; y++) {
             var str = "";
-            for (var x = 0; x < floor.floorSize.x; x++) {
-                char data = (char)floor.GetTerrain(x, y);
-
-                if (!(floor.StairPosition is null))
-                    if (floor.StairPosition == (x, y)) data = '階';
-                var stuff = floor.GetStuff(x, y);
-                if (stuff != null) {
-                    data = stuff.ID;
-                    if (!stuff.isVisible) data = '　';
-                    //if (stuff is Enemy) {
-                    //    if (((Enemy)stuff).state == State.Dead) data = '　';
-                    //}
-                }
-                if (!(floor.Player.Position is null))
-                    if (floor.Player.Position == (x, y)) data = '試';
-                str += data;
-            }
+            for (var x = 0; x < floor.floorSize.x; x++)
+                str += GetChar(x, y);
             floorData.Add(str);
-            Debug.Log(str);
         }
         return floorData;
     }

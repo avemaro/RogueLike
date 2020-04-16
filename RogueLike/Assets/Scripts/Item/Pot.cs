@@ -3,30 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pot : Item {
-    static readonly List<char> IDs = new List<char>()
-    { 'ト' };
-    public static new Pot Create(Floor floor, Cell cell, char data) {
-        if (!IDs.Contains(data)) return null;
-        return new Pot(floor, cell, data);
-    }
-
     readonly List<Item> contents = new List<Item>();
 
-    protected Pot(Floor floor, Cell cell, char data) : base(floor, cell, data) {
-        Floor = floor;
-        Position = cell;
-        ID = data;
-    }
-
-    public Pot(Floor floor, Cell cell, string name) {
-        Floor = floor;
-        Position = cell;
+    public Pot(Floor floor, Cell cell, string name): base(floor, cell, name) {
         Image = '壺';
-        Name = name;
     }
 
     public override void Work(Player player) {
-        if (ID == 'ト') {
+        if (Name == "PotOfStealSeal") {
             var nextCell = Floor.GetTerrainCell(player.Position);
 
             while (true) {

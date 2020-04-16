@@ -3,25 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Wand : Item {
-    static readonly List<char> IDs = new List<char>()
-    { '杖', '縛', '吹' };
-    public static new Wand Create(Floor floor, Cell cell, char data) {
-        if (!IDs.Contains(data)) return null;
-        return new Wand(floor, cell, data, "");
-    }
-
     protected int durability = 3;
     (State, int)[] states;
 
-    public Wand(Floor floor, Cell cell, char data, string name) : base(floor, cell, data) {
-        Floor = floor;
-        Position = cell;
-        ID = data;
-        Image = '杖';
-        Name = name;
-    }
-
-    public Wand(Floor floor, Cell cell, string name, params (State, int)[] states) {
+    public Wand(Floor floor, Cell cell, string name, params (State, int)[] states) : base(floor, cell, name) {
         Floor = floor;
         Position = cell;
         this.states = states;
@@ -33,16 +18,16 @@ public class Wand : Item {
         if (!(stuff is Enemy)) return;
         var enemy = (Enemy)stuff;
 
-        if (ID == '杖') {
+        if (Name == "WandOfPlaceSwitching") {
             var temp = player.Position;
             player.Position = enemy.Position;
             enemy.Position = temp;
         }
-        if (ID == '吹')
+        if (Name == "WandOfBlowAway")
             enemy.Fly(player.direction);
-        if (ID == '不')
+        if (Name == "WandOfUnhappiness")
             enemy.Level -= 1;
-        if (ID == '一') {
+        if (Name == "WandOfTemporaryAvoid") {
             enemy.states.Add((State.Bind, 9999));
             if (Floor.GetCreature(Floor.StairPosition) == null)
                 enemy.Position = Floor.StairPosition;
