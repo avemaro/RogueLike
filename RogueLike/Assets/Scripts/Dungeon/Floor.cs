@@ -67,7 +67,9 @@ public class Floor {
     }
 
     public void SetTerrain(int x, int y, TerrainType terrain) {
-        GetTerrainCell(new Cell(x, y)).type = terrain;
+        var terrainCell = GetTerrainCell(new Cell(x, y));
+        if (terrainCell is null) return;
+        terrainCell.type = terrain;
     }
 
 
@@ -76,7 +78,9 @@ public class Floor {
     }
 
     public TerrainType GetTerrain(Cell cell) {
-        return GetTerrainCell(cell).type;
+        var terrainCell = GetTerrainCell(cell);
+        if (terrainCell is null) return TerrainType.wall;
+        return terrainCell.type;
     }
 
     public List<TerrainType> GetTerrain(List<Cell> cells) {
