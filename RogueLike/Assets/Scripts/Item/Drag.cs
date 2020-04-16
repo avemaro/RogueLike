@@ -7,7 +7,9 @@ public class Drag : Item {
     readonly int MaxHP;
     readonly int MaxSatiation;
 
-    public Drag(Floor floor, Cell cell, int HP, int HP_MaxHP, int MaxHP, int MaxSatiation) {
+    public Drag(Floor floor, Cell cell, int HP, int HP_MaxHP, int MaxHP, int MaxSatiation, string name) {
+        Image = '薬';
+        Name = name;
         Floor = floor;
         Position = cell;
         this.HP = HP;
@@ -28,9 +30,11 @@ public class Drag : Item {
 }
 
 public class EyewashHerb : Item {
-    public EyewashHerb(Floor floor, Cell cell) {
+    public EyewashHerb(Floor floor, Cell cell, string name) {
         Floor = floor;
         Position = cell;
+        Image = '薬';
+        Name = name;
     }
 
     public override void Work(Player player) {
@@ -43,9 +47,11 @@ public class EyewashHerb : Item {
 }
 
 public class DragonHerb : Item {
-    public DragonHerb(Floor floor, Cell cell) {
+    public DragonHerb(Floor floor, Cell cell, string name) {
         Floor = floor;
         Position = cell;
+        Image = '薬';
+        Name = name;
     }
 
     public override void Work(Player player) {

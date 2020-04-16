@@ -65,8 +65,4 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
     public bool IsAttacked(IAttacker attacker) {
         throw new NotImplementedException();
     }
-
-    public override string ToString() {
-        return ID.ToString();
-    }
 }

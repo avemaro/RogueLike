@@ -18,7 +18,9 @@ public class Equipment : Item {
         ID = data;
     }
 
-    public Equipment(Floor floor, Cell cell, int AP, params Direction[] directions) {
+    public Equipment(Floor floor, Cell cell, int AP, string name, params Direction[] directions) {
+        Image = '武';
+        Name = name;
         Floor = floor;
         Position = cell;
         this.AP = AP;
@@ -69,7 +71,9 @@ public class Equipment : Item {
 }
 
 public class PickAxe : Equipment {
-    public PickAxe(Floor floor, Cell cell, int AP, params Direction[] directions) : base(floor, cell, AP, directions) {
+    public PickAxe(Floor floor, Cell cell, int AP, string name, params Direction[] directions) : base(floor, cell, AP, name, directions) {
+        Image = '武';
+        Name = name;
         ID = 'つ';
     }
 
@@ -79,5 +83,17 @@ public class PickAxe : Equipment {
             Floor.SetTerrain(to.x, to.y, TerrainType.land);
 
         return base.Attack();
+    }
+}
+
+public class Arrow : Equipment {
+    public Arrow(Floor floor, Cell cell, int AP, string name, params Direction[] directions) : base(floor, cell, AP, name, directions) {
+        ID = '矢';
+        Image = '矢';
+        Name = name;
+    }
+
+    public override bool Attack() {
+        return false;
     }
 }

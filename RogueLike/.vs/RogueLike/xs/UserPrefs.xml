@@ -1,24 +1,18 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Equipment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Pot.cs">
     <Files>
-      <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="78" Column="1" IsPinned="True" />
-      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="74" Column="50" />
-      <File FileName="Assets/Scripts/Item/Scroll.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Creature/State.cs" />
-      <File FileName="Assets/Scripts/Item/Item.cs" />
-      <File FileName="Assets/Scripts/Item/ItemMaker.cs" Line="29" Column="29" />
-      <File FileName="Assets/Scripts/Item/Equipment.cs" Line="75" Column="1" />
+      <File FileName="Assets/Scripts/Item/ItemMaker.cs" Line="133" Column="51" />
       <File FileName="Assets/Scripts/Dungeon/TerrainType.cs" Line="3" Column="61" />
-      <File FileName="Assets/Scripts/Creature/Brain.cs" Line="15" Column="1" NotebookId="1" />
-      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/Wand.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Creature.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="7" Column="67" />
+      <File FileName="Assets/Scripts/Dungeon/Cell.cs" Line="78" Column="1" />
+      <File FileName="Assets/Scripts/Stuff.cs" Line="8" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/Drag.cs" Line="34" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Brain.cs" Line="11" Column="23" NotebookId="1" />
       <File FileName="Assets/Tests/BasicTests/ItemTests.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Stuff.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Item/Drag.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Enemy.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Dungeon/TerrainCell.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/Creature/Player.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Interface/FloorPrinter.cs" Line="46" Column="25" NotebookId="1" />
+      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="52" Column="35" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/Scroll.cs" Line="21" Column="25" NotebookId="1" />
+      <File FileName="Assets/Scripts/Item/Pot.cs" Line="23" Column="25" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -14,6 +14,7 @@ public class Enemy : Creature {
     readonly Brain brain;
 
     protected Enemy(Floor floor, Cell cell, char data) {
+        Image = '敵';
         Floor = floor;
         floor.Enemies.Add(this);
         Position = cell;

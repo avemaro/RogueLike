@@ -7,22 +7,26 @@ public class Wand : Item {
     { '杖', '縛', '吹' };
     public static new Wand Create(Floor floor, Cell cell, char data) {
         if (!IDs.Contains(data)) return null;
-        return new Wand(floor, cell, data);
+        return new Wand(floor, cell, data, "");
     }
 
     protected int durability = 3;
     (State, int)[] states;
 
-    public Wand(Floor floor, Cell cell, char data) : base(floor, cell, data) {
-        this.Floor = floor;
+    public Wand(Floor floor, Cell cell, char data, string name) : base(floor, cell, data) {
+        Floor = floor;
         Position = cell;
         ID = data;
+        Image = '杖';
+        Name = name;
     }
 
-    public Wand(Floor floor, Cell cell, params (State, int)[] states) {
+    public Wand(Floor floor, Cell cell, string name, params (State, int)[] states) {
         Floor = floor;
         Position = cell;
         this.states = states;
+        Image = '杖';
+        Name = name;
     }
 
     protected override void Work(Player player, Stuff stuff) {

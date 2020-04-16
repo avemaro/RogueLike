@@ -106,8 +106,9 @@ public class Floor {
     }
 
     public Item GetItem(int x, int y) {
-        foreach (var item in Items)
+        foreach (var item in Items) {
             if (item.Position == (x, y)) return item;
+        }
         return null;
     }
 

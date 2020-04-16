@@ -13,9 +13,16 @@ public class Pot : Item {
     readonly List<Item> contents = new List<Item>();
 
     protected Pot(Floor floor, Cell cell, char data) : base(floor, cell, data) {
-        this.Floor = floor;
+        Floor = floor;
         Position = cell;
         ID = data;
+    }
+
+    public Pot(Floor floor, Cell cell, string name) {
+        Floor = floor;
+        Position = cell;
+        Image = '壺';
+        Name = name;
     }
 
     public override void Work(Player player) {

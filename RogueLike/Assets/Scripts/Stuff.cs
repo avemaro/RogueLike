@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Stuff {
+    public char Image { get; protected set; }
+    public string Name { get; protected set; }
+
     public Floor Floor { get; protected set; }
     public Cell Position { get; set; }
     public char ID { get; set; }

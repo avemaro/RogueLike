@@ -16,6 +16,13 @@ public class Scroll : Item {
         ID = data;
     }
 
+    public Scroll(Floor floor, Cell cell, string name) {
+        Floor = floor;
+        Position = cell;
+        Image = '巻';
+        Name = name;
+    }
+
     protected override void Work(Player player, Stuff stuff) {
         var enemy = (Enemy)stuff;
         if (ID == '眠')

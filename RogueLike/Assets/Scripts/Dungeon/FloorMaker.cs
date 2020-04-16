@@ -47,7 +47,7 @@ public class FloorMaker {
 
         for (var i = 0; i < 10; i++) {
             var position = floor.GetPosition(TerrainType.land);
-            var item = ItemMaker.Create(floor, position, "PickAxe");
+            var item = ItemMaker.PopItem(floor, position);
             floor.Items.Add(item);
         }
 
@@ -143,7 +143,7 @@ public class FloorMaker {
 
         for (var i = 0; i < 10; i++) {
             var position = nextFloor.GetPosition(TerrainType.land);
-            var item = Item.Create(floor, position, '真');
+            var item = ItemMaker.PopItem(floor, position);
             nextFloor.Items.Add(item);
         }
 

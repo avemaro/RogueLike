@@ -50,7 +50,7 @@ public class FloorPrinter {
             if (floor.StairPosition == (x, y)) data = '階';
             var stuff = floor.GetStuff(x, y);
             if (stuff != null) {
-                data = stuff.ID;
+                data = stuff.Image;
                 if (!stuff.isVisible) data = '　';
                 //if (stuff is Enemy) {
                 //    if (((Enemy)stuff).IsState(State.Dead)) data = '　';
