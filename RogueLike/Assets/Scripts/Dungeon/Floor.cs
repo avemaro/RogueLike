@@ -55,7 +55,6 @@ public class Floor {
         Player.StorePieces();
         Pieces = newFloor.Pieces;
         Rooms = newFloor.Rooms;
-        //Enemies = newFloor.Enemies;
         Items = newFloor.Items;
         Traps = newFloor.Traps;
     }

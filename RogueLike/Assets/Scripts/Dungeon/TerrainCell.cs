@@ -41,12 +41,12 @@ public class TerrainCell : Cell {
         }
         if (hasAttacked) return true;
 
-        if (attacker.ID == 'つ') {
-            if (type == TerrainType.wall) {
-                type = TerrainType.land;
-                hasAttacked = true;
-            }
-        }
+        //if (attacker.ID == 'つ') {
+        //    if (type == TerrainType.wall) {
+        //        type = TerrainType.land;
+        //        hasAttacked = true;
+        //    }
+        //}
         return hasAttacked;
     }
 }

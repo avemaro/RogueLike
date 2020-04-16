@@ -112,8 +112,13 @@ public class Player: Creature {
 
     public void Equip(Item item) {
         if (!(item is Equipment)) return;
-        weapon = (Equipment)item;
         weapon.Equip();
+        if (weapon == item) {
+            weapon = Equipment.Create(Floor, Position, '拳');
+        } else {
+            weapon = (Equipment)item;
+            weapon.Equip();
+        }
         PassTurn();
     }
 

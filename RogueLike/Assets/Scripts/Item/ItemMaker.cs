@@ -26,6 +26,8 @@ public static class ItemMaker {
         if (name == "Doutanuki") return new Equipment(floor, cell, 8);
         if (name == "Kamaitachi")
             return new Equipment(floor, cell, 3, Direction.upLeft, Direction.upRight);
+        if (name == "PickAxe")
+            return new PickAxe(floor, cell, 1);
 
         return null;
     }

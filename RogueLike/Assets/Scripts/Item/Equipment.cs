@@ -9,8 +9,8 @@ public class Equipment : Item {
         return new Equipment(floor, cell, data);
     }
 
-    public int AP { get; private set; } = 0;
-    List<Direction> directions = new List<Direction>();
+    public int AP { get; protected set; } = 0;
+    protected List<Direction> directions = new List<Direction>();
 
     protected Equipment(Floor floor, Cell cell, char data): base(floor, cell, data) {
         Floor = floor;
@@ -28,7 +28,7 @@ public class Equipment : Item {
     bool isEquiped = false;
 
     public void Equip() {
-        isEquiped = true;
+        isEquiped = !isEquiped;
     }
 
     public override bool Attack() {
@@ -65,5 +65,19 @@ public class Equipment : Item {
         var appendix = "";
         if (isEquiped) appendix = "E";
         return base.ToString() + appendix;
+    }
+}
+
+public class PickAxe : Equipment {
+    public PickAxe(Floor floor, Cell cell, int AP, params Direction[] directions) : base(floor, cell, AP, directions) {
+        ID = 'つ';
+    }
+
+    public override bool Attack() {
+        var to = Floor.Player.Front;
+        if (Floor.GetTerrain(to) == TerrainType.wall)
+            Floor.SetTerrain(to.x, to.y, TerrainType.land);
+
+        return base.Attack();
     }
 }

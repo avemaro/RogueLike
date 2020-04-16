@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Cell.cs" />
     <Compile Include="Assets\Scripts\Creature\Brain.cs" />
     <Compile Include="Assets\Scripts\Creature\Chess.cs" />
     <Compile Include="Assets\Scripts\Creature\Creature.cs" />
@@ -72,9 +71,12 @@
     <Compile Include="Assets\Scripts\Creature\Player.cs" />
     <Compile Include="Assets\Scripts\Creature\State.cs" />
     <Compile Include="Assets\Scripts\Direction.cs" />
+    <Compile Include="Assets\Scripts\Dungeon\Cell.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Floor.cs" />
     <Compile Include="Assets\Scripts\Dungeon\FloorMaker.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Room.cs" />
+    <Compile Include="Assets\Scripts\Dungeon\TerrainCell.cs" />
+    <Compile Include="Assets\Scripts\Dungeon\TerrainType.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Trap.cs" />
     <Compile Include="Assets\Scripts\IAttacker.cs" />
     <Compile Include="Assets\Scripts\Interface\BagPrinter.cs" />
@@ -94,8 +96,6 @@
     <Compile Include="Assets\Scripts\Item\Scroll.cs" />
     <Compile Include="Assets\Scripts\Item\Wand.cs" />
     <Compile Include="Assets\Scripts\Stuff.cs" />
-    <Compile Include="Assets\Scripts\TerrainCell.cs" />
-    <Compile Include="Assets\Scripts\TerrainType.cs" />
     <Reference Include="UnityEditor.UI">
       <HintPath>/Users/yamasaki/GitHub/RogueLike/RogueLike/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
