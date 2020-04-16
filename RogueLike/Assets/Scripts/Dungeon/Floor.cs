@@ -34,6 +34,7 @@ public class Floor {
 
     public void Work() {
         Enemies.RemoveAll(enemy => enemy.IsState(State.Dead));
+        Pieces.RemoveAll(piece => piece.IsState(State.Dead));
 
         foreach (var enemy in Enemies)
             enemy.Work();
@@ -42,6 +43,7 @@ public class Floor {
         if (StairPosition == Player.Position) GoNextFloor();
 
         Enemies.RemoveAll(enemy => enemy.IsState(State.Dead));
+        Pieces.RemoveAll(piece => piece.IsState(State.Dead));
 
         printer.GetSrroundings();
     }

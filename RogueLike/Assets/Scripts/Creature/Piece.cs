@@ -6,10 +6,11 @@ public class Piece : Creature {
     readonly Player player;
 
     public Piece(Floor floor, Cell position) {
-        this.Floor = floor;
+        Floor = floor;
         player = floor.Player;
         Position = position;
         ID = 'Ｐ';
+        Image = 'Ｐ';
         HP = 10;
     }
 

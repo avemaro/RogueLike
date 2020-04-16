@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
 public static class ItemMaker {
-    static readonly (string name, int prob)[] items = {
-        ("weapon", 24), ("shield", 25), ("arrow", 12), ("riceBall", 13), ("bracelet", 8),
-        ("scroll", 63), ("wand", 20), ("herb", 68), ("pot", 23)
+    static readonly (ItemType type, int prob)[] items = {
+        (ItemType.weapon, 24), (ItemType.shield, 25), (ItemType.arrow, 12),
+        (ItemType.riceBall, 13), (ItemType.bracelet, 8),
+        (ItemType.scroll, 63), (ItemType.wand, 20), (ItemType.drag, 68), (ItemType.pot, 23)
     };
 
     static readonly (string name, int prob)[] weapons = {
@@ -40,7 +41,7 @@ public static class ItemMaker {
         ("WandOfBinding", 51), ("WandOfTemporaryAvoid", 25),
         ("WandOfPainSharing", 26)
     };
-    static readonly (string name, int prob)[] herb = {
+    static readonly (string name, int prob)[] drag = {
         ("MedicinalHerb", 51), ("OtogiriHerb", 51),
         ("LifeHerb", 25), ("StomachEnlargingSeed", 26),
         ("EyewashHerb", 64), ("DragonHerb", 39),
@@ -55,7 +56,7 @@ public static class ItemMaker {
     public static Item PopItem(Floor floor, Cell cell) {
         var rand = Random.Range(0, 256);
         var accum = 0;
-        var type = "";
+        ItemType type = ItemType.drag;
         foreach (var (name, prob) in items) {
             accum += prob;
             if (rand < accum) {
@@ -64,14 +65,14 @@ public static class ItemMaker {
             }
         }
         switch (type) {
-            case "weapon": return SelectItem(floor, cell, weapons);
-            case "shield": return SelectItem(floor, cell, shield);
-            case "arrow": return SelectItem(floor, cell, arrows);
-            case "riceBall": return SelectItem(floor, cell, riceBall);
-            case "bracelet": return SelectItem(floor, cell, bracelet);
-            case "scroll": return SelectItem(floor, cell, scroll);
-            case "wand": return SelectItem(floor, cell, wand);
-            case "herb": return SelectItem(floor, cell, herb);
+            case ItemType.weapon: return SelectItem(floor, cell, weapons);
+            case ItemType.shield: return SelectItem(floor, cell, shield);
+            case ItemType.arrow: return SelectItem(floor, cell, arrows);
+            case ItemType.riceBall: return SelectItem(floor, cell, riceBall);
+            case ItemType.bracelet: return SelectItem(floor, cell, bracelet);
+            case ItemType.scroll: return SelectItem(floor, cell, scroll);
+            case ItemType.wand: return SelectItem(floor, cell, wand);
+            case ItemType.drag: return SelectItem(floor, cell, drag);
             default: return SelectItem(floor, cell, pot);
         }
     }
@@ -87,6 +88,12 @@ public static class ItemMaker {
     }
 
     public static Item Create(Floor floor, Cell cell, string name) {
+        //var data = ItemData.GetData(name);
+        //switch (data.Type) {
+        //    case ItemType.drag: return new Drag(floor, cell, data.Spec[0], data.Spec[1],
+        //                                        data.Spec[2], data.Spec[3], name);
+        //}
+
         if (name == "MedicinalHerb") return new Drag(floor, cell, 25, 1, 0, 0, name);
         if (name == "OtogiriHerb") return new Drag(floor, cell, 100, 2, 0, 0, name);
         if (name == "LifeHerb") return new Drag(floor, cell, 0, 0, 5, 0, name);
