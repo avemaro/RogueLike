@@ -20,8 +20,8 @@ public static class ItemMaker {
         ("WoodArrow**", 256)
     };
     static readonly (string name, int prob)[] riceBall = {
-        ("RiceBall**", 102), ("BigRiceBall**", 31), ("RottenRiceBall**", 103),
-        ("HugeRiceBall**", 20)
+        ("RiceBall", 102), ("BigRiceBall", 31), ("RottenRiceBall", 103),
+        ("HugeRiceBall", 20)
     };
     static readonly (string name, int prob)[] bracelet = {
         ("BraceletOfDiscount**", 23), ("BraceletOfRustProof**", 47),
@@ -97,18 +97,17 @@ public static class ItemMaker {
             case ItemType.arrow:
                 return new Arrow(floor, cell, data.Spec[0], name); ;
             case ItemType.riceBall:
-                break;
+                return new Drag(floor, cell, name, data.Spec);
             case ItemType.bracelet:
                 break;
             case ItemType.scroll:
-                break;
+                return new Scroll(floor, cell, name); ;
             case ItemType.wand:
                 return new Wand(floor, cell, name);
             case ItemType.drag:
-                return new Drag(floor, cell, data.Spec[0], data.Spec[1],
-                                data.Spec[2], data.Spec[3], name);
+                return new Drag(floor, cell, name, data.Spec);
             case ItemType.pot:
-                break;
+                return new Pot(floor, cell, name);
             default:
                 break;
         }
@@ -124,32 +123,6 @@ public static class ItemMaker {
             return new Weapon(floor, cell, 3, name, Direction.upLeft, Direction.upRight);
         if (name == "PickAxe")
             return new PickAxe(floor, cell, 1, name);
-
-        if (name == "RiceBall**") return new Drag(floor, cell, 0, 0, 0, 0, name);
-        if (name == "BigRiceBall**") return new Drag(floor, cell, 0, 0, 0, 0, name);
-        if (name == "RottenRiceBall**") return new Drag(floor, cell, 0, 0, 0, 0, name);
-        if (name == "HugeRiceBall**") return new Drag(floor, cell, 0, 0, 0, 0, name);
-
-
-        if (name == "ScrollOfIdentify**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfLight**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfPotEnlarging**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfWindCutter") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfEmergency**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfDeepSleep**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfPowerUp**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfBigRoom**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfConfusion**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfWhitePaper**") return new Scroll(floor, cell, name);
-
-        if (name == "PotOfStorage**") return new Pot(floor, cell, name);
-        if (name == "PotOfHideout**") return new Pot(floor, cell, name);
-        if (name == "PotOfIdentify**") return new Pot(floor, cell, name);
-        if (name == "PotOfBackMassage**") return new Pot(floor, cell, name);
-        if (name == "PotOfStoreroom**") return new Pot(floor, cell, name);
-        if (name == "PotOfConversion**") return new Pot(floor, cell, name);
-        if (name == "PotOfSynthesys**") return new Pot(floor, cell, name);
-        if (name == "PotOfStealSeal") return new Pot(floor, cell, name);
 
         if (name == "BraceletOfDiscount**") return new Weapon(floor, cell, 0, name);
         if (name == "BraceletOfRustProof**") return new Weapon(floor, cell, 0, name);

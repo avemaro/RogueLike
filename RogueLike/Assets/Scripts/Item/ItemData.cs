@@ -36,10 +36,15 @@ public class ItemData {
         AddData(ItemType.shield, "HeavilyArmedShield", 10);
         AddData(ItemType.shield, "ThiefSealShield", 3);
 
-        AddData(ItemType.drag, "MedicinalHerb", 25, 1, 0, 0);
-        AddData(ItemType.drag, "OtogiriHerb", 100, 2, 0, 0);
-        AddData(ItemType.drag, "LifeHerb", 0, 0, 5, 0);
-        AddData(ItemType.drag, "StomachEnlargingSeed", 0, 0, 0, 10);
+        AddData(ItemType.drag, "MedicinalHerb", 25, 1, 0, 0, 0, 0);
+        AddData(ItemType.drag, "OtogiriHerb", 100, 2, 0, 0, 0, 0);
+        AddData(ItemType.drag, "LifeHerb", 0, 0, 5, 0, 0, 0);
+        AddData(ItemType.drag, "StomachEnlargingSeed", 0, 0, 0, 0, 0, 10);
+
+        AddData(ItemType.riceBall, "RiceBall", 0, 0, 0, 50, 1, 0);
+        AddData(ItemType.riceBall, "BigRiceBall", 0, 0, 0, 100, 2, 0);
+        AddData(ItemType.riceBall, "RottenRiceBall", 0, 0, 0, 30, 0, 0);
+        AddData(ItemType.riceBall, "HugeRiceBall", 0, 0, 0, 999, 0, 5);
 
         AddData(ItemType.wand, "WandOfBlowAway");
         AddData(ItemType.wand, "WandOfUnhappiness");
@@ -47,7 +52,26 @@ public class ItemData {
         AddData(ItemType.wand, "WandOfTemporaryAvoid");
 
         AddData(ItemType.arrow, "WoodArrow**", 5);
-        
+
+        AddData(ItemType.scroll, "ScrollOfIdentify**");
+        AddData(ItemType.scroll, "ScrollOfLight**");
+        AddData(ItemType.scroll, "ScrollOfPotEnlarging**");
+        AddData(ItemType.scroll, "ScrollOfWindCutter");
+        AddData(ItemType.scroll, "ScrollOfEmergency**");
+        AddData(ItemType.scroll, "ScrollOfDeepSleep**");
+        AddData(ItemType.scroll, "ScrollOfPowerUp**");
+        AddData(ItemType.scroll, "ScrollOfBigRoom**");
+        AddData(ItemType.scroll, "ScrollOfConfusion**");
+        AddData(ItemType.scroll, "ScrollOfWhitePaper**");
+
+        AddData(ItemType.pot, "PotOfStorage**");
+        AddData(ItemType.pot, "PotOfHideout**");
+        AddData(ItemType.pot, "PotOfIdentify**");
+        AddData(ItemType.pot, "PotOfBackMassage**");
+        AddData(ItemType.pot, "PotOfStoreroom**");
+        AddData(ItemType.pot, "PotOfConversion**");
+        AddData(ItemType.pot, "PotOfSynthesys**");
+        AddData(ItemType.pot, "PotOfStealSeal");
     }
 
     public static void AddData(ItemType type, string name, params int[] spec) {
