@@ -29,12 +29,12 @@ public class ItemData {
         AddData(ItemType.weapon, "SacredSickle", 4);
         AddData(ItemType.weapon, "DrainBuster", 5);
 
-        AddData(ItemType.shield, "LeatherShield**", 2);
-        AddData(ItemType.shield, "BronzeShield**", 4);
-        AddData(ItemType.shield, "WoodenShield**", 3);
-        AddData(ItemType.shield, "IronShield**", 7);
-        AddData(ItemType.shield, "HeavilyArmedShield**", 10);
-        AddData(ItemType.shield, "ThiefSealShield**", 3);
+        AddData(ItemType.shield, "LeatherShield", 2);
+        AddData(ItemType.shield, "BronzeShield", 4);
+        AddData(ItemType.shield, "WoodenShield", 3);
+        AddData(ItemType.shield, "IronShield", 7);
+        AddData(ItemType.shield, "HeavilyArmedShield", 10);
+        AddData(ItemType.shield, "ThiefSealShield", 3);
 
         AddData(ItemType.drag, "MedicinalHerb", 25, 1, 0, 0);
         AddData(ItemType.drag, "OtogiriHerb", 100, 2, 0, 0);

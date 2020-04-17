@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Shield : Item
+public class Shield : Equipment
 {
     public int DP { get; }
-    bool isEquiped = false;
 
     public Shield(Floor floor, Cell cell, int DP, string name) : base(floor, cell, name)
     {
@@ -13,14 +12,19 @@ public class Shield : Item
         this.DP = DP;
     }
 
-    public void Equip()
-    {
-        isEquiped = !isEquiped;
-    }
     public override string ToString()
     {
         var appendix = "";
         if (isEquiped) appendix = "#";
         return base.ToString() + appendix;
+    }
+}
+
+public class NullShiled: Shield
+{
+    public NullShiled(Floor floor, Cell cell, int DP, string name) : base(floor, cell, 0, name)
+    {
+        Image = '防';
+        Name = name;
     }
 }

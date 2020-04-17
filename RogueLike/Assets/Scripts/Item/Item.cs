@@ -23,7 +23,7 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
 
         if (data == 'ト') return ItemMaker.Create(floor, cell, "PotOfStealSeal");
 
-        var equipment = Equipment.Create(floor, cell, data);
+        var equipment = Weapon.Create(floor, cell, data);
         if (equipment != null) return equipment;
 
         if (!IDs.Contains(data)) return null;

@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Item\Scroll.cs" />
     <Compile Include="Assets\Scripts\Item\Shield.cs" />
     <Compile Include="Assets\Scripts\Item\Wand.cs" />
+    <Compile Include="Assets\Scripts\Item\Weapon.cs" />
     <Compile Include="Assets\Scripts\Stuff.cs" />
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/holly/Documents/GitHub/RogueLike/RogueLike/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

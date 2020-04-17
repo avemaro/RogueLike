@@ -12,9 +12,9 @@ public static class ItemMaker {
         ("SacredSickle", 9), ("Kamaitachi", 8), ("PickAxe", 43), ("DrainBuster", 9)
     };
     static readonly (string name, int prob)[] shield = {
-        ("LeatherShield**", 28), ("BronzeShield**", 86),
-        ("WoodenShield**", 42), ("IronShield**", 43),
-        ("HeavilyArmedShield**", 29), ("ThiefSealShield**", 28)
+        ("LeatherShield", 28), ("BronzeShield", 86),
+        ("WoodenShield", 42), ("IronShield", 43),
+        ("HeavilyArmedShield", 29), ("ThiefSealShield", 28)
     };
     static readonly (string name, int prob)[] arrows = {
         ("WoodArrow**", 256)
@@ -91,7 +91,7 @@ public static class ItemMaker {
         var data = ItemData.GetData(name);
         switch (data.Type) {
             case ItemType.weapon:
-                return new Equipment(floor, cell, data.Spec[0], name);
+                return new Weapon(floor, cell, data.Spec[0], name);
             case ItemType.shield:
                 return new Shield(floor, cell, data.Spec[0], name);
             case ItemType.arrow:
@@ -121,7 +121,7 @@ public static class ItemMaker {
         if (name == "WandOfPainSharing") return new Wand(floor, cell, name, (State.PainSharing, 9999));
 
         if (name == "Kamaitachi")
-            return new Equipment(floor, cell, 3, name, Direction.upLeft, Direction.upRight);
+            return new Weapon(floor, cell, 3, name, Direction.upLeft, Direction.upRight);
         if (name == "PickAxe")
             return new PickAxe(floor, cell, 1, name);
 
@@ -151,12 +151,12 @@ public static class ItemMaker {
         if (name == "PotOfSynthesys**") return new Pot(floor, cell, name);
         if (name == "PotOfStealSeal") return new Pot(floor, cell, name);
 
-        if (name == "BraceletOfDiscount**") return new Equipment(floor, cell, 0, name);
-        if (name == "BraceletOfRustProof**") return new Equipment(floor, cell, 0, name);
-        if (name == "BraceletOfCurseProof**") return new Equipment(floor, cell, 0, name);
-        if (name == "BraceletOfLongThrow**") return new Equipment(floor, cell, 0,  name);
-        if (name == "BraceletOfClairvoyance**") return new Equipment(floor, cell, 0, name);
-        if (name == "BraceletOfConfusionProof**") return new Equipment(floor, cell, 0, name);
+        if (name == "BraceletOfDiscount**") return new Weapon(floor, cell, 0, name);
+        if (name == "BraceletOfRustProof**") return new Weapon(floor, cell, 0, name);
+        if (name == "BraceletOfCurseProof**") return new Weapon(floor, cell, 0, name);
+        if (name == "BraceletOfLongThrow**") return new Weapon(floor, cell, 0,  name);
+        if (name == "BraceletOfClairvoyance**") return new Weapon(floor, cell, 0, name);
+        if (name == "BraceletOfConfusionProof**") return new Weapon(floor, cell, 0, name);
 
         throw new System.Exception(name);
     }

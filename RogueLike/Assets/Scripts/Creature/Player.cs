@@ -17,6 +17,7 @@ public class Player: Creature {
     public int strength = 8;
     public override int AP =>
         BasicAP + Mathf.RoundToInt(BasicAP * (weapon.AP + strength - 8) / 16.0f);
+    public override int DP { get => base.DP + shield.DP; }
 
     public int MaxSatiation {
         get { return maxSatiation; }
@@ -36,7 +37,8 @@ public class Player: Creature {
     int satiation = 1000;
 
     public List<Item> Items { get; private set; } = new List<Item>();
-    public Equipment weapon;
+    public Weapon weapon;
+    public Shield shield;
 
     public List<Piece> Pieces { get; private set; } = new List<Piece>();
 
@@ -45,8 +47,8 @@ public class Player: Creature {
         direction = Direction.down;
         MaxHP = 10;
         HP = 10;
-        weapon = Equipment.Create(floor, Position, '拳');
-
+        weapon = Weapon.Create(floor, Position, '拳');
+        shield = new NullShiled(floor, Position, 0, "");
         //Items.Add(ItemMaker.Create(Floor, Position, "ScrollOfWindCutter"));;
     }
 
@@ -55,7 +57,7 @@ public class Player: Creature {
         direction = Direction.down;
         this.MaxHP = MaxHP;
         HP = MaxHP;
-        weapon = Equipment.Create(floor, Position, '拳');
+        weapon = Weapon.Create(floor, Position, '拳');
 
     }
 
@@ -114,16 +116,38 @@ public class Player: Creature {
     }
 
     public void Equip(Item item) {
-        if (!(item is Equipment)) return;
+        //if (!(item is Weapon)) return;
         Debug.Log(item);
-        weapon.Equip();
-        if (weapon == item) {
-            weapon = Equipment.Create(Floor, Position, '拳');
-        } else {
-            weapon = (Equipment)item;
+
+        if (item is Weapon)
+        {
             weapon.Equip();
+            if (weapon == item)
+            {
+                weapon = Weapon.Create(Floor, Position, '拳');
+            }
+            else
+            {
+                weapon = (Weapon)item;
+                weapon.Equip();
+            }
+            PassTurn();
         }
-        PassTurn();
+
+        if (item is Shield)
+        {
+            shield.Equip();
+            if (shield == item)
+            {
+                shield = new NullShiled(Floor, Position, 0, "");
+            }
+            else
+            {
+                shield = (Shield)item;
+                shield.Equip();
+            }
+        }
+
     }
 
     bool PickUp() {
