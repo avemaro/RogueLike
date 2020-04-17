@@ -43,10 +43,10 @@ public class Player: Creature {
     public List<Piece> Pieces { get; private set; } = new List<Piece>();
 
     public Player(Floor floor) {
-        this.Floor = floor;
+        Floor = floor;
         direction = Direction.down;
-        MaxHP = 10;
-        HP = 10;
+        MaxHP = 15;
+        HP = MaxHP;
         weapon = Weapon.Create(floor, Position, '拳');
         shield = new NullShiled(floor, Position, 0, "");
         //Items.Add(ItemMaker.Create(Floor, Position, "ScrollOfWindCutter"));;
@@ -58,7 +58,6 @@ public class Player: Creature {
         this.MaxHP = MaxHP;
         HP = MaxHP;
         weapon = Weapon.Create(floor, Position, '拳');
-
     }
 
     void PassTurn() {
@@ -84,7 +83,6 @@ public class Player: Creature {
     public override bool Attack() {
         if (IsState(State.Dead)) return false;
         Debug.Log("ATTACK");
-        Debug.Log(weapon.Name);
         weapon.Attack();
         foreach (var piece in Floor.Pieces)
             piece.Attack();

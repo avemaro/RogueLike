@@ -20,4 +20,15 @@ public abstract class Stuff {
         if (trap != null) return trap;
         return null;
     }
+
+    public void Fly(Direction direction) {
+        Debug.Log("Fly to " + direction);
+        var nextCell = Floor.GetTerrainCell(Position);
+        while (true) {
+            nextCell = nextCell.Next(direction);
+            if (nextCell.type != TerrainType.land &&
+                nextCell.type != TerrainType.water) break;
+            Position = nextCell;
+        }
+    }
 }

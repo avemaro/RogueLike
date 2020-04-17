@@ -6,6 +6,9 @@ using UnityEngine;
 public class Item : Stuff, IEquatable<Item>, IAttacker {
     static readonly List<char> IDs = new List<char>()
     { 'Ｇ'};
+
+    public int AP { get; set; }
+
     public new static Item Create(Floor floor, Cell cell, char data) {
         if (data == '草') return ItemMaker.Create(floor, cell, "DragonHerb");
         if (data == '眼') return ItemMaker.Create(floor, cell, "EyewashHerb");
@@ -51,6 +54,12 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
     }
 
     public virtual bool Throw(Player player) {
+        Debug.Log("Throw");
+        player.Items.Remove(this);
+        Floor.Items.Add(this);
+        Position = player.Position;
+        Fly(player.direction);
+
         var enemy = Floor.GetEnemy(player.Position, player.direction,
             new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
         if (enemy == null) return true;

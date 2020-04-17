@@ -22,6 +22,19 @@ public class Enemy : Creature {
         brain = new Brain(floor, this);
     }
 
+    public Enemy(Floor floor, Cell cell, string name, char ID, params int[] spec) {
+        Image = ID;
+        Floor = floor;
+        floor.Enemies.Add(this);
+        Position = cell;
+        brain = new Brain(floor, this);
+
+        MaxHP = spec[0];
+        HP = spec[0];
+        AP = spec[1];
+        DP = spec[2];
+    }
+
     public void Work() {
         if (IsState(State.Confusion)) {
             var directions = DirectionExtend.AllCases();

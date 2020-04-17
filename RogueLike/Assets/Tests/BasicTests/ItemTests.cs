@@ -118,14 +118,17 @@ namespace Tests
         public void NotKamaitachiTest() {
             player.Position = new Cell(4, 4);
             player.direction = Direction.up;
+            player.weapon = Weapon.Create(floor, player.Position, '拳');
             var enemy0 = Enemy.Create(floor, new Cell(3, 3), '武');
             var enemy1 = Enemy.Create(floor, new Cell(4, 3), '武');
             var enemy2 = Enemy.Create(floor, new Cell(5, 3), '武');
             Assert.False(enemy0.IsState(State.Dead));
             Assert.False(enemy1.IsState(State.Dead));
             Assert.False(enemy2.IsState(State.Dead));
-            Debug.Log(player.direction);
+            Debug.Log(player.AP);
             player.Attack();
+
+            Debug.Log(enemy1.HP);
             Assert.False(enemy0.IsState(State.Dead));
             Assert.True(enemy1.IsState(State.Dead));
             Assert.False(enemy2.IsState(State.Dead));

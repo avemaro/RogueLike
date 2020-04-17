@@ -11,6 +11,8 @@ public class Trap: Stuff, IAttacker {
 
     bool isStepedOn;
 
+    public int AP { get; set; } = 20;
+
     private Trap(Floor floor, Cell cell, char data) {
         this.Floor = floor;
         Position = cell;
@@ -31,7 +33,7 @@ public class Trap: Stuff, IAttacker {
                 player.Jump();
                 return;
             case '爆':
-                player.IsAttacked(this);
+                //player.IsAttacked(this);
                 foreach (var cell in Position.Around) {
                     var enemy = Floor.GetEnemy(cell);
                     if (enemy != null) enemy.IsAttacked(this);

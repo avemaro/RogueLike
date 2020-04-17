@@ -67,6 +67,7 @@ public class ItemData {
         return new ItemData(found.type, found.name, found.spec);
     }
 
+    #region InitData
     static void InitWeapon() {
         AddData(ItemType.weapon, "SpikedClub", 2);
         AddData(ItemType.weapon, "Glaive", 4);
@@ -146,6 +147,8 @@ public class ItemData {
         InitScroll();
         InitPot();
     }
+    #endregion
+
 
     public static void AddData(ItemType type, string name, params int[] spec) {
         data.Add((type, name, spec));

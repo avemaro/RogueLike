@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : Equipment {
-    static readonly List<char> IDs = new List<char>() { '拳', 'つ', '透' };
+    static readonly List<char> IDs = new List<char>() { '拳' };
     public new static Weapon Create(Floor floor, Cell cell, char data) {
         if (!IDs.Contains(data)) return null;
         return new Weapon(floor, cell, data);
     }
 
-    public int AP { get; protected set; } = 0;
     protected List<Direction> directions = new List<Direction>();
 
     protected Weapon(Floor floor, Cell cell, char data): base(floor, cell, data) {
         Floor = floor;
         Position = cell;
         ID = data;
+        Name = "拳";
     }
 
     public Weapon(Floor floor, Cell cell, int AP, string name, params Direction[] directions): base(floor, cell, name) {
@@ -48,10 +48,10 @@ public class Weapon : Equipment {
 
         foreach (var to in cells) {
             var enemy = Floor.GetEnemy(to);
-            if (enemy != null) enemy.IsAttacked(this);
+            if (enemy != null) enemy.IsAttacked(player);
 
             var cell = Floor.GetTerrainCell(to);
-            if (!(cell is null)) cell.IsAttacked(this);
+            if (!(cell is null)) cell.IsAttacked(player);
         }
 
         return true;

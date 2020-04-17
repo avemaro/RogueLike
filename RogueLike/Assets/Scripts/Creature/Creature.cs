@@ -49,7 +49,8 @@ public abstract class Creature : Stuff, IAttacker {
     public abstract bool Attack();
 
     public virtual bool IsAttacked(IAttacker attacker) {
-        HP--;
+        var damage = attacker.AP * Mathf.Pow(15.0f / 16.0f, DP);
+        HP -= Mathf.FloorToInt(damage);
         return true;
     }
 
@@ -98,16 +99,6 @@ public abstract class Creature : Stuff, IAttacker {
 
     protected virtual bool IsBlockingCreatrue(Cell to) {
         return Floor.GetCreature(to) != null;
-    }
-
-    public void Fly(Direction direction) {
-        var nextCell = Floor.GetTerrainCell(Position);
-        while (true) {
-            nextCell = nextCell.Next(direction);
-            if (nextCell.type != TerrainType.land &&
-                nextCell.type != TerrainType.water) break;
-            Position = nextCell;
-        }
     }
 
     public void Jump() {

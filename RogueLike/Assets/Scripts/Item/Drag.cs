@@ -34,6 +34,7 @@ public class Drag : Item {
 
     public override void Work(Player player) {
         player.Items.Remove(this);
+        Debug.Log(Name);
 
         player.Satiation += 5;
         if (player.HP == player.MaxHP) player.MaxHP += HP_MaxHP;

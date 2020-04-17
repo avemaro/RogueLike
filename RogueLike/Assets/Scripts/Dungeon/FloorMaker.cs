@@ -8,11 +8,12 @@ public class FloorMaker {
 
     public static Floor Create() {
         ItemData.InitData();
+        EnemyData.InitData();
 
         var floor = new Floor(width, height);
         FloorInit(floor);
 
-        SetEnemies(floor, 10);
+        SetEnemies(floor, 5);
         SetItems(floor, 10);
 
         return floor;
@@ -21,7 +22,7 @@ public class FloorMaker {
     static void SetEnemies(Floor floor, int count) {
         for (var i = 0; i < count; i++) {
             var position = floor.GetVacantPosition(TerrainType.land);
-            Enemy.Create(floor, position, '武');
+            EnemyMaker.PopEnemy(floor, position);
         }
     }
 
@@ -38,9 +39,9 @@ public class FloorMaker {
         FloorInit(nextFloor);
 
         floor.Enemies.RemoveAll(enemy => enemy is Enemy);
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 5; i++) {
             var position = nextFloor.GetVacantPosition(TerrainType.land);
-            Enemy.Create(floor, position, '武');
+            EnemyMaker.PopEnemy(floor, position);
         }
 
         floor.Items.RemoveAll(item => item is Item);
