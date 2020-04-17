@@ -88,16 +88,35 @@ public static class ItemMaker {
     }
 
     public static Item Create(Floor floor, Cell cell, string name) {
-        //var data = ItemData.GetData(name);
-        //switch (data.Type) {
-        //    case ItemType.drag: return new Drag(floor, cell, data.Spec[0], data.Spec[1],
-        //                                        data.Spec[2], data.Spec[3], name);
-        //}
+        var data = ItemData.GetData(name);
+        switch (data.Type) {
+            case ItemType.drag:
+                return new Drag(floor, cell, data.Spec[0], data.Spec[1],
+                                data.Spec[2], data.Spec[3], name);
+            case ItemType.weapon:
+                break;
+            case ItemType.shield:
+                break;
+            case ItemType.arrow:
+                break;
+            case ItemType.riceBall:
+                break;
+            case ItemType.bracelet:
+                break;
+            case ItemType.scroll:
+                break;
+            case ItemType.wand:
+                break;
+            case ItemType.pot:
+                break;
+            default:
+                break;
+        }
 
-        if (name == "MedicinalHerb") return new Drag(floor, cell, 25, 1, 0, 0, name);
-        if (name == "OtogiriHerb") return new Drag(floor, cell, 100, 2, 0, 0, name);
-        if (name == "LifeHerb") return new Drag(floor, cell, 0, 0, 5, 0, name);
-        if (name == "StomachEnlargingSeed") return new Drag(floor, cell, 0, 0, 0, 10, name);
+        //if (name == "MedicinalHerb") return new Drag(floor, cell, 25, 1, 0, 0, name);
+        //if (name == "OtogiriHerb") return new Drag(floor, cell, 100, 2, 0, 0, name);
+        //if (name == "LifeHerb") return new Drag(floor, cell, 0, 0, 5, 0, name);
+        //if (name == "StomachEnlargingSeed") return new Drag(floor, cell, 0, 0, 0, 10, name);
         if (name == "EyewashHerb") return new EyewashHerb(floor, cell, name);
         if (name == "DragonHerb") return new DragonHerb(floor, cell, name);
         

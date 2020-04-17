@@ -7,6 +7,8 @@ public class FloorMaker {
     static readonly int height = 30;
 
     public static Floor Create() {
+        ItemData.InitData();
+
         var floor = new Floor(width, height);
         FloorInit(floor);
 

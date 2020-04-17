@@ -5,12 +5,34 @@ using UnityEngine;
 
 public class ItemData {
     public ItemType Type { get; private set; }
+    public string Name { get; private set; }
     public int[] Spec;
+
+    private ItemData(ItemType type, string name, params int[] spec) {
+        Type = type;
+        Name = name;
+        Spec = spec;
+    }
+
+    static List<(ItemType type, string name, int[] spec)> data = new List<(ItemType type, string name, int[] spec)>();
+
     public static ItemData GetData(string name) {
-        throw new NotImplementedException();
+        var found = data.Find(d => d.name == name);
+        return new ItemData(found.type, found.name, found.spec);
+    }
+
+    public static void InitData() {
+        AddData(ItemType.drag, "MedicinalHerb", 25, 1, 0, 0);
+        AddData(ItemType.drag, "OtogiriHerb", 100, 2, 0, 0);
+        AddData(ItemType.drag, "LifeHerb", 0, 0, 5, 0);
+        AddData(ItemType.drag, "StomachEnlargingSeed", 0, 0, 0, 10);
+    }
+
+    public static void AddData(ItemType type, string name, params int[] spec) {
+        data.Add((type, name, spec));
     }
 }
 
 public enum ItemType {
-    weapon, shield, arrow, riceBall, bracelet, scroll, wand, drag, pot
+    none, weapon, shield, arrow, riceBall, bracelet, scroll, wand, drag, pot
 }
