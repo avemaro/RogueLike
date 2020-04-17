@@ -19,7 +19,7 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
 
         if (data == '巻') return ItemMaker.Create(floor, cell, "ScrollOfIdentify**");
         if (data == '眠') return ItemMaker.Create(floor, cell, "ScrollOfDeepSleep**");
-        if (data == '真') return ItemMaker.Create(floor, cell, "ScrollOfWindCutter**");
+        if (data == '真') return ItemMaker.Create(floor, cell, "ScrollOfWindCutter");
 
         if (data == 'ト') return ItemMaker.Create(floor, cell, "PotOfStealSeal");
 

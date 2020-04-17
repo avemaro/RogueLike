@@ -30,7 +30,7 @@ public static class ItemMaker {
     };
     static readonly (string name, int prob)[] scroll = {
         ("ScrollOfIdentify**", 72), ("ScrollOfLight**", 30),
-        ("ScrollOfPotEnlarging**", 11), ("ScrollOfWindCutter**", 30),
+        ("ScrollOfPotEnlarging**", 11), ("ScrollOfWindCutter", 30),
         ("ScrollOfEmergency**", 21), ("ScrollOfDeepSleep**", 20),
         ("ScrollOfPowerUp**", 21), ("ScrollOfBigRoom**", 10),
         ("ScrollOfConfusion**", 21), ("ScrollOfWhitePaper**", 20),
@@ -134,7 +134,7 @@ public static class ItemMaker {
         if (name == "ScrollOfIdentify**") return new Scroll(floor, cell, name);
         if (name == "ScrollOfLight**") return new Scroll(floor, cell, name);
         if (name == "ScrollOfPotEnlarging**") return new Scroll(floor, cell, name);
-        if (name == "ScrollOfWindCutter**") return new Scroll(floor, cell, name);
+        if (name == "ScrollOfWindCutter") return new Scroll(floor, cell, name);
         if (name == "ScrollOfEmergency**") return new Scroll(floor, cell, name);
         if (name == "ScrollOfDeepSleep**") return new Scroll(floor, cell, name);
         if (name == "ScrollOfPowerUp**") return new Scroll(floor, cell, name);

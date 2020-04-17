@@ -37,8 +37,18 @@ public class FloorMaker {
         var nextFloor = new Floor(width, height);
         FloorInit(nextFloor);
 
-        SetEnemies(floor, 10);
-        SetItems(floor, 10);
+        floor.Enemies.RemoveAll(enemy => enemy is Enemy);
+        for (var i = 0; i < 10; i++) {
+            var position = nextFloor.GetVacantPosition(TerrainType.land);
+            Enemy.Create(floor, position, '武');
+        }
+
+        floor.Items.RemoveAll(item => item is Item);
+        for (var i = 0; i < 10; i++) {
+            var position = nextFloor.GetVacantPosition(TerrainType.land);
+            var item = ItemMaker.PopItem(floor, position);
+            floor.Items.Add(item);
+        }
 
         return nextFloor;
     }

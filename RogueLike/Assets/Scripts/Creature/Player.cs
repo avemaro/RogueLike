@@ -46,6 +46,8 @@ public class Player: Creature {
         MaxHP = 10;
         HP = 10;
         weapon = Equipment.Create(floor, Position, '拳');
+
+        //Items.Add(ItemMaker.Create(Floor, Position, "ScrollOfWindCutter"));;
     }
 
     public Player(Floor floor, int MaxHP) {
@@ -54,6 +56,7 @@ public class Player: Creature {
         this.MaxHP = MaxHP;
         HP = MaxHP;
         weapon = Equipment.Create(floor, Position, '拳');
+
     }
 
     void PassTurn() {

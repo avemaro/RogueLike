@@ -11,7 +11,7 @@ public class Scroll : Item {
         var enemy = (Enemy)stuff;
         if (Name == "ScrollOfDeepSleep**")
             enemy.states.Add((State.Sleep, 5));
-        if (Name == "ScrollOfWindCutter**")
+        if (Name == "ScrollOfWindCutter")
             enemy.IsAttacked(this);
     }
 

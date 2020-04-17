@@ -50,6 +50,7 @@ public class Floor {
 
     void GoNextFloor() {
         NumberOfStairs++;
+
         var newFloor = FloorMaker.NextFloor(this);
         Terrains = newFloor.Terrains;
         StairPosition = newFloor.StairPosition;
@@ -57,7 +58,6 @@ public class Floor {
         Player.StorePieces();
         Pieces = newFloor.Pieces;
         Rooms = newFloor.Rooms;
-        Items = newFloor.Items;
         Traps = newFloor.Traps;
     }
 
