@@ -18,6 +18,6 @@ public class StatusPrinter : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        text.text = "HP: " + player.HP;
+        text.text = "HP: " + player.HP + " AP: " + player.AP + " DP: " + player.DP;
     }
 }

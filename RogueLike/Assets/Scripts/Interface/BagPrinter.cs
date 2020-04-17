@@ -22,7 +22,7 @@ public class BagPrinter : MonoBehaviour
     void Update() {
         text.text = "";
         foreach (var item in player.Items) {
-            text.text += item.Name;
+            text.text += item.ToString();
             text.text += "\n";
         }
     }

@@ -79,7 +79,7 @@ public class Player: Creature {
     public override bool Attack() {
         if (IsState(State.Dead)) return false;
         Debug.Log("ATTACK");
-        Debug.Log(weapon.ID);
+        Debug.Log(weapon.Name);
         weapon.Attack();
         foreach (var piece in Floor.Pieces)
             piece.Attack();
@@ -112,6 +112,7 @@ public class Player: Creature {
 
     public void Equip(Item item) {
         if (!(item is Equipment)) return;
+        Debug.Log(item);
         weapon.Equip();
         if (weapon == item) {
             weapon = Equipment.Create(Floor, Position, '拳');

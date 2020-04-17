@@ -20,6 +20,7 @@ public class Equipment : Item {
 
     public Equipment(Floor floor, Cell cell, int AP, string name, params Direction[] directions): base(floor, cell, name) {
         Image = '武';
+        Name = name;
         this.AP = AP;
         this.directions = new List<Direction>(directions);
     }
@@ -62,10 +63,11 @@ public class Equipment : Item {
 
     public override string ToString() {
         var appendix = "";
-        if (isEquiped) appendix = "E";
+        if (isEquiped) appendix = "#";
         return base.ToString() + appendix;
     }
 }
+
 
 public class PickAxe : Equipment {
     public PickAxe(Floor floor, Cell cell, int AP, string name, params Direction[] directions) : base(floor, cell, AP, name, directions) {

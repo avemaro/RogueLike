@@ -27,6 +27,7 @@ public abstract class Creature : Stuff, IAttacker {
     }
     int hp = 1;
     public virtual int AP { get; set; } = 1;
+    public virtual int DP { get; set; } = 0;
 
     public Room Room { get { return Floor.GetRoom(Position); } }
     public Cell Front { get { return Position.Next(direction); } }

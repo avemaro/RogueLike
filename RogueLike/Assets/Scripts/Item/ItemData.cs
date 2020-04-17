@@ -22,10 +22,32 @@ public class ItemData {
     }
 
     public static void InitData() {
+        AddData(ItemType.weapon, "SpikedClub", 2);
+        AddData(ItemType.weapon, "Glaive", 4);
+        AddData(ItemType.weapon, "Katana", 6);
+        AddData(ItemType.weapon, "Doutanuki", 8);
+        AddData(ItemType.weapon, "SacredSickle", 4);
+        AddData(ItemType.weapon, "DrainBuster", 5);
+
+        AddData(ItemType.shield, "LeatherShield**", 2);
+        AddData(ItemType.shield, "BronzeShield**", 4);
+        AddData(ItemType.shield, "WoodenShield**", 3);
+        AddData(ItemType.shield, "IronShield**", 7);
+        AddData(ItemType.shield, "HeavilyArmedShield**", 10);
+        AddData(ItemType.shield, "ThiefSealShield**", 3);
+
         AddData(ItemType.drag, "MedicinalHerb", 25, 1, 0, 0);
         AddData(ItemType.drag, "OtogiriHerb", 100, 2, 0, 0);
         AddData(ItemType.drag, "LifeHerb", 0, 0, 5, 0);
         AddData(ItemType.drag, "StomachEnlargingSeed", 0, 0, 0, 10);
+
+        AddData(ItemType.wand, "WandOfBlowAway");
+        AddData(ItemType.wand, "WandOfUnhappiness");
+        AddData(ItemType.wand, "WandOfPlaceSwitching");
+        AddData(ItemType.wand, "WandOfTemporaryAvoid");
+
+        AddData(ItemType.arrow, "WoodArrow**", 5);
+        
     }
 
     public static void AddData(ItemType type, string name, params int[] spec) {

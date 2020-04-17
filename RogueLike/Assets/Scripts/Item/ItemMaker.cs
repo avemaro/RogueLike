@@ -90,15 +90,12 @@ public static class ItemMaker {
     public static Item Create(Floor floor, Cell cell, string name) {
         var data = ItemData.GetData(name);
         switch (data.Type) {
-            case ItemType.drag:
-                return new Drag(floor, cell, data.Spec[0], data.Spec[1],
-                                data.Spec[2], data.Spec[3], name);
             case ItemType.weapon:
-                break;
+                return new Equipment(floor, cell, data.Spec[0], name);
             case ItemType.shield:
-                break;
+                return new Shield(floor, cell, data.Spec[0], name);
             case ItemType.arrow:
-                break;
+                return new Arrow(floor, cell, data.Spec[0], name); ;
             case ItemType.riceBall:
                 break;
             case ItemType.bracelet:
@@ -106,47 +103,27 @@ public static class ItemMaker {
             case ItemType.scroll:
                 break;
             case ItemType.wand:
-                break;
+                return new Wand(floor, cell, name);
+            case ItemType.drag:
+                return new Drag(floor, cell, data.Spec[0], data.Spec[1],
+                                data.Spec[2], data.Spec[3], name);
             case ItemType.pot:
                 break;
             default:
                 break;
         }
-
-        //if (name == "MedicinalHerb") return new Drag(floor, cell, 25, 1, 0, 0, name);
-        //if (name == "OtogiriHerb") return new Drag(floor, cell, 100, 2, 0, 0, name);
-        //if (name == "LifeHerb") return new Drag(floor, cell, 0, 0, 5, 0, name);
-        //if (name == "StomachEnlargingSeed") return new Drag(floor, cell, 0, 0, 0, 10, name);
+        
         if (name == "EyewashHerb") return new EyewashHerb(floor, cell, name);
         if (name == "DragonHerb") return new DragonHerb(floor, cell, name);
         
-        if (name == "WandOfBlowAway") return new Wand(floor, cell, name);
-        if (name == "WandOfUnhappiness") return new Wand(floor, cell, name);
         if (name == "WandOfScapegoat") return new Wand(floor, cell, name, (State.Confusion, 50), (State.Scapegoat, 50));
-        if (name == "WandOfPlaceSwitching") return new Wand(floor, cell, name);
         if (name == "WandOfBinding") return new Wand(floor, cell, name, (State.Bind, 9999));
-        if (name == "WandOfTemporaryAvoid") return new Wand(floor, cell, name);
         if (name == "WandOfPainSharing") return new Wand(floor, cell, name, (State.PainSharing, 9999));
 
-        if (name == "SpikedClub") return new Equipment(floor, cell, 2, name);
-        if (name == "Glaive") return new Equipment(floor, cell, 4, name);
-        if (name == "Katana") return new Equipment(floor, cell, 6, name);
-        if (name == "Doutanuki") return new Equipment(floor, cell, 8, name);
-        if (name == "SacredSickle") return new Equipment(floor, cell, 4, name);
         if (name == "Kamaitachi")
             return new Equipment(floor, cell, 3, name, Direction.upLeft, Direction.upRight);
         if (name == "PickAxe")
             return new PickAxe(floor, cell, 1, name);
-        if (name == "DrainBuster") return new Equipment(floor, cell, 5, name);
-
-        if (name == "WoodArrow**") return new Arrow(floor, cell, 5, name);
-
-        if (name == "LeatherShield**") return new Equipment(floor, cell, 0, name);
-        if (name == "BronzeShield**") return new Equipment(floor, cell, 0, name);
-        if (name == "WoodenShield**") return new Equipment(floor, cell, 0, name);
-        if (name == "IronShield**") return new Equipment(floor, cell, 0, name);
-        if (name == "HeavilyArmedShield**") return new Equipment(floor, cell, 0, name);
-        if (name == "ThiefSealShield**") return new Equipment(floor, cell, 0, name);
 
         if (name == "RiceBall**") return new Drag(floor, cell, 0, 0, 0, 0, name);
         if (name == "BigRiceBall**") return new Drag(floor, cell, 0, 0, 0, 0, name);
