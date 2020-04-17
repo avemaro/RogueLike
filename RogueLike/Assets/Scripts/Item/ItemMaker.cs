@@ -3,54 +3,8 @@
 public static class ItemMaker {
     static readonly (ItemType type, int prob)[] items = {
         (ItemType.weapon, 24), (ItemType.shield, 25), (ItemType.arrow, 12),
-        (ItemType.riceBall, 13), (ItemType.bracelet, 8),
+        (ItemType.food, 13), (ItemType.bracelet, 8),
         (ItemType.scroll, 63), (ItemType.wand, 20), (ItemType.drag, 68), (ItemType.pot, 23)
-    };
-
-    static readonly (string name, int prob)[] weapons = {
-        ("SpikedClub", 72), ("Glaive", 57), ("Katana", 44), ("Doutanuki", 14),
-        ("SacredSickle", 9), ("Kamaitachi", 8), ("PickAxe", 43), ("DrainBuster", 9)
-    };
-    static readonly (string name, int prob)[] shield = {
-        ("LeatherShield", 28), ("BronzeShield", 86),
-        ("WoodenShield", 42), ("IronShield", 43),
-        ("HeavilyArmedShield", 29), ("ThiefSealShield", 28)
-    };
-    static readonly (string name, int prob)[] arrows = {
-        ("WoodArrow**", 256)
-    };
-    static readonly (string name, int prob)[] riceBall = {
-        ("RiceBall", 102), ("BigRiceBall", 31), ("RottenRiceBall", 103),
-        ("HugeRiceBall", 20)
-    };
-    static readonly (string name, int prob)[] bracelet = {
-        ("BraceletOfDiscount**", 23), ("BraceletOfRustProof**", 47),
-        ("BraceletOfCurseProof**", 46), ("BraceletOfLongThrow**", 47),
-        ("BraceletOfClairvoyance**", 46), ("BraceletOfConfusionProof**", 47),
-    };
-    static readonly (string name, int prob)[] scroll = {
-        ("ScrollOfIdentify**", 72), ("ScrollOfLight**", 30),
-        ("ScrollOfPotEnlarging**", 11), ("ScrollOfWindCutter", 30),
-        ("ScrollOfEmergency**", 21), ("ScrollOfDeepSleep**", 20),
-        ("ScrollOfPowerUp**", 21), ("ScrollOfBigRoom**", 10),
-        ("ScrollOfConfusion**", 21), ("ScrollOfWhitePaper**", 20),
-    };
-    static readonly (string name, int prob)[] wand = {
-        ("WandOfBlowAway", 51), ("WandOfUnhappiness", 26),
-        ("WandOfScapegoat", 25), ("WandOfPlaceSwitching", 52),
-        ("WandOfBinding", 51), ("WandOfTemporaryAvoid", 25),
-        ("WandOfPainSharing", 26)
-    };
-    static readonly (string name, int prob)[] drag = {
-        ("MedicinalHerb", 51), ("OtogiriHerb", 51),
-        ("LifeHerb", 25), ("StomachEnlargingSeed", 26),
-        ("EyewashHerb", 64), ("DragonHerb", 39),
-    };
-    static readonly (string name, int prob)[] pot = {
-        ("PotOfStorage**", 81), ("PotOfHideout**", 24),
-        ("PotOfIdentify**", 35), ("PotOfBackMassage**", 35),
-        ("PotOfStoreroom**", 23), ("PotOfConversion**", 23),
-        ("PotOfSynthesys**", 12), ("PotOfStealSeal", 23),
     };
 
     public static Item PopItem(Floor floor, Cell cell) {
@@ -65,15 +19,15 @@ public static class ItemMaker {
             }
         }
         switch (type) {
-            case ItemType.weapon: return SelectItem(floor, cell, weapons);
-            case ItemType.shield: return SelectItem(floor, cell, shield);
-            case ItemType.arrow: return SelectItem(floor, cell, arrows);
-            case ItemType.riceBall: return SelectItem(floor, cell, riceBall);
-            case ItemType.bracelet: return SelectItem(floor, cell, bracelet);
-            case ItemType.scroll: return SelectItem(floor, cell, scroll);
-            case ItemType.wand: return SelectItem(floor, cell, wand);
-            case ItemType.drag: return SelectItem(floor, cell, drag);
-            default: return SelectItem(floor, cell, pot);
+            case ItemType.weapon: return SelectItem(floor, cell, ItemData.weapons);
+            case ItemType.shield: return SelectItem(floor, cell, ItemData.shields);
+            case ItemType.arrow: return SelectItem(floor, cell, ItemData.arrows);
+            case ItemType.food: return SelectItem(floor, cell, ItemData.foods);
+            case ItemType.bracelet: return SelectItem(floor, cell, ItemData.bracelets);
+            case ItemType.scroll: return SelectItem(floor, cell, ItemData.scrolls);
+            case ItemType.wand: return SelectItem(floor, cell, ItemData.wands);
+            case ItemType.drag: return SelectItem(floor, cell, ItemData.drags);
+            default: return SelectItem(floor, cell, ItemData.pots);
         }
     }
 
@@ -96,10 +50,10 @@ public static class ItemMaker {
                 return new Shield(floor, cell, data.Spec[0], name);
             case ItemType.arrow:
                 return new Arrow(floor, cell, data.Spec[0], name); ;
-            case ItemType.riceBall:
+            case ItemType.food:
                 return new Drag(floor, cell, name, data.Spec);
             case ItemType.bracelet:
-                break;
+                return new Bracelet(floor, cell, name);
             case ItemType.scroll:
                 return new Scroll(floor, cell, name); ;
             case ItemType.wand:
@@ -123,13 +77,6 @@ public static class ItemMaker {
             return new Weapon(floor, cell, 3, name, Direction.upLeft, Direction.upRight);
         if (name == "PickAxe")
             return new PickAxe(floor, cell, 1, name);
-
-        if (name == "BraceletOfDiscount**") return new Weapon(floor, cell, 0, name);
-        if (name == "BraceletOfRustProof**") return new Weapon(floor, cell, 0, name);
-        if (name == "BraceletOfCurseProof**") return new Weapon(floor, cell, 0, name);
-        if (name == "BraceletOfLongThrow**") return new Weapon(floor, cell, 0,  name);
-        if (name == "BraceletOfClairvoyance**") return new Weapon(floor, cell, 0, name);
-        if (name == "BraceletOfConfusionProof**") return new Weapon(floor, cell, 0, name);
 
         throw new System.Exception(name);
     }

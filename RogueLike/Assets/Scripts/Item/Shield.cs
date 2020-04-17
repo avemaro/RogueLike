@@ -8,7 +8,6 @@ public class Shield : Equipment
     public Shield(Floor floor, Cell cell, int DP, string name) : base(floor, cell, name)
     {
         Image = '防';
-        Name = name;
         this.DP = DP;
     }
 

@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Interface\MapPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\MessagePrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\StatusPrinter.cs" />
+    <Compile Include="Assets\Scripts\Item\Bracelet.cs" />
     <Compile Include="Assets\Scripts\Item\Drag.cs" />
     <Compile Include="Assets\Scripts\Item\Equipment.cs" />
     <Compile Include="Assets\Scripts\Item\Herb.cs" />

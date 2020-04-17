@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 392}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -112,10 +112,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 504, y: 342}
+  m_MinSize: {x: 679, y: 342}
   m_MaxSize: {x: 12004, y: 8042}
   vertical: 0
-  controlID: 121
+  controlID: 537
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -211,8 +211,8 @@ MonoBehaviour:
     y: 0
     width: 667
     height: 600
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 12}
@@ -240,8 +240,8 @@ MonoBehaviour:
     y: 600
     width: 1310
     height: 347
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 17}
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: InspectorWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -267,16 +267,16 @@ MonoBehaviour:
     y: 0
     width: 610
     height: 947
-  m_MinSize: {x: 101, y: 121}
+  m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 21}
+  m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
   - {fileID: 20}
   - {fileID: 21}
   - {fileID: 22}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -413,17 +413,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -32000
-    y: -31970
+    x: 0
+    y: 73
     width: 642
     height: 579
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 882b0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 8cebffff90ecffff2eeeffff78efffff70f0ffff74f1fffff8f3ffffaaf5ffffdcf6ffff88f7ffff86f8ffff6efbffffa0340000
+      m_SelectedIDs: 70efffff
+      m_LastClickedID: -4240
+      m_ExpandedIDs: 88efffffa2efffffa0f0ffffb6f3ffff6ef5ffff72f6ffff24f8ffff74f9ffff6efbffffbc390000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -468,8 +468,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -31357
-    y: -31970
+    x: 643
+    y: 73
     width: 665
     height: 579
   m_ViewDataDictionary: {fileID: 0}
@@ -503,7 +503,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -516,18 +516,18 @@ MonoBehaviour:
       y: 21
       width: 665
       height: 558
-    m_Scale: {x: 0.46046555, y: 0.46046555}
-    m_Translation: {x: 332.5, y: 285.69897}
+    m_Scale: {x: 0.41829085, y: 0.41829085}
+    m_Translation: {x: 332.5, y: 279}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -722.0953
-      y: -620.4568
-      width: 1444.1906
-      height: 1211.817
+      x: -794.9014
+      y: -667
+      width: 1589.8029
+      height: 1334
     m_MinimalGUI: 1
   m_defaultScale: 0.41829085
   m_LastWindowPixelSize: {x: 665, y: 579}
@@ -655,9 +655,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 2}
-    m_SelectedIDs: 6c350000
-    m_LastClickedID: 13676
-    m_ExpandedIDs: 0000000054350000563500005835000000ca9a3b
+    m_SelectedIDs: 78350000
+    m_LastClickedID: 13688
+    m_ExpandedIDs: 0000000056350000583500005a35000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -685,7 +685,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000543500005635000058350000
+    m_ExpandedIDs: 0000000056350000583500005a350000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -710,8 +710,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 882b0000
-    m_LastClickedInstanceID: 11144
+    m_SelectedInstanceIDs: ac330000
+    m_LastClickedInstanceID: 13228
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000243300003c2f0000d4300000283d0000143f0000dc3000008c2f0000b2280000ba2800008e270000422e00002031000044320000243000007a660000a0270000da650000d0280000402b00008827000008640000ee270000ca5d0000eaa60000c8aa0000f43f0000344000009640000000000000
     m_RenameOverlay:
@@ -762,8 +762,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -32000
-    y: -31370
+    x: 0
+    y: 673
     width: 1309
     height: 326
   m_ViewDataDictionary: {fileID: 0}
@@ -803,7 +803,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
-  m_LastInspectedObjectInstanceID: 11144
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
 --- !u!114 &20
 MonoBehaviour:
@@ -856,13 +856,13 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -30690
-    y: -31970
+    x: 1310
+    y: 73
     width: 609
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 145
+    ID: 148
     splitterInitialOffset: 322
     currentActiveSplitter: -1
     realSizes: 5201000006020000
@@ -934,7 +934,7 @@ MonoBehaviour:
       name: RogueLike
       fullName: RogueLike
       resultStatus: 1
-      duration: 3.6939125
+      duration: 0.0994948
       messages: 
       output: 
       stacktrace: 
@@ -950,7 +950,7 @@ MonoBehaviour:
       name: BasicTests.dll
       fullName: C:/Users/holly/Documents/GitHub/RogueLike/RogueLike/Library/ScriptAssemblies/BasicTests.dll
       resultStatus: 1
-      duration: 1.2077202
+      duration: 0.0784314
       messages: 
       output: 
       stacktrace: 
@@ -966,7 +966,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 1.1985877
+      duration: 0.0726637
       messages: 
       output: 
       stacktrace: 
@@ -982,7 +982,7 @@ MonoBehaviour:
       name: ItemTests
       fullName: Tests.ItemTests
       resultStatus: 1
-      duration: 0.6041888
+      duration: 0.0653053
       messages: 
       output: 
       stacktrace: 
@@ -998,7 +998,7 @@ MonoBehaviour:
       name: CreateMedicinalHerb
       fullName: Tests.ItemTests.CreateMedicinalHerb
       resultStatus: 1
-      duration: 0.0698292
+      duration: 0.0957106
       messages: 
       output: 
       stacktrace: 
@@ -1015,7 +1015,7 @@ MonoBehaviour:
       name: HPisLessThanMaxHP
       fullName: Tests.ItemTests.HPisLessThanMaxHP
       resultStatus: 1
-      duration: 0.0709103
+      duration: 0.062219
       messages: 
       output: 
       stacktrace: 
@@ -1032,7 +1032,7 @@ MonoBehaviour:
       name: KamaitachiTest
       fullName: Tests.ItemTests.KamaitachiTest
       resultStatus: 1
-      duration: 0.0285876
+      duration: 0.0340051
       messages: 
       output: 'Kamaitachi
 
@@ -1057,7 +1057,7 @@ MonoBehaviour:
       name: NotKamaitachiTest
       fullName: Tests.ItemTests.NotKamaitachiTest
       resultStatus: 1
-      duration: 0.028297
+      duration: 0.0337741
       messages: 
       output: 'up
 
@@ -1080,7 +1080,7 @@ MonoBehaviour:
       name: StomachEnlargingSeed
       fullName: Tests.ItemTests.StomachEnlargingSeed
       resultStatus: 1
-      duration: 0.0594461
+      duration: 0.0521007
       messages: 
       output: 
       stacktrace: 
@@ -1097,7 +1097,7 @@ MonoBehaviour:
       name: TestEyewashHerb
       fullName: Tests.ItemTests.TestEyewashHerb
       resultStatus: 1
-      duration: 0.1263433
+      duration: 0.1256067
       messages: 
       output: 
       stacktrace: 
@@ -1114,7 +1114,7 @@ MonoBehaviour:
       name: TestLifeHerb
       fullName: Tests.ItemTests.TestLifeHerb
       resultStatus: 1
-      duration: 0.0540278
+      duration: 0.0598719
       messages: 
       output: 
       stacktrace: 
@@ -1131,7 +1131,7 @@ MonoBehaviour:
       name: WeaponTest
       fullName: Tests.ItemTests.WeaponTest
       resultStatus: 1
-      duration: 0.1388593
+      duration: 0.1125129
       messages: 
       output: 'SpikedClub
 
@@ -1154,7 +1154,7 @@ MonoBehaviour:
       name: Satiation
       fullName: Tests.Satiation
       resultStatus: 1
-      duration: 0.3019654
+      duration: 0.2943574
       messages: 
       output: 
       stacktrace: 
@@ -1170,7 +1170,7 @@ MonoBehaviour:
       name: HPDecreases1per1TurnWhenSatiation0
       fullName: Tests.Satiation.HPDecreases1per1TurnWhenSatiation0
       resultStatus: 1
-      duration: 0.2673662
+      duration: 0.261276
       messages: 
       output: 
       stacktrace: 
@@ -1187,7 +1187,7 @@ MonoBehaviour:
       name: SatiationDecrease1per10Turns
       fullName: Tests.Satiation.SatiationDecrease1per10Turns
       resultStatus: 1
-      duration: 0.0061171
+      duration: 0.0104073
       messages: 
       output: 
       stacktrace: 
@@ -1204,7 +1204,7 @@ MonoBehaviour:
       name: TestFloorMaker
       fullName: Tests.TestFloorMaker
       resultStatus: 1
-      duration: 0.280902
+      duration: 0.2623447
       messages: 
       output: 
       stacktrace: 
@@ -1220,7 +1220,7 @@ MonoBehaviour:
       name: MakeFloorWithFourRoom
       fullName: Tests.TestFloorMaker.MakeFloorWithFourRoom
       resultStatus: 1
-      duration: 0.0640851
+      duration: 0.0634751
       messages: 
       output: 
       stacktrace: 
@@ -1237,7 +1237,7 @@ MonoBehaviour:
       name: MakeFloorWithOneRoom
       fullName: Tests.TestFloorMaker.MakeFloorWithOneRoom
       resultStatus: 1
-      duration: 0.0658759
+      duration: 0.0595332
       messages: 
       output: 
       stacktrace: 
@@ -1254,7 +1254,7 @@ MonoBehaviour:
       name: MakeFloorWithThreeRoom
       fullName: Tests.TestFloorMaker.MakeFloorWithThreeRoom
       resultStatus: 1
-      duration: 0.0623162
+      duration: 0.063609
       messages: 
       output: 
       stacktrace: 
@@ -1271,7 +1271,7 @@ MonoBehaviour:
       name: MakeFloorWithTwoRoom
       fullName: Tests.TestFloorMaker.MakeFloorWithTwoRoom
       resultStatus: 1
-      duration: 0.0656264
+      duration: 0.0636764
       messages: 
       output: 
       stacktrace: 
@@ -1288,7 +1288,7 @@ MonoBehaviour:
       name: ChessTests.dll
       fullName: C:/Users/holly/Documents/GitHub/RogueLike/RogueLike/Library/ScriptAssemblies/ChessTests.dll
       resultStatus: 1
-      duration: 0.245607
+      duration: 0.2298082
       messages: 
       output: 
       stacktrace: 
@@ -1304,7 +1304,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 0.2356048
+      duration: 0.2194187
       messages: 
       output: 
       stacktrace: 
@@ -1320,7 +1320,7 @@ MonoBehaviour:
       name: PawnTest
       fullName: Tests.PawnTest
       resultStatus: 1
-      duration: 0.2275605
+      duration: 0.2135616
       messages: 
       output: 
       stacktrace: 
@@ -1336,7 +1336,7 @@ MonoBehaviour:
       name: PawnAttacks
       fullName: Tests.PawnTest.PawnAttacks
       resultStatus: 1
-      duration: 0.063366
+      duration: 0.0548907
       messages: 
       output: 'ATTACK
 
@@ -1357,7 +1357,7 @@ MonoBehaviour:
       name: PawnFollows
       fullName: Tests.PawnTest.PawnFollows
       resultStatus: 1
-      duration: 0.1189895
+      duration: 0.1149962
       messages: 
       output: 
       stacktrace: 
@@ -1374,7 +1374,7 @@ MonoBehaviour:
       name: PawnHasSpawned
       fullName: Tests.PawnTest.PawnHasSpawned
       resultStatus: 1
-      duration: 0.0390342
+      duration: 0.0367698
       messages: 
       output: 
       stacktrace: 
@@ -1391,7 +1391,7 @@ MonoBehaviour:
       name: FeiTests.dll
       fullName: C:/Users/holly/Documents/GitHub/RogueLike/RogueLike/Library/ScriptAssemblies/FeiTests.dll
       resultStatus: 1
-      duration: 2.2011416
+      duration: 2.1167252
       messages: 
       output: 
       stacktrace: 
@@ -1407,7 +1407,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 1
-      duration: 2.1794205
+      duration: 2.0968847
       messages: 
       output: 
       stacktrace: 
@@ -1423,7 +1423,7 @@ MonoBehaviour:
       name: Fei1
       fullName: Tests.Fei1
       resultStatus: 1
-      duration: 0.1641834
+      duration: 0.1638552
       messages: 
       output: 
       stacktrace: 
@@ -1439,7 +1439,7 @@ MonoBehaviour:
       name: DangeonDataHasLoaded
       fullName: Tests.Fei1.DangeonDataHasLoaded
       resultStatus: 1
-      duration: 0.0753712
+      duration: 0.0777129
       messages: 
       output: 
       stacktrace: 
@@ -1456,7 +1456,7 @@ MonoBehaviour:
       name: PlayerMoves
       fullName: Tests.Fei1.PlayerMoves
       resultStatus: 1
-      duration: 0.0392784
+      duration: 0.0379752
       messages: 
       output: 
       stacktrace: 
@@ -1473,7 +1473,7 @@ MonoBehaviour:
       name: Test_Fei1
       fullName: Tests.Fei1.Test_Fei1
       resultStatus: 1
-      duration: 0.0423142
+      duration: 0.041756
       messages: 
       output: 
       stacktrace: 
@@ -1490,7 +1490,7 @@ MonoBehaviour:
       name: Fei10
       fullName: Tests.Fei10
       resultStatus: 1
-      duration: 0.1320663
+      duration: 0.1276456
       messages: 
       output: 
       stacktrace: 
@@ -1506,7 +1506,7 @@ MonoBehaviour:
       name: Test_Fail
       fullName: Tests.Fei10.Test_Fail
       resultStatus: 1
-      duration: 0.0015155
+      duration: 0.0019282
       messages: 
       output: 
       stacktrace: 
@@ -1523,7 +1523,7 @@ MonoBehaviour:
       name: Test_Pass
       fullName: Tests.Fei10.Test_Pass
       resultStatus: 1
-      duration: 0.1203155
+      duration: 0.115545
       messages: 
       output: 
       stacktrace: 
@@ -1540,7 +1540,7 @@ MonoBehaviour:
       name: Fei11
       fullName: Tests.Fei11
       resultStatus: 1
-      duration: 0.1694127
+      duration: 0.1633999
       messages: 
       output: 
       stacktrace: 
@@ -1556,7 +1556,7 @@ MonoBehaviour:
       name: Test_Fail
       fullName: Tests.Fei11.Test_Fail
       resultStatus: 1
-      duration: 0.0432229
+      duration: 0.0414057
       messages: 
       output: 
       stacktrace: 
@@ -1573,7 +1573,7 @@ MonoBehaviour:
       name: Test_Pass
       fullName: Tests.Fei11.Test_Pass
       resultStatus: 1
-      duration: 0.1156915
+      duration: 0.1113704
       messages: 
       output: 
       stacktrace: 
@@ -1590,7 +1590,7 @@ MonoBehaviour:
       name: Fei12
       fullName: Tests.Fei12
       resultStatus: 1
-      duration: 0.2478177
+      duration: 0.237809
       messages: 
       output: 
       stacktrace: 
@@ -1606,7 +1606,7 @@ MonoBehaviour:
       name: Test_Pass
       fullName: Tests.Fei12.Test_Pass
       resultStatus: 1
-      duration: 0.237128
+      duration: 0.227175
       messages: 
       output: 
       stacktrace: 
@@ -1623,7 +1623,7 @@ MonoBehaviour:
       name: Fei14
       fullName: Tests.Fei14
       resultStatus: 1
-      duration: 0.0548783
+      duration: 0.0483446
       messages: 
       output: 
       stacktrace: 
@@ -1639,7 +1639,7 @@ MonoBehaviour:
       name: Test_LogTrapWorks
       fullName: Tests.Fei14.Test_LogTrapWorks
       resultStatus: 1
-      duration: 0.0447979
+      duration: 0.0374382
       messages: 
       output: 
       stacktrace: 
@@ -1656,7 +1656,7 @@ MonoBehaviour:
       name: Fei15
       fullName: Tests.Fei15
       resultStatus: 1
-      duration: 0.1572967
+      duration: 0.1514516
       messages: 
       output: 
       stacktrace: 
@@ -1672,7 +1672,7 @@ MonoBehaviour:
       name: Test_Pass
       fullName: Tests.Fei15.Test_Pass
       resultStatus: 1
-      duration: 0.1481512
+      duration: 0.1420828
       messages: 
       output: 
       stacktrace: 
@@ -1689,7 +1689,7 @@ MonoBehaviour:
       name: Fei2
       fullName: Tests.Fei2
       resultStatus: 1
-      duration: 0.292611
+      duration: 0.2808854
       messages: 
       output: 
       stacktrace: 
@@ -1705,7 +1705,7 @@ MonoBehaviour:
       name: Test_Fei2
       fullName: Tests.Fei2.Test_Fei2
       resultStatus: 1
-      duration: 0.2823986
+      duration: 0.2704786
       messages: 
       output: 'ATTACK
 
@@ -1730,7 +1730,7 @@ MonoBehaviour:
       name: Fei3
       fullName: Tests.Fei3
       resultStatus: 1
-      duration: 0.2977548
+      duration: 0.2806076
       messages: 
       output: 
       stacktrace: 
@@ -1746,7 +1746,7 @@ MonoBehaviour:
       name: PlayerHasAttacked
       fullName: Tests.Fei3.PlayerHasAttacked
       resultStatus: 1
-      duration: 0.0402998
+      duration: 0.038574
       messages: 
       output: '(3, 6)
 
@@ -1765,7 +1765,7 @@ MonoBehaviour:
       name: PlayerPickUpItem
       fullName: Tests.Fei3.PlayerPickUpItem
       resultStatus: 1
-      duration: 0.0388763
+      duration: 0.0374919
       messages: 
       output: 
       stacktrace: 
@@ -1782,7 +1782,7 @@ MonoBehaviour:
       name: PlayerUseItem
       fullName: Tests.Fei3.PlayerUseItem
       resultStatus: 1
-      duration: 0.0794293
+      duration: 0.0760359
       messages: 
       output: 
       stacktrace: 
@@ -1799,7 +1799,7 @@ MonoBehaviour:
       name: Test_Fei3
       fullName: Tests.Fei3.Test_Fei3
       resultStatus: 1
-      duration: 0.1241073
+      duration: 0.114232
       messages: 
       output: 
       stacktrace: 
@@ -1816,7 +1816,7 @@ MonoBehaviour:
       name: Fei4
       fullName: Tests.Fei4
       resultStatus: 1
-      duration: 0.1208883
+      duration: 0.11354
       messages: 
       output: 
       stacktrace: 
@@ -1832,7 +1832,7 @@ MonoBehaviour:
       name: Test_Fei4
       fullName: Tests.Fei4.Test_Fei4
       resultStatus: 1
-      duration: 0.1083186
+      duration: 0.1009436
       messages: 
       output: 
       stacktrace: 
@@ -1849,7 +1849,7 @@ MonoBehaviour:
       name: Fei5
       fullName: Tests.Fei5
       resultStatus: 1
-      duration: 0.0540182
+      duration: 0.0516018
       messages: 
       output: 
       stacktrace: 
@@ -1865,7 +1865,7 @@ MonoBehaviour:
       name: Test_Fei5
       fullName: Tests.Fei5.Test_Fei5
       resultStatus: 1
-      duration: 0.0433483
+      duration: 0.041611
       messages: 
       output: 
       stacktrace: 
@@ -1882,7 +1882,7 @@ MonoBehaviour:
       name: Fei6
       fullName: Tests.Fei6
       resultStatus: 1
-      duration: 0.0117178
+      duration: 0.0109291
       messages: 
       output: 
       stacktrace: 
@@ -1898,7 +1898,7 @@ MonoBehaviour:
       name: Test_TrapWorks
       fullName: Tests.Fei6.Test_TrapWorks
       resultStatus: 1
-      duration: 0.0015615
+      duration: 0.0016204
       messages: 
       output: 
       stacktrace: 
@@ -1915,7 +1915,7 @@ MonoBehaviour:
       name: Fei7
       fullName: Tests.Fei7
       resultStatus: 1
-      duration: 0.2466923
+      duration: 0.2382003
       messages: 
       output: 
       stacktrace: 
@@ -1931,7 +1931,7 @@ MonoBehaviour:
       name: Test_EnemiesMove
       fullName: Tests.Fei7.Test_EnemiesMove
       resultStatus: 1
-      duration: 0.1205535
+      duration: 0.1150453
       messages: 
       output: 
       stacktrace: 
@@ -1948,7 +1948,7 @@ MonoBehaviour:
       name: Test_Fei7_Fail
       fullName: Tests.Fei7.Test_Fei7_Fail
       resultStatus: 1
-      duration: 0.0434694
+      duration: 0.0415552
       messages: 
       output: 
       stacktrace: 
@@ -1965,7 +1965,7 @@ MonoBehaviour:
       name: Test_Fei7_Pass
       fullName: Tests.Fei7.Test_Fei7_Pass
       resultStatus: 1
-      duration: 0.0738841
+      duration: 0.0721953
       messages: 
       output: 
       stacktrace: 
@@ -1982,7 +1982,7 @@ MonoBehaviour:
       name: Fei8
       fullName: Tests.Fei8
       resultStatus: 1
-      duration: 0.0513295
+      duration: 0.0503315
       messages: 
       output: 
       stacktrace: 
@@ -1998,7 +1998,7 @@ MonoBehaviour:
       name: Test_warpTrapWorks
       fullName: Tests.Fei8.Test_warpTrapWorks
       resultStatus: 1
-      duration: 0.0411784
+      duration: 0.0397757
       messages: 
       output: 
       stacktrace: 
@@ -2015,7 +2015,7 @@ MonoBehaviour:
       name: Fei9
       fullName: Tests.Fei9
       resultStatus: 1
-      duration: 0.1621925
+      duration: 0.1604426
       messages: 
       output: 
       stacktrace: 
@@ -2031,7 +2031,7 @@ MonoBehaviour:
       name: Test_Fail
       fullName: Tests.Fei9.Test_Fail
       resultStatus: 1
-      duration: 0.0046083
+      duration: 0.0045168
       messages: 
       output: 
       stacktrace: 
@@ -2048,7 +2048,7 @@ MonoBehaviour:
       name: Test_Pass
       fullName: Tests.Fei9.Test_Pass
       resultStatus: 1
-      duration: 0.1474709
+      duration: 0.1455509
       messages: 
       output: 
       stacktrace: 
@@ -2060,12 +2060,12 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1033
       parentUniqueId: FeiTests.dll/Tests/[FeiTests][Tests.Fei9][suite]
-    m_ResultText: HPisLessThanMaxHP (0.071s)
+    m_ResultText: TestLifeHerb (0.060s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e9932229
-      m_LastClickedID: 690131945
+      m_SelectedIDs: f47cba41
+      m_LastClickedID: 1102740724
       m_ExpandedIDs: 856bd585112a408765c5a39543401496360d5e979e0a699e951e5fa2dbf809a4e21259a5be5ec8a62de7e0a6a385eca679b753a7c02dafaaae5afbb2102937b5503517b71747d1b765d068c438c680c411f181c6e934dbc716bdebcd313773d6f6d978e0f5c889e077e9ade0f21ac1e0732af6e0ba1057eae79943ecab472df35b8e4b023beef2024940b904d10d1e116c370112dd460113d23fbd1391471e182b6cf91ac90d0e1e627a122108789f2f40273231e6352e3230d05e37c558723c4054844043a17443ef02f947831fa149a5b2d54c4bc1d14d91d57851379cef51955b0253e189df5b787f375d2d755269111a016a0ed3eb777c98df7effffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
