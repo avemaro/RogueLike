@@ -31,8 +31,9 @@ public class Enemy : Creature {
 
         MaxHP = spec[0];
         HP = spec[0];
-        AP = spec[1];
-        DP = spec[2];
+        Exp = spec[1];
+        AP = spec[2];
+        DP = spec[3];
     }
 
     public void Work() {

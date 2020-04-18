@@ -6,10 +6,12 @@ public class PlayerBehaviour : MonoBehaviour {
     public GameManager gameManager;
     Player player;
 
-    [SerializeField] int HP;
+    [SerializeField] int Level;
+    [SerializeField] int Exp;
+    [SerializeField] string HP;
     [SerializeField] int AP;
     [SerializeField] int DP;
-    [SerializeField] int Satiation;
+    [SerializeField] string Satiation;
 
     // Start is called before the first frame update
     void Start() {
@@ -18,9 +20,11 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        HP = player.HP;
+        Level = player.Level;
+        Exp = player.Exp;
+        HP = player.HP.ToString() + " / " + player.MaxHP.ToString();
         AP = player.AP;
         DP = player.DP;
-        Satiation = player.Satiation;
+        Satiation = player.Satiation.ToString() + " / " + player.MaxSatiation.ToString();
     }
 }

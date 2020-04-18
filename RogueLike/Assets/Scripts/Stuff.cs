@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Stuff {
     public char Image { get; protected set; }
     public string Name { get; protected set; }
+    public virtual int Exp { get; set; }
 
     public Floor Floor { get; protected set; }
     public Cell Position { get; set; }

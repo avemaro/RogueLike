@@ -82,4 +82,12 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
     public override string ToString(){
         return Name;
     }
+
+    bool IAttacker.Attack() {
+        throw new NotImplementedException();
+    }
+
+    bool IAttacker.IsAttacked(IAttacker attacker) {
+        throw new NotImplementedException();
+    }
 }

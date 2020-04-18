@@ -6,7 +6,7 @@ public abstract class Creature : Stuff, IAttacker {
     public Direction direction;
     public List<(State, int)> states = new List<(State, int)>();
 
-    public int Level {
+    public virtual int Level {
         get { return level; }
         set { level = value;
             if (level < 1) level = 1;
@@ -14,7 +14,7 @@ public abstract class Creature : Stuff, IAttacker {
     }
     int level = 1;
 
-    public int MaxHP = 1;
+    public virtual int MaxHP { get; set; } = 1;
 
     public virtual int HP {
         get { return hp; }
@@ -37,6 +37,7 @@ public abstract class Creature : Stuff, IAttacker {
     public Cell RightBack { get { return Position.Next(direction.TurnLeft().Reverse()); } }
     public Cell LeftBack { get { return Position.Next(direction.TurnRight().Reverse()); } }
 
+
     protected List<TerrainType> blockingTerrain = new List<TerrainType>()
     { TerrainType.wall, TerrainType.water, TerrainType.breakableWall };
 
@@ -51,6 +52,7 @@ public abstract class Creature : Stuff, IAttacker {
     public virtual bool IsAttacked(IAttacker attacker) {
         var damage = attacker.AP * Mathf.Pow(15.0f / 16.0f, DP);
         HP -= Mathf.FloorToInt(damage);
+        if (HP <= 0) attacker.Exp += Exp;
         return true;
     }
 

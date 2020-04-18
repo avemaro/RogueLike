@@ -10,11 +10,10 @@ public class Trap: Stuff, IAttacker {
     }
 
     bool isStepedOn;
-
     public int AP { get; set; } = 20;
 
     private Trap(Floor floor, Cell cell, char data) {
-        this.Floor = floor;
+        Floor = floor;
         Position = cell;
         ID = data;
         isVisible = false;

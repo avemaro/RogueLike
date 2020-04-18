@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player: Creature {
+    public override int Level { get => base.Level;
+        set {
+            if (value > base.Level) MaxHP += 4;
+            if (value < base.Level) MaxHP -= 4;
+            base.Level = value;
+        }
+    }
+
     public override int HP {
         get => base.HP;
         set {
@@ -12,13 +20,16 @@ public class Player: Creature {
             base.HP = value;
         }
     }
-
-    public int BasicAP { get; protected set; } = 5;
+    public int BasicAP { get {
+            if (Level == 1) return 5;
+            if (Level == 2) return 7;
+            return 9;
+        }
+    }
     public int strength = 8;
     public override int AP =>
         BasicAP + Mathf.RoundToInt(BasicAP * (weapon.AP + strength - 8) / 16.0f);
     public override int DP { get => base.DP + shield.DP; }
-
     public int MaxSatiation {
         get { return maxSatiation; }
         set {
@@ -35,6 +46,16 @@ public class Player: Creature {
         }
     }
     int satiation = 1000;
+    public override int Exp { get => base.Exp;
+        set {
+            base.Exp = value;
+            if (value < 10) Level = 1;
+            if (value >= 10) Level = 2;
+            if (value >= 30) Level = 3;
+            if (value >= 60) Level = 4;
+        }
+    }
+
 
     public List<Item> Items { get; private set; } = new List<Item>();
     public Weapon weapon;
