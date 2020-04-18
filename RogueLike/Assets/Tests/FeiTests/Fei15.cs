@@ -33,20 +33,22 @@ namespace Tests
         //    Assert.AreEqual(data, floor.Show());
         //}
 
-        [Test]
-        public void Test_Pass() {
-            player.Move(6, 6, 6, 6, 4);
-            player.Use(0);
-            player.Move(2);
-            player.Throw(0);
-            floor.Show();
-            player.Move(2, 2, 2, 2);
-            floor.Show();
-            player.Move(6, 6, 4);
-            floor.Show();
-            player.Use(0);
-            player.Move(4, 5);
-            Assert.AreEqual(2, floor.NumberOfStairs);
-        }
+        //[Test]
+        //public void Test_Pass() {
+        //    floor.Rooms.Add(new Room(floor, (0, 0), (100, 100)));
+
+        //    player.Move(6, 6, 6, 6, 4);
+        //    player.Use(0);
+        //    player.Move(2);
+        //    player.Throw(0);
+        //    floor.Show();
+        //    player.Move(2, 2, 2, 2);
+        //    floor.Show();
+        //    player.Move(6, 6, 4);
+        //    floor.Show();
+        //    player.Use(0);
+        //    player.Move(4, 5);
+        //    Assert.AreEqual(2, floor.NumberOfStairs);
+        //}
     }
 }

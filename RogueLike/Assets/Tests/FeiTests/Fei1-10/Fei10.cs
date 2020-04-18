@@ -35,8 +35,9 @@ namespace Tests
 
         [Test]
         public void Test_Fail() {
+            var hp = player.HP;
             player.Move(Direction.right);
-            Assert.True(player.IsState(State.Dead));
+            Assert.Less(hp, player.HP);
         }
 
         [Test]

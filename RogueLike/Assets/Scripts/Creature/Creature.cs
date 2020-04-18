@@ -32,6 +32,8 @@ public abstract class Creature : Stuff, IAttacker {
     public Room Room { get { return Floor.GetRoom(Position); } }
     public Cell Front { get { return Position.Next(direction); } }
     public Cell Back { get { return Position.Next(direction.Reverse()); } }
+    public Cell Right { get { return Position.Next(direction.TurnRight().TurnRight()); } }
+    public Cell Left { get { return Position.Next(direction.TurnLeft().TurnLeft()); } }
     public Cell RightFront { get { return Position.Next(direction.TurnRight()); } }
     public Cell LeftFront { get { return Position.Next(direction.TurnLeft()); } }
     public Cell RightBack { get { return Position.Next(direction.TurnLeft().Reverse()); } }

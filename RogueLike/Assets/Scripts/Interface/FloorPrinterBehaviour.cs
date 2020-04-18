@@ -13,13 +13,16 @@ public class FloorPrinterBehaviour : MonoBehaviour
     Text text;
 
     void Awake() {
+        Debug.Log(floor);
         if (gameManager.floorPrefab != null) {
             text = Instantiate(gameManager.floorPrefab, transform);
             floor = FloorMaker.Create(text.text);
+            floor.Rooms.Add(new Room(floor, (0, 0), (100, 100)));
         } else {
             text = gameObject.GetComponent<Text>();
             floor = FloorMaker.Create();
         }
+        Debug.Log(floor);
         gameManager.floor = floor;
         gameManager.floorPrinter = this;
     }

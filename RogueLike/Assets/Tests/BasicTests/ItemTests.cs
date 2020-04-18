@@ -36,7 +36,7 @@ namespace Tests
 
             var item = ItemMaker.Create("MedicinalHerb");
             player.Use(item);
-            Assert.AreEqual(95, player.HP);
+            Assert.AreEqual(96, player.HP);
             player.Use(item);
             Assert.AreEqual(100, player.HP);
             player.Use(item);
@@ -65,12 +65,12 @@ namespace Tests
 
         [Test]
         public void TestLifeHerb() {
-            Assert.AreEqual(10, player.HP);
-            Assert.AreEqual(10, player.MaxHP);
+            Assert.AreEqual(15, player.HP);
+            Assert.AreEqual(15, player.MaxHP);
             var item = ItemMaker.Create("LifeHerb");
             player.Use(item);
-            Assert.AreEqual(10, player.HP);
-            Assert.AreEqual(15, player.MaxHP);
+            Assert.AreEqual(16, player.HP);
+            Assert.AreEqual(20, player.MaxHP);
         }
 
         [Test]

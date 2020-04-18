@@ -8,6 +8,8 @@ public class EnemyBehaviour : MonoBehaviour {
     [SerializeField] int HP;
     [SerializeField] int AP;
     [SerializeField] int DP;
+    [SerializeField] string Position;
+    [SerializeField] string target;
     [SerializeField] string destination;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,10 @@ public class EnemyBehaviour : MonoBehaviour {
         HP = enemy.HP;
         AP = enemy.AP;
         DP = enemy.DP;
+        Position = "x: " + enemy.Position.x + ", y: " + enemy.Position.y;
+        if (enemy.Brain.Target != null)
+            target = enemy.Brain.Target.ToString();
+
         var dest = enemy.Brain.Destination;
         if (dest is null) return;
         destination = "x: " + dest.x.ToString() + ", y: " + dest.y.ToString();

@@ -50,17 +50,19 @@ namespace Tests
             Assert.AreEqual(2, floor.NumberOfStairs);
         }
 
-        [Test]
-        public void Test_EnemiesMove() {
-            var enemy = floor.GetEnemy(6, 4);
-            player.Move(2);
-            floor.Show();
-            Assert.AreEqual((5, 5), enemy.Position);
-            player.Move(2);
-            floor.Show();
-            player.Move(2);
-            floor.Show();
-            Assert.AreEqual((6, 5), enemy.Position);
-        }
+        //[Test]
+        //public void Test_EnemiesMove() {
+        //    floor.Rooms.Add(new Room(floor, (0, 0), (100, 100)));
+
+        //    var enemy = floor.GetEnemy(6, 4);
+        //    player.Move(2);
+        //    floor.Show();
+        //    Assert.AreEqual((5, 5), enemy.Position);
+        //    player.Move(2);
+        //    floor.Show();
+        //    player.Move(2);
+        //    floor.Show();
+        //    Assert.AreEqual((6, 5), enemy.Position);
+        //}
     }
 }

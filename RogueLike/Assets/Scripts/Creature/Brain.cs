@@ -19,11 +19,12 @@ public class Brain {
         if (enemy.IsState(State.Bind)) return;
 
         SetDestination();
+        if (enemy.Attack()) return;
+
         if (Destination is null) return;
 
         var difference = Destination - enemy.Position;
         enemy.direction = difference.Direction;
-        if (enemy.Attack()) return;
         if (enemy.ID == 'マ' || enemy.ID == 'ギ') return;
         DecideMove();
     }
@@ -33,9 +34,32 @@ public class Brain {
         foreach (var enemy in floor.Enemies)
             if (enemy.IsState(State.Scapegoat)) Target = enemy;
 
-        if (enemy.Room is null) return;
-        if (enemy.Room != Target.Room) return;
-        Destination = Target.Position;
+        if (enemy.Room is null) {
+            Destination = enemy.Front;
+            if (enemy.IsAbleToGo(Destination)) return;
+            Destination = enemy.LeftFront;
+            if (enemy.IsAbleToGo(Destination)) return;
+            Destination = enemy.RightFront;
+            if (enemy.IsAbleToGo(Destination)) return;
+            Destination = enemy.Left;
+            if (enemy.IsAbleToGo(Destination)) return;
+            Destination = enemy.Right;
+            if (enemy.IsAbleToGo(Destination)) return;
+            Destination = enemy.Back;
+            if (enemy.IsAbleToGo(Destination)) return;
+
+            return;
+        }
+        if (enemy.Room == Target.Room) {
+            Destination = Target.Position;
+            return;
+        }
+
+        if (Destination is null)
+            Destination = enemy.Room.Exits.GetAtRandom();
+
+        if (Destination == enemy.Position) Destination = null;
+
     }
 
     void DecideMove() {

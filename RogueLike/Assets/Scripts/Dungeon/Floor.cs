@@ -19,6 +19,7 @@ public class Floor {
     public FloorPrinter printer;
 
     public Floor(int width, int height) {
+        Debug.Log("FloorInit");
         Player = new Player(this);
         printer = new FloorPrinter(this);
 

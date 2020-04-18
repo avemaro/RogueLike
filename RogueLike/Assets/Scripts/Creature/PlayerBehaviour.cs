@@ -13,6 +13,7 @@ public class PlayerBehaviour : MonoBehaviour {
     [SerializeField] int AP;
     [SerializeField] int DP;
     [SerializeField] string Satiation;
+    [SerializeField] string Position;
 
     // Start is called before the first frame update
     void Start() {
@@ -28,5 +29,6 @@ public class PlayerBehaviour : MonoBehaviour {
         AP = player.AP;
         DP = player.DP;
         Satiation = player.Satiation.ToString() + " / " + player.MaxSatiation.ToString();
+        Position = "x:" + player.Position.x + ", y:" + player.Position.y;
     }
 }

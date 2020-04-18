@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Item\Shield.cs" />
     <Compile Include="Assets\Scripts\Item\Wand.cs" />
     <Compile Include="Assets\Scripts\Item\Weapon.cs" />
+    <Compile Include="Assets\Scripts\ListExtension.cs" />
     <Compile Include="Assets\Scripts\Parameter.cs" />
     <Compile Include="Assets\Scripts\Stuff.cs" />
     <Reference Include="UnityEditor.UI">

@@ -17,6 +17,7 @@ public class Room {
     int Height { get => endPoint.y - startPoint.y + 1; }
     readonly int wallThickness;
     readonly Direction[] neighbors;
+    public List<Cell> Exits { get; private set; } = new List<Cell>();
 
     public Room(Floor floor, (int x, int y) start, (int x, int y) end, params Direction[] neighbors) {
         this.floor = floor;
@@ -106,12 +107,13 @@ public class Room {
                     y = startPoint.y + dy;
                     break;
             }
-
             var position = new Cell(x, y);
+            Exits.Add(position);
             for (var i = 0; i < wallThickness; i++) {
                 floor.SetTerrain(position.x, position.y, TerrainType.land);
                 position = position.Next(neighbor.Reverse());
             }
+            //Exits.Add(position.Next(neighbor).Next(neighbor));
         }
     }
 

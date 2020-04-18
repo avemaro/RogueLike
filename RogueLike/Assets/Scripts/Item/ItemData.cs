@@ -64,6 +64,7 @@ public class ItemData {
 
     public static ItemData GetData(string name) {
         var found = data.Find(d => d.name == name);
+        Debug.Log(found);
         return new ItemData(found.type, found.name, found.spec);
     }
 

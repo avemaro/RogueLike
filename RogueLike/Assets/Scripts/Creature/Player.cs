@@ -83,10 +83,10 @@ public class Player: Creature {
     }
 
     void PassTurn() {
-        if (HP < MaxHP) hp++;
-
-        if (Satiation > 0) satiation--;
-        else HP--;
+        if (Satiation > 0) {
+            satiation--;
+            if (HP < MaxHP) hp++;
+        } else HP--;
 
         for (var i = 0; i < states.Count; i++)
             states[i] = (states[i].Item1, states[i].Item2 - 1);

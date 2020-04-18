@@ -51,6 +51,8 @@ namespace Tests
 
         [Test]
         public void Test_Pass() {
+            floor.Rooms.Add(new Room(floor, (0, 0), (100, 100)));
+
             player.Move(0, 1);
             floor.Show();
             player.Move(4);
