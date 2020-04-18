@@ -11,7 +11,7 @@ public class Enemy : Creature {
         return new Enemy(floor, cell, data);
     }
 
-    readonly Brain brain;
+    public Brain Brain { get; private set; }
 
     protected Enemy(Floor floor, Cell cell, char data) {
         Image = '敵';
@@ -19,7 +19,7 @@ public class Enemy : Creature {
         floor.Enemies.Add(this);
         Position = cell;
         ID = data;
-        brain = new Brain(floor, this);
+        Brain = new Brain(floor, this);
     }
 
     public Enemy(Floor floor, Cell cell, string name, char ID, params int[] spec) {
@@ -27,7 +27,7 @@ public class Enemy : Creature {
         Floor = floor;
         floor.Enemies.Add(this);
         Position = cell;
-        brain = new Brain(floor, this);
+        Brain = new Brain(floor, this);
 
         MaxHP = spec[0];
         HP = spec[0];
@@ -43,7 +43,7 @@ public class Enemy : Creature {
             if (IsRegalMove()) Move(direction);
         } else
         {
-            brain.Work();
+            Brain.Work();
         }
 
         for (var i = 0; i < states.Count; i++)
@@ -63,7 +63,7 @@ public class Enemy : Creature {
                     return false;
             }
 
-            if (to == brain.Target.Position) return brain.Target.IsAttacked(this);
+            if (to == Brain.Target.Position) return Brain.Target.IsAttacked(this);
             if (Floor.GetPiece(to) != null) return Floor.GetPiece(to).IsAttacked(this);
         }
        return false;

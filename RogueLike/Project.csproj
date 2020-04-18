@@ -66,11 +66,14 @@
     <Compile Include="Assets\Scripts\Creature\Brain.cs" />
     <Compile Include="Assets\Scripts\Creature\Chess.cs" />
     <Compile Include="Assets\Scripts\Creature\Creature.cs" />
+    <Compile Include="Assets\Scripts\Creature\EnemiesBehaviour.cs" />
     <Compile Include="Assets\Scripts\Creature\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Creature\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Creature\EnemyData.cs" />
     <Compile Include="Assets\Scripts\Creature\EnemyMaker.cs" />
     <Compile Include="Assets\Scripts\Creature\Piece.cs" />
     <Compile Include="Assets\Scripts\Creature\Player.cs" />
+    <Compile Include="Assets\Scripts\Creature\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Creature\State.cs" />
     <Compile Include="Assets\Scripts\Direction.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Cell.cs" />

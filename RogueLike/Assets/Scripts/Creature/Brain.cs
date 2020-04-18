@@ -6,7 +6,7 @@ public class Brain {
     readonly Floor floor;
     readonly Enemy enemy;
     public Creature Target { get; private set; }
-    Cell destination;
+    public Cell Destination { get; private set; }
 
     public Brain(Floor floor, Enemy enemy) {
         this.floor = floor;
@@ -19,9 +19,9 @@ public class Brain {
         if (enemy.IsState(State.Bind)) return;
 
         SetDestination();
-        if (destination is null) return;
+        if (Destination is null) return;
 
-        var difference = destination - enemy.Position;
+        var difference = Destination - enemy.Position;
         enemy.direction = difference.Direction;
         if (enemy.Attack()) return;
         if (enemy.ID == 'マ' || enemy.ID == 'ギ') return;
@@ -33,13 +33,14 @@ public class Brain {
         foreach (var enemy in floor.Enemies)
             if (enemy.IsState(State.Scapegoat)) Target = enemy;
 
+        if (enemy.Room is null) return;
         if (enemy.Room != Target.Room) return;
-        destination = Target.Position;
+        Destination = Target.Position;
     }
 
     void DecideMove() {
         //Debug.Log("FindWay");
-        var difference = destination - enemy.Position;
+        var difference = Destination - enemy.Position;
         var direction = difference.Direction;
         //Debug.Log(direction);
         if (enemy.Move(direction)) return;
