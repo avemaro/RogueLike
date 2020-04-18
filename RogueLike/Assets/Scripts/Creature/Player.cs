@@ -5,8 +5,14 @@ using UnityEngine;
 public class Player: Creature {
     public override int Level { get => base.Level;
         set {
-            if (value > base.Level) MaxHP += 4;
-            if (value < base.Level) MaxHP -= 4;
+            if (value > base.Level) {
+                MaxHP += 4;
+                BasicAP += 2;
+            }
+            if (value < base.Level) {
+                MaxHP -= 4;
+                BasicAP -= 2;
+            }
             base.Level = value;
         }
     }
@@ -20,12 +26,7 @@ public class Player: Creature {
             base.HP = value;
         }
     }
-    public int BasicAP { get {
-            if (Level == 1) return 5;
-            if (Level == 2) return 7;
-            return 9;
-        }
-    }
+    public int BasicAP { get; private set; } = 5;
     public int strength = 8;
     public override int AP =>
         BasicAP + Mathf.RoundToInt(BasicAP * (weapon.AP + strength - 8) / 16.0f);
@@ -49,10 +50,10 @@ public class Player: Creature {
     public override int Exp { get => base.Exp;
         set {
             base.Exp = value;
-            if (value < 10) Level = 1;
-            if (value >= 10) Level = 2;
-            if (value >= 30) Level = 3;
             if (value >= 60) Level = 4;
+            else if (value >= 30) Level = 3;
+            else if (value >= 10) Level = 2;
+            else if (value < 10) Level = 1;
         }
     }
 
@@ -68,8 +69,8 @@ public class Player: Creature {
         direction = Direction.down;
         MaxHP = 15;
         HP = MaxHP;
-        weapon = Weapon.Create(floor, Position, '拳');
-        shield = new NullShiled(floor, Position, 0, "");
+        weapon = new NullWeapon(floor, Position, "");
+        shield = new NullShiled(floor, Position, "");
         //Items.Add(ItemMaker.Create(Floor, Position, "ScrollOfWindCutter"));;
     }
 
@@ -82,6 +83,8 @@ public class Player: Creature {
     }
 
     void PassTurn() {
+        if (HP < MaxHP) hp++;
+
         if (Satiation > 0) satiation--;
         else HP--;
 
@@ -103,7 +106,7 @@ public class Player: Creature {
 
     public override bool Attack() {
         if (IsState(State.Dead)) return false;
-        Debug.Log("ATTACK");
+        //Debug.Log("ATTACK");
         weapon.Attack();
         foreach (var piece in Floor.Pieces)
             piece.Attack();
@@ -125,6 +128,10 @@ public class Player: Creature {
     public void Throw(int index) {
         var item = GetItem(index);
         if (item == null) return;
+
+        if (weapon == item) weapon = new NullWeapon(Floor, Position, ""); ;
+        if (shield == item) shield = new NullShiled(Floor, Position, "");
+
         item.Throw(this);
         PassTurn();
     }
@@ -138,13 +145,10 @@ public class Player: Creature {
         //if (!(item is Weapon)) return;
         Debug.Log(item);
 
-        if (item is Weapon)
-        {
+        if (item is Weapon) {
             weapon.Equip();
             if (weapon == item)
-            {
-                weapon = Weapon.Create(Floor, Position, '拳');
-            }
+                weapon = new NullWeapon(Floor, Position, "");
             else
             {
                 weapon = (Weapon)item;
@@ -153,13 +157,10 @@ public class Player: Creature {
             PassTurn();
         }
 
-        if (item is Shield)
-        {
+        if (item is Shield) {
             shield.Equip();
             if (shield == item)
-            {
-                shield = new NullShiled(Floor, Position, 0, "");
-            }
+                shield = new NullShiled(Floor, Position, "");
             else
             {
                 shield = (Shield)item;

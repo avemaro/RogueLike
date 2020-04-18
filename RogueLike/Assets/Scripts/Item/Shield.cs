@@ -21,9 +21,7 @@ public class Shield : Equipment
 
 public class NullShiled: Shield
 {
-    public NullShiled(Floor floor, Cell cell, int DP, string name) : base(floor, cell, 0, name)
+    public NullShiled(Floor floor, Cell cell, string name) : base(floor, cell, 0, name)
     {
-        Image = '防';
-        Name = name;
     }
 }

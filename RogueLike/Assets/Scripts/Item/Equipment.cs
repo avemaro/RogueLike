@@ -16,4 +16,9 @@ public class Equipment : Item {
     public Equipment(Floor floor, Cell cell, string name) : base(floor, cell, name)
     {
     }
+
+    public override bool Throw(Player player) {
+        isEquiped = false;
+        return base.Throw(player);
+    }
 }

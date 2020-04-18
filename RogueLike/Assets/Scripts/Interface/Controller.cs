@@ -83,5 +83,14 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha2)) {
             gameManager.bagPrinter.SelectItem(2);
         }
+        if (Input.GetKey(KeyCode.Alpha3)) {
+            gameManager.bagPrinter.SelectItem(3);
+        }
+        if (Input.GetKey(KeyCode.Alpha4)) {
+            gameManager.bagPrinter.SelectItem(4);
+        }
+        if (Input.GetKey(KeyCode.Alpha5)) {
+            gameManager.bagPrinter.SelectItem(5);
+        }
     }
 }

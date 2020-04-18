@@ -17,15 +17,15 @@ public abstract class Creature : Stuff, IAttacker {
     public virtual int MaxHP { get; set; } = 1;
 
     public virtual int HP {
-        get { return hp; }
-        set { hp = value;
-            if (hp > MaxHP) hp = MaxHP;
+        get { return Mathf.CeilToInt(hp/10.0f); }
+        set { hp = value * 10;
+            if (hp > MaxHP * 10) hp = MaxHP * 10;
             if (hp <= 0) {
                 states.Add((State.Dead, 99));
             }
         }
     }
-    int hp = 1;
+    protected int hp = 10;
     public virtual int AP { get; set; } = 1;
     public virtual int DP { get; set; } = 0;
 

@@ -64,6 +64,10 @@ public class Weapon : Equipment {
     }
 }
 
+public class NullWeapon : Weapon {
+    public NullWeapon(Floor floor, Cell cell, string name) : base(floor, cell, 0, name) {
+    }
+}
 
 public class PickAxe : Weapon {
     public PickAxe(Floor floor, Cell cell, int AP, string name, params Direction[] directions) : base(floor, cell, AP, name, directions) {

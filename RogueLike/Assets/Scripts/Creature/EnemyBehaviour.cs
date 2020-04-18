@@ -17,13 +17,13 @@ public class EnemyBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (enemy is null) return;
         ID = enemy.ID;
         HP = enemy.HP;
         AP = enemy.AP;
         DP = enemy.DP;
         var dest = enemy.Brain.Destination;
         if (dest is null) return;
-        Debug.Log(dest);
         destination = "x: " + dest.x.ToString() + ", y: " + dest.y.ToString();
         if (enemy.IsState(State.Dead)) Destroy(gameObject);
     }

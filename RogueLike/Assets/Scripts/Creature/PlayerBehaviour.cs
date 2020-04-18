@@ -9,6 +9,7 @@ public class PlayerBehaviour : MonoBehaviour {
     [SerializeField] int Level;
     [SerializeField] int Exp;
     [SerializeField] string HP;
+    [SerializeField] int BasicAP;
     [SerializeField] int AP;
     [SerializeField] int DP;
     [SerializeField] string Satiation;
@@ -23,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour {
         Level = player.Level;
         Exp = player.Exp;
         HP = player.HP.ToString() + " / " + player.MaxHP.ToString();
+        BasicAP = player.BasicAP;
         AP = player.AP;
         DP = player.DP;
         Satiation = player.Satiation.ToString() + " / " + player.MaxSatiation.ToString();
