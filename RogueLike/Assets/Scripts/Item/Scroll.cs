@@ -9,11 +9,15 @@ public class Scroll : Item {
     }
 
     protected override void Work(Player player, Stuff stuff) {
+        Debug.Log("Use " + Name);
+
         var enemy = (Enemy)stuff;
         if (Name == "ScrollOfDeepSleep**")
             enemy.states.Add((State.Sleep, 5));
         if (Name == "ScrollOfWindCutter")
             enemy.IsAttacked(this);
+        if (Name == "ScrollOfConfusion")
+            enemy.states.Add((State.Confusion, 20));
     }
 
     public override void Work(Player player) {

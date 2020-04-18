@@ -29,13 +29,13 @@ public class Room {
         if (Width < WidthLimit) divisions.Remove(Division.vertical);
         if (Height < HeightLimit) divisions.Remove(Division.horizonal);
 
-        //if (divisions.Count == 1) {
-        //    wallThickness = Random.Range(wallMin, wallMax);
-        //    CreateLand();
-        //    CreateExit();
-        //    floor.Rooms.Add(this);
-        //    return;
-        //}
+        if (divisions.Count == 1) {
+            wallThickness = Random.Range(wallMin, wallMax);
+            CreateLand();
+            CreateExit();
+            floor.Rooms.Add(this);
+            return;
+        }
         var divRatio = Random.Range(divRatioMin, divRatioMax);
         var division = divisions[Random.Range(1, divisions.Count)];
 

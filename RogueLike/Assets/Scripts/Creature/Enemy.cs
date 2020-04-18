@@ -57,7 +57,7 @@ public class Enemy : Creature {
     public override bool Attack() {
         foreach (var direction in DirectionExtend.AllCases()) {
             var to = Position.Next(direction);
-            Debug.Log(to);
+            //Debug.Log(to);
 
             if (direction.IsDiagonal()) {
                 var forwards = Position.Next(direction.Forwards());

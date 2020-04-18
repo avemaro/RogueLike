@@ -55,10 +55,10 @@ public class Brain {
             return;
         }
 
-        if (Destination is null)
+        if (Destination is null && enemy.Room.Exits.Count != 0)
             Destination = enemy.Room.Exits.GetAtRandom();
 
-        if (Destination == enemy.Position) Destination = null;
+        if (!(Destination is null) && Destination == enemy.Position) Destination = null;
 
     }
 

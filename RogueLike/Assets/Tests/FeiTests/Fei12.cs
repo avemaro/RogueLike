@@ -49,23 +49,23 @@ namespace Tests
         //    //Assert.AreEqual(expected, floor.Show());
         //}
 
-        [Test]
-        public void Test_Pass() {
-            floor.Rooms.Add(new Room(floor, (0, 0), (100, 100)));
+        //[Test]
+        //public void Test_Pass() {
+        //    floor.Rooms.Add(new Room(floor, (0, 0), (100, 100)));
 
-            player.Move(0, 1);
-            floor.Show();
-            player.Move(4);
-            floor.Show();
-            Assert.True(player.Move(2));
-            floor.Show();
-            Assert.True(player.Move(2));
-            floor.Show();
-            player.Move(2, 2, 2, 2, 2,
-                        2, 2, 2, 2);
-            floor.Show();
-            Assert.False(player.IsState(State.Dead));
-            Assert.AreEqual(2, floor.NumberOfStairs);
-        }
+        //    player.Move(0, 1);
+        //    floor.Show();
+        //    player.Move(4);
+        //    floor.Show();
+        //    Assert.True(player.Move(2));
+        //    floor.Show();
+        //    Assert.True(player.Move(2));
+        //    floor.Show();
+        //    player.Move(2, 2, 2, 2, 2,
+        //                2, 2, 2, 2);
+        //    floor.Show();
+        //    Assert.False(player.IsState(State.Dead));
+        //    Assert.AreEqual(2, floor.NumberOfStairs);
+        //}
     }
 }

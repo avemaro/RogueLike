@@ -64,6 +64,7 @@ public class FloorPrinter {
             for (var x = 0; x < floor.floorSize.x; x++)
                 str += GetChar(x, y);
             floorData.Add(str);
+            Debug.Log(str);
         }
         return floorData;
     }

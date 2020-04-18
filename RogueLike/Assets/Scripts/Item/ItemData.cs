@@ -30,7 +30,7 @@ public class ItemData {
         ("ScrollOfPotEnlarging**", 11), ("ScrollOfWindCutter", 30),
         ("ScrollOfEmergency**", 21), ("ScrollOfDeepSleep**", 20),
         ("ScrollOfPowerUp**", 21), ("ScrollOfBigRoom**", 10),
-        ("ScrollOfConfusion**", 21), ("ScrollOfWhitePaper**", 20),
+        ("ScrollOfConfusion", 21), ("ScrollOfWhitePaper**", 20),
     };
     static public (string name, int prob)[] wands = {
         ("WandOfBlowAway", 51), ("WandOfUnhappiness", 26),
@@ -64,7 +64,7 @@ public class ItemData {
 
     public static ItemData GetData(string name) {
         var found = data.Find(d => d.name == name);
-        Debug.Log(found);
+        //Debug.Log(found);
         return new ItemData(found.type, found.name, found.spec);
     }
 
@@ -123,7 +123,7 @@ public class ItemData {
         AddData(ItemType.scroll, "ScrollOfDeepSleep**");
         AddData(ItemType.scroll, "ScrollOfPowerUp**");
         AddData(ItemType.scroll, "ScrollOfBigRoom**");
-        AddData(ItemType.scroll, "ScrollOfConfusion**");
+        AddData(ItemType.scroll, "ScrollOfConfusion");
         AddData(ItemType.scroll, "ScrollOfWhitePaper**");
     }
     static void InitPot() {

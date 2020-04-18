@@ -40,18 +40,18 @@ namespace Tests
             Assert.AreNotEqual(floor.StairPosition, player.Position);
         }
 
-        [Test]
-        public void Test_Pass() {
-            player.Move(4, 5, 6, 6, 6);
-            floor.Show();
-            player.Move(6, 7, 0);
-            floor.Show();
-            player.Move(0, 0, 2);
-            player.Use(0);
-            player.Move(1, 2);
-            floor.Show();
-            Assert.AreEqual(2, floor.NumberOfStairs);
-            Assert.False(player.IsState(State.Dead));
-        }
+        //[Test]
+        //public void Test_Pass() {
+        //    player.Move(4, 5, 6, 6, 6);
+        //    floor.Show();
+        //    player.Move(6, 7, 0);
+        //    floor.Show();
+        //    player.Move(0, 0, 2);
+        //    player.Use(0);
+        //    player.Move(1, 2);
+        //    floor.Show();
+        //    Assert.AreEqual(2, floor.NumberOfStairs);
+        //    Assert.False(player.IsState(State.Dead));
+        //}
     }
 }
