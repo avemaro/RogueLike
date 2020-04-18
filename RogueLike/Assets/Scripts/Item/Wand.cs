@@ -32,6 +32,9 @@ public class Wand : Item {
             if (Floor.GetCreature(Floor.StairPosition) == null)
                 enemy.Position = Floor.StairPosition;
         }
+        if (Name == "WandOfPainSharing") {
+            enemy.states.Add((State.PainSharing, 9999));
+        }
 
         if (states == null) return;
         foreach (var state in states)

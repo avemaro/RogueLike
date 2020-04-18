@@ -18,6 +18,8 @@ public class Scroll : Item {
             enemy.IsAttacked(this);
         if (Name == "ScrollOfConfusion")
             enemy.states.Add((State.Confusion, 20));
+        if (Name == "ScrollOfDeepSleep")
+            enemy.states.Add((State.Sleep, 20));
     }
 
     public override void Work(Player player) {

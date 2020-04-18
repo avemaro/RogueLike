@@ -11,7 +11,9 @@ public class Piece : Creature {
         Position = position;
         ID = 'Ｐ';
         Image = 'Ｐ';
+        MaxHP = 10;
         HP = 10;
+        AP = 2;
     }
 
     public override bool Move(Direction direction) {

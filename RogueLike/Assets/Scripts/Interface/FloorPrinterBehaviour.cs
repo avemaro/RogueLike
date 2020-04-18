@@ -13,7 +13,7 @@ public class FloorPrinterBehaviour : MonoBehaviour
     Text text;
 
     void Awake() {
-        Debug.Log(floor);
+        //Debug.Log(floor);
         if (gameManager.floorPrefab != null) {
             text = Instantiate(gameManager.floorPrefab, transform);
             floor = FloorMaker.Create(text.text);
@@ -22,7 +22,7 @@ public class FloorPrinterBehaviour : MonoBehaviour
             text = gameObject.GetComponent<Text>();
             floor = FloorMaker.Create();
         }
-        Debug.Log(floor);
+        //Debug.Log(floor);
         gameManager.floor = floor;
         gameManager.floorPrinter = this;
     }

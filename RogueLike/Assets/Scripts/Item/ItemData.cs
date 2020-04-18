@@ -28,7 +28,7 @@ public class ItemData {
     static public (string name, int prob)[] scrolls = {
         ("ScrollOfIdentify**", 72), ("ScrollOfLight**", 30),
         ("ScrollOfPotEnlarging**", 11), ("ScrollOfWindCutter", 30),
-        ("ScrollOfEmergency**", 21), ("ScrollOfDeepSleep**", 20),
+        ("ScrollOfEmergency**", 21), ("ScrollOfDeepSleep", 20),
         ("ScrollOfPowerUp**", 21), ("ScrollOfBigRoom**", 10),
         ("ScrollOfConfusion", 21), ("ScrollOfWhitePaper**", 20),
     };
@@ -120,7 +120,7 @@ public class ItemData {
         AddData(ItemType.scroll, "ScrollOfPotEnlarging**");
         AddData(ItemType.scroll, "ScrollOfWindCutter");
         AddData(ItemType.scroll, "ScrollOfEmergency**");
-        AddData(ItemType.scroll, "ScrollOfDeepSleep**");
+        AddData(ItemType.scroll, "ScrollOfDeepSleep");
         AddData(ItemType.scroll, "ScrollOfPowerUp**");
         AddData(ItemType.scroll, "ScrollOfBigRoom**");
         AddData(ItemType.scroll, "ScrollOfConfusion");

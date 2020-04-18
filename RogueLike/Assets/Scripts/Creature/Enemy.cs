@@ -66,7 +66,7 @@ public class Enemy : Creature {
             }
 
             if (to == Brain.Target.Position) {
-                Debug.Log("EnemyAttack");
+                //Debug.Log("EnemyAttack");
                 return Brain.Target.IsAttacked(this);
             }
             if (Floor.GetPiece(to) != null) return Floor.GetPiece(to).IsAttacked(this);
