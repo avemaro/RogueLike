@@ -42,7 +42,7 @@ public class Player: Creature {
     public int Satiation {
         get { return Mathf.CeilToInt(satiation/10.0f); }
         set {
-            satiation += value * 10;
+            satiation = value * 10;
             if (satiation > maxSatiation * 10) satiation = maxSatiation * 10;
         }
     }

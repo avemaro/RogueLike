@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-
+        bagPrinter.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
     public void ShowMap() {
         if (mapPrinter.gameObject.activeInHierarchy) {
             mapPrinter.gameObject.SetActive(false);
-            //floorPrinter.gameObject.SetActive(true);
+            floorPrinter.gameObject.SetActive(true);
         } else {
             mapPrinter.gameObject.SetActive(true);
-            //floorPrinter.gameObject.SetActive(false);
+            floorPrinter.gameObject.SetActive(false);
         }
     }
 }

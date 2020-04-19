@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour
     Player player;
     public GameManager gameManager;
 
-    public float timeOut;
+    public float timeOut　= 0.1f;
     private float timeElapsed;
 
     // Start is called before the first frame update
@@ -25,6 +25,10 @@ public class Controller : MonoBehaviour
             ProcessInput();
             timeElapsed = 0.0f;
         }
+
+        if (Input.GetKeyUp(KeyCode.I))
+            gameManager.bagPrinter.gameObject.SetActive(true);
+            //gameManager.bagPrinter.ToggleVisible();
     }
 
 
@@ -61,36 +65,8 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.M)) {
             gameManager.ShowMap();
         }
-        if (Input.GetKey(KeyCode.U)) {
-            gameManager.bagPrinter.Use();
-        }
-        if (Input.GetKey(KeyCode.Y)) {
-            gameManager.bagPrinter.Equip();
-        }
-        if (Input.GetKey(KeyCode.T)) {
-            gameManager.bagPrinter.Throw();
-        }
         if (Input.GetKey(KeyCode.P)) {
             player.Spawn(Chess.Pawn);
-        }
-
-        if (Input.GetKey(KeyCode.Alpha0)) {
-            gameManager.bagPrinter.SelectItem(0);
-        }
-        if (Input.GetKey(KeyCode.Alpha1)) {
-            gameManager.bagPrinter.SelectItem(1);
-        }
-        if (Input.GetKey(KeyCode.Alpha2)) {
-            gameManager.bagPrinter.SelectItem(2);
-        }
-        if (Input.GetKey(KeyCode.Alpha3)) {
-            gameManager.bagPrinter.SelectItem(3);
-        }
-        if (Input.GetKey(KeyCode.Alpha4)) {
-            gameManager.bagPrinter.SelectItem(4);
-        }
-        if (Input.GetKey(KeyCode.Alpha5)) {
-            gameManager.bagPrinter.SelectItem(5);
         }
     }
 }
