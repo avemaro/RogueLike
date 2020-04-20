@@ -50,10 +50,11 @@ public class Player: Creature {
     public override int Exp { get => base.Exp;
         set {
             base.Exp = value;
-            if (value >= 60) Level = 4;
-            else if (value >= 30) Level = 3;
-            else if (value >= 10) Level = 2;
-            else if (value < 10) Level = 1;
+            Level = value / 20 + 1;
+            //if (value >= 60) Level = 4;
+            //else if (value >= 30) Level = 3;
+            //else if (value >= 10) Level = 2;
+            //else if (value < 10) Level = 1;
         }
     }
 

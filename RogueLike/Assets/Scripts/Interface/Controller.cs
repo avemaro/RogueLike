@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+    static readonly (KeyCode, Direction)[] keyCodes = {
+        (KeyCode.W, Direction.up), (KeyCode.E, Direction.upRight),
+        (KeyCode.D, Direction.right), (KeyCode.C, Direction.downRight),
+        (KeyCode.X, Direction.down), (KeyCode.Z, Direction.downLeft),
+        (KeyCode.A, Direction.left), (KeyCode.Q, Direction.upLeft)
+    };
+
     Floor floor;
     Player player;
     public GameManager gameManager;
+
+    KeyCode keyInput;
 
     public float timeOut　= 0.1f;
     private float timeElapsed;
@@ -28,13 +37,26 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.I))
             gameManager.bagPrinter.gameObject.SetActive(true);
-            //gameManager.bagPrinter.ToggleVisible();
+        //gameManager.bagPrinter.ToggleVisible();
+
+        //foreach (var keycode in keyCodes)
+        //    if (Input.GetKeyUp(keycode.Item1))
+        //        keyInput = keycode.Item1;
     }
 
 
     // Update is called once per frame
     void ProcessInput()
     {
+        if (gameManager.bagPrinter.IsVisible) return;
+
+        //foreach (var keycode in keyCodes)
+        //    if (keycode.Item1 == keyInput)
+        //        player.Move(keycode.Item2);
+        //keyInput = KeyCode.F1;
+        //if (Input.GetKey(keycode.Item1))
+        //player.Move(keycode.Item2);
+
         if (Input.GetKey(KeyCode.W)) {
             player.Move(Direction.up);
         }
@@ -59,6 +81,7 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.Q)) {
             player.Move(Direction.upLeft);
         }
+
         if (Input.GetKey(KeyCode.S)) {
             player.Attack();
         }

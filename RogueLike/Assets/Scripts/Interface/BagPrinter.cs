@@ -19,18 +19,19 @@ public class BagPrinter : MonoBehaviour
     private float timeElapsed;
 
     int selectedItem = 0;
-    bool isVisible = false;
+    public bool IsVisible { get; private set; } = false;
 
     // Start is called before the first frame update
     void Start() {
         player = gameManager.floor.Player;
         gameManager.bagPrinter = this;
-        isVisible = true;
+        IsVisible = true;
         foreach (Transform child in transform)
             child.gameObject.SetActive(true);
     }
 
     void OnEnable() {
+        IsVisible = true;
         foreach (var child in itemList.GetComponentsInChildren<Text>())
             Destroy(child.gameObject);
 
@@ -41,6 +42,10 @@ public class BagPrinter : MonoBehaviour
             textComponent.text = player.Items[i].ToString();
             if (i == selectedItem) textComponent.color = Color.red;
         }
+    }
+
+    void OnDisable() {
+        IsVisible = false;
     }
 
     // Update is called once per frame
@@ -55,7 +60,7 @@ public class BagPrinter : MonoBehaviour
     }
 
     void ProcessKeyInput() {
-        if (!isVisible) return;
+        if (!IsVisible) return;
 
         for (var i = 0; i < keyCodes.Length; i++)
             if (Input.GetKeyUp(keyCodes[i]))
