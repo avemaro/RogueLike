@@ -1,0 +1,10 @@
+drag,MedicinalHerb,25,1,0,0,0,0,51
+drag,OtogiriHerb,100,2,0,0,0,0,51
+drag,LifeHerb,0,0,5,0,0,0,25
+drag,StomachEnlargingSeed,0,0,0,0,0,10,26
+drag,EyewashHerb,0,0,0,0,0,0,64
+drag,DragonHerb,0,0,0,0,0,0,39
+food,RiceBall,0,0,0,50,1,0,102
+food,BigRiceBall,0,0,0,100,2,0,31
+food,RottenRiceBall,0,0,0,30,0,0,103
+food,HugeRiceBall,0,0,0,999,0,5,20

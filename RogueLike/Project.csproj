@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\CSVReader.cs" />
     <Compile Include="Assets\Scripts\Creature\Brain.cs" />
     <Compile Include="Assets\Scripts\Creature\Chess.cs" />
     <Compile Include="Assets\Scripts\Creature\Creature.cs" />

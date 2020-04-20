@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public static class ItemMaker {
     static readonly (ItemType type, int prob)[] items = {
@@ -31,7 +32,7 @@ public static class ItemMaker {
         }
     }
 
-    static Item SelectItem(Floor floor, Cell cell, (string naem, int prob)[] probs) {
+    static Item SelectItem(Floor floor, Cell cell, List<(string naem, int prob)> probs) {
         var rand = Random.Range(0, 256);
         var accum = 0;
         foreach (var (name, prob) in probs) {
@@ -42,6 +43,18 @@ public static class ItemMaker {
     }
 
     public static Item Create(Floor floor, Cell cell, string name) {
+        if (name == "EyewashHerb") return new EyewashHerb(floor, cell, name);
+        if (name == "DragonHerb") return new DragonHerb(floor, cell, name);
+
+        if (name == "WandOfScapegoat") return new Wand(floor, cell, name, (State.Confusion, 50), (State.Scapegoat, 50));
+        if (name == "WandOfBinding") return new Wand(floor, cell, name, (State.Bind, 9999));
+        if (name == "WandOfPainSharing") return new Wand(floor, cell, name, (State.PainSharing, 9999));
+
+        if (name == "Kamaitachi")
+            return new Weapon(floor, cell, 3, name, Direction.upLeft, Direction.upRight);
+        if (name == "PickAxe")
+            return new PickAxe(floor, cell, 1, name);
+
         var data = ItemData.GetData(name);
         switch (data.Type) {
             case ItemType.weapon:
@@ -66,17 +79,7 @@ public static class ItemMaker {
                 break;
         }
         
-        if (name == "EyewashHerb") return new EyewashHerb(floor, cell, name);
-        if (name == "DragonHerb") return new DragonHerb(floor, cell, name);
-        
-        if (name == "WandOfScapegoat") return new Wand(floor, cell, name, (State.Confusion, 50), (State.Scapegoat, 50));
-        if (name == "WandOfBinding") return new Wand(floor, cell, name, (State.Bind, 9999));
-        if (name == "WandOfPainSharing") return new Wand(floor, cell, name, (State.PainSharing, 9999));
 
-        if (name == "Kamaitachi")
-            return new Weapon(floor, cell, 3, name, Direction.upLeft, Direction.upRight);
-        if (name == "PickAxe")
-            return new PickAxe(floor, cell, 1, name);
 
         throw new System.Exception(name);
     }
