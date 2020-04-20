@@ -1,22 +1,23 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Creature/EnemyData.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Item.cs">
     <Files>
       <File FileName="Assets/Scripts/Creature/Brain.cs" Line="57" Column="1" />
       <File FileName="Assets/Scripts/Creature/PlayerBehaviour.cs" />
-      <File FileName="Assets/Tests/KobamiTests/ScrollTests.cs" Line="19" Column="30" />
+      <File FileName="Assets/Tests/KobamiTests/ScrollTests.cs" Line="16" Column="53" />
       <File FileName="Assets/Scripts/Creature/Piece.cs" Line="16" Column="16" />
       <File FileName="Assets/Scripts/Interface/Controller.cs" Line="17" Column="1" />
       <File FileName="Assets/Scripts/Interface/GameManager.cs" Line="21" Column="1" />
       <File FileName="Assets/Scripts/Interface/StatusPrinter.cs" Line="17" Column="6" />
-      <File FileName="Assets/Scripts/Creature/EnemyData.cs" Line="37" Column="13" />
-      <File FileName="Assets/Scripts/Creature/EnemyMaker.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/Creature/EnemyData.cs" Line="45" Column="40" />
+      <File FileName="Assets/Scripts/Creature/EnemyMaker.cs" Line="13" Column="56" />
+      <File FileName="Assets/Scripts/Item/Item.cs" Line="24" Column="82" />
       <File FileName="Assets/Scripts/Interface/FloorPrinterBehaviour.cs" Line="16" Column="28" NotebookId="1" />
       <File FileName="Assets/Scripts/ListExtension.cs" Line="11" Column="1" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Scroll.cs" Line="7" Column="21" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Wand.cs" Line="36" Column="57" NotebookId="1" />
       <File FileName="Assets/Scripts/Creature/Player.cs" Line="53" Column="35" NotebookId="1" />
       <File FileName="Assets/Scripts/Interface/BagPrinter.cs" Line="53" Column="27" NotebookId="1" />
-      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="25" Column="17" NotebookId="1" />
+      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="32" Column="4" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
