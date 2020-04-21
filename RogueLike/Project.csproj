@@ -84,12 +84,9 @@
     <Compile Include="Assets\Scripts\Dungeon\TerrainCell.cs" />
     <Compile Include="Assets\Scripts\Dungeon\TerrainType.cs" />
     <Compile Include="Assets\Scripts\Dungeon\Trap.cs" />
-    <Compile Include="Assets\Scripts\Effect.cs" />
     <Compile Include="Assets\Scripts\IAttacker.cs" />
     <Compile Include="Assets\Scripts\Interface\BagPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\Controller.cs" />
-    <Compile Include="Assets\Scripts\Interface\EffectBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Interface\EffectManager.cs" />
     <Compile Include="Assets\Scripts\Interface\FloorPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\FloorPrinterBehaviour.cs" />
     <Compile Include="Assets\Scripts\Interface\GameManager.cs" />

@@ -49,8 +49,7 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
 
     }
 
-    public virtual Effect Work(Player player) {
-        return null;
+    public virtual void Work(Player player) {
     }
 
     public virtual bool Throw(Player player) {

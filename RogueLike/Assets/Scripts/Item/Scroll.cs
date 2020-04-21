@@ -22,12 +22,10 @@ public class Scroll : Item {
             enemy.states.Add((State.Sleep, 20));
     }
 
-    public override Effect Work(Player player) {
+    public override void Work(Player player) {
         player.Items.Remove(this);
 
         foreach (var enemy in Floor.GetEnemies(player.Room))
             Work(player, enemy);
-
-        return null;
     }
 }
