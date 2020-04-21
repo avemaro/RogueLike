@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public MapPrinter mapPrinter;
     public FloorPrinterBehaviour floorPrinter;
     public BagPrinter bagPrinter;
+    public PlayerBehaviour playerBehaviour;
 
     // Start is called before the first frame update
     void Start() {

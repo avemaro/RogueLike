@@ -12,7 +12,8 @@ public class Controller : MonoBehaviour
     };
 
     Floor floor;
-    Player player;
+    //Player player;
+    PlayerBehaviour playerBehaviour;
     public GameManager gameManager;
 
     KeyCode keyInput;
@@ -24,7 +25,8 @@ public class Controller : MonoBehaviour
     void Start()
     {
         floor = gameManager.floor;
-        player = floor.Player;
+        //player = floor.Player;
+        playerBehaviour = gameManager.playerBehaviour;
     }
 
     void Update() {
@@ -58,38 +60,38 @@ public class Controller : MonoBehaviour
         //player.Move(keycode.Item2);
 
         if (Input.GetKey(KeyCode.W)) {
-            player.Move(Direction.up);
+            playerBehaviour.Move(Direction.up);
         }
         if (Input.GetKey(KeyCode.E)) {
-            player.Move(Direction.upRight);
+            playerBehaviour.Move(Direction.upRight);
         }
         if (Input.GetKey(KeyCode.D)) {
-            player.Move(Direction.right);
+            playerBehaviour.Move(Direction.right);
         }
         if (Input.GetKey(KeyCode.C)) {
-            player.Move(Direction.downRight);
+            playerBehaviour.Move(Direction.downRight);
         }
         if (Input.GetKey(KeyCode.X)) {
-            player.Move(Direction.down);
+            playerBehaviour.Move(Direction.down);
         }
         if (Input.GetKey(KeyCode.Z)) {
-            player.Move(Direction.downLeft);
+            playerBehaviour.Move(Direction.downLeft);
         }
         if (Input.GetKey(KeyCode.A)) {
-            player.Move(Direction.left);
+            playerBehaviour.Move(Direction.left);
         }
         if (Input.GetKey(KeyCode.Q)) {
-            player.Move(Direction.upLeft);
+            playerBehaviour.Move(Direction.upLeft);
         }
 
         if (Input.GetKey(KeyCode.S)) {
-            player.Attack();
+            playerBehaviour.Attack();
         }
         if (Input.GetKey(KeyCode.M)) {
             gameManager.ShowMap();
         }
         if (Input.GetKey(KeyCode.P)) {
-            player.Spawn(Chess.Pawn);
+            playerBehaviour.Spawn(Chess.Pawn);
         }
     }
 }
