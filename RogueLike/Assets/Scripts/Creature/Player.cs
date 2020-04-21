@@ -115,15 +115,16 @@ public class Player: Creature {
         return true;
     }
 
-    public void Use(int index) {
+    public Effect Use(int index) {
         var item = GetItem(index);
-        Use(item);
+        return Use(item);
     }
 
-    public void Use(Item item) {
-        if (item == null) return;
-        item.Work(this);
+    public Effect Use(Item item) {
+        if (item == null) return null;
+        var effect = item.Work(this);
         PassTurn();
+        return effect;
     }
 
     public void Throw(int index) {

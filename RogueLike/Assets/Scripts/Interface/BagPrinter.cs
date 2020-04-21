@@ -16,6 +16,9 @@ public class BagPrinter : MonoBehaviour
     public GameObject itemPrinterPrefab;
     public Text description;
 
+    public EffectBehaviour fireEffect;
+
+
     public float timeOut = 0.1f;
     private float timeElapsed;
 
@@ -85,7 +88,11 @@ public class BagPrinter : MonoBehaviour
     }
 
     public void Use() {
-        player.Use(selectedItem);
+        var effect = player.Use(selectedItem);
+        if (!(effect is null)) {
+            var effectBehaviour = Instantiate(fireEffect, gameManager.effects.transform);
+            effectBehaviour.direction = player.direction;
+        }
         gameObject.SetActive(false);
     }
 

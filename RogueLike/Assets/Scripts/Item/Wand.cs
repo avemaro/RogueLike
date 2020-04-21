@@ -42,13 +42,15 @@ public class Wand : Item {
 
     }
 
-    public override void Work(Player player) {
+    public override Effect Work(Player player) {
         durability--;
         if (durability <= 0) player.Items.Remove(this);
 
         var enemy = Floor.GetEnemy(player.Position, player.direction,
             new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
-        if (enemy == null) return;
+        if (enemy == null) return null;
         Work(player, enemy);
+
+        return null;
     }
 }

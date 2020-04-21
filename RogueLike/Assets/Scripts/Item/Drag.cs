@@ -32,7 +32,7 @@ public class Drag : Item {
         this.MaxSatiation = MaxSatiation;
     }
 
-    public override void Work(Player player) {
+    public override Effect Work(Player player) {
         player.Items.Remove(this);
         Debug.Log(Name);
 
@@ -42,6 +42,8 @@ public class Drag : Item {
         player.MaxHP += MaxHP;
         player.Satiation += Satiation;
         player.MaxSatiation += MaxSatiation;
+
+        return null;
     }
 }
 
@@ -49,12 +51,14 @@ public class EyewashHerb : Drag {
     public EyewashHerb(Floor floor, Cell cell, string name): base(floor, cell, name, 0, 0, 0, 0, 0, 0) {
     }
 
-    public override void Work(Player player) {
+    public override Effect Work(Player player) {
         player.Items.Remove(this);
         player.Satiation += 5;
 
         foreach (var trap in player.Floor.Traps)
             trap.isVisible = true;
+
+        return null;
     }
 }
 
@@ -62,13 +66,15 @@ public class DragonHerb : Drag {
     public DragonHerb(Floor floor, Cell cell, string name): base(floor, cell, name, 0, 0, 0, 0, 0, 0) {
     }
 
-    public override void Work(Player player) {
+    public override Effect Work(Player player) {
         player.Items.Remove(this);
         player.Satiation += 5;
 
         var enemy = Floor.GetEnemy(player.Position, player.direction,
             new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
-        if (enemy == null) return;
+        if (enemy == null) return new Effect();
         enemy.IsAttacked(player);
+
+        return new Effect();
     }
 }

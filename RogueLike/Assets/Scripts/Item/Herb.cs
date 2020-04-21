@@ -32,8 +32,10 @@ public class Herb : Item {
         }
     }
 
-    public override void Work(Player player) {
+    public override Effect Work(Player player) {
         player.Items.Remove(this);
         Work(player, null);
+
+        return null;
     }
 }

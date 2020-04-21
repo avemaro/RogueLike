@@ -9,7 +9,7 @@ public class Pot : Item {
         Image = '壺';
     }
 
-    public override void Work(Player player) {
+    public override Effect Work(Player player) {
         if (Name == "PotOfStealSeal") {
             var nextCell = Floor.GetTerrainCell(player.Position);
 
@@ -25,6 +25,7 @@ public class Pot : Item {
                 break;
             }
         }
+        return null;
     }
 
     public override bool Throw(Player player) {

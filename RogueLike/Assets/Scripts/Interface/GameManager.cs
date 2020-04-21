@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public FloorPrinterBehaviour floorPrinter;
     public BagPrinter bagPrinter;
     public PlayerBehaviour playerBehaviour;
+    public GameObject effects;
 
     // Start is called before the first frame update
     void Start() {
