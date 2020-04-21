@@ -60,7 +60,7 @@ public static class ItemMaker {
             case ItemType.weapon:
                 return new Weapon(floor, cell, data.Spec[0], name);
             case ItemType.shield:
-                return new Shield(floor, cell, data.Spec[0], name);
+                return new Shield(floor, cell, data.Spec[1], name);
             case ItemType.arrow:
                 return new Arrow(floor, cell, data.Spec[0], name); ;
             case ItemType.food:
