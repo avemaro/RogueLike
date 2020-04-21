@@ -61,27 +61,35 @@ public class Controller : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W)) {
             playerBehaviour.Move(Direction.up);
+            return;
         }
         if (Input.GetKey(KeyCode.E)) {
             playerBehaviour.Move(Direction.upRight);
+            return;
         }
         if (Input.GetKey(KeyCode.D)) {
             playerBehaviour.Move(Direction.right);
+            return;
         }
         if (Input.GetKey(KeyCode.C)) {
             playerBehaviour.Move(Direction.downRight);
+            return;
         }
         if (Input.GetKey(KeyCode.X)) {
             playerBehaviour.Move(Direction.down);
+            return;
         }
         if (Input.GetKey(KeyCode.Z)) {
             playerBehaviour.Move(Direction.downLeft);
+            return;
         }
         if (Input.GetKey(KeyCode.A)) {
             playerBehaviour.Move(Direction.left);
+            return;
         }
         if (Input.GetKey(KeyCode.Q)) {
             playerBehaviour.Move(Direction.upLeft);
+            return;
         }
 
         if (Input.GetKey(KeyCode.S)) {
