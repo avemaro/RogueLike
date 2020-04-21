@@ -34,22 +34,23 @@ public class Brain {
         foreach (var enemy in floor.Enemies)
             if (enemy.IsState(State.Scapegoat)) Target = enemy;
 
-        if (enemy.Room is null) {
-            Destination = enemy.Front;
-            if (enemy.IsAbleToGo(Destination)) return;
-            Destination = enemy.LeftFront;
-            if (enemy.IsAbleToGo(Destination)) return;
-            Destination = enemy.RightFront;
-            if (enemy.IsAbleToGo(Destination)) return;
-            Destination = enemy.Left;
-            if (enemy.IsAbleToGo(Destination)) return;
-            Destination = enemy.Right;
-            if (enemy.IsAbleToGo(Destination)) return;
-            Destination = enemy.Back;
-            if (enemy.IsAbleToGo(Destination)) return;
+        foreach (var direction in DirectionExtend.AllCases())
+            if (enemy.Position.Next(direction) == Target.Position) {
+                Destination = Target.Position;
+                return;
+            }
 
+        foreach (var direction in DirectionExtend.AllCases())
+            if (enemy.Position.Next(direction).Next(direction) == Target.Position) {
+                Destination = Target.Position;
+                return;
+            }
+
+        if (enemy.Room is null) {
+            SetDestInAisle();
             return;
         }
+
         if (enemy.Room == Target.Room) {
             Destination = Target.Position;
             return;
@@ -58,8 +59,24 @@ public class Brain {
         if (Destination is null && enemy.Room.Exits.Count != 0)
             Destination = enemy.Room.Exits.GetAtRandom();
 
-        if (!(Destination is null) && Destination == enemy.Position) Destination = null;
+        if (!(Destination is null) && Destination == enemy.Position) {
+            SetDestInAisle();
+        }
+    }
 
+    void SetDestInAisle() {
+        Destination = enemy.Front;
+        if (enemy.IsAbleToGo(Destination)) return;
+        Destination = enemy.LeftFront;
+        if (enemy.IsAbleToGo(Destination)) return;
+        Destination = enemy.RightFront;
+        if (enemy.IsAbleToGo(Destination)) return;
+        Destination = enemy.Left;
+        if (enemy.IsAbleToGo(Destination)) return;
+        Destination = enemy.Right;
+        if (enemy.IsAbleToGo(Destination)) return;
+        Destination = enemy.Back;
+        if (enemy.IsAbleToGo(Destination)) return;
     }
 
     void DecideMove() {
