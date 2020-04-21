@@ -83,8 +83,8 @@ public class FloorMaker {
             return false;
         }
 
-        floor.Player.Position = floor.GetVacantPosition(TerrainType.land);
-        floor.StairPosition = floor.GetVacantPosition(TerrainType.land);
+        floor.Player.Position = floor.GetVacantPosition(TerrainType.land, true);
+        floor.StairPosition = floor.GetVacantPosition(TerrainType.land, true);
     }
 
 

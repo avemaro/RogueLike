@@ -172,6 +172,16 @@ public class Floor {
         }
     }
 
+    public Cell GetVacantPosition(TerrainType type, bool isRoom) {
+        if (!isRoom) return GetVacantPosition(type);
+
+        while (true) {
+            var cell = GetPosition(type);
+            if (GetRoom(cell) == null) continue;
+            if (GetStuff(cell.x, cell.y) == null) return cell;
+        }
+    }
+
     public Cell GetPosition(TerrainType type) {
         while (true) {
             var x = UnityEngine.Random.Range(0, floorSize.x - 1);
