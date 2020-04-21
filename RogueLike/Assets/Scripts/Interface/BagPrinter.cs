@@ -14,6 +14,7 @@ public class BagPrinter : MonoBehaviour
 
     public GameObject itemList;
     public GameObject itemPrinterPrefab;
+    public Text description;
 
     public float timeOut = 0.1f;
     private float timeElapsed;
@@ -40,7 +41,10 @@ public class BagPrinter : MonoBehaviour
             var itemPrinter = Instantiate(itemPrinterPrefab, itemList.transform);
             var textComponent = itemPrinter.GetComponent<Text>();
             textComponent.text = player.Items[i].ToString();
-            if (i == selectedItem) textComponent.color = Color.red;
+            if (i == selectedItem) {
+                textComponent.color = Color.red;
+                description.text = ItemData.GetDescription(player.Items[i]);
+            }
         }
     }
 
@@ -97,6 +101,7 @@ public class BagPrinter : MonoBehaviour
 
     public void SelectItem(int index) {
         selectedItem = index;
+        description.text = ItemData.GetDescription(player.Items[index]);
         OnEnable();
     }
 }

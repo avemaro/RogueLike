@@ -24,7 +24,7 @@ public class ItemData {
         Spec = spec;
     }
 
-    static List<(ItemType type, string name, int[] spec)> data = new List<(ItemType type, string name, int[] spec)>();
+    static List<(ItemType type, string name, string description, int[] spec)> data = new List<(ItemType, string, string, int[])>();
 
     public static ItemData GetData(string name) {
         var found = data.Find(d => d.name == name);
@@ -32,8 +32,8 @@ public class ItemData {
         return new ItemData(found.type, found.name, found.spec);
     }
 
-    public static void AddData(ItemType type, string name, params int[] spec) {
-        data.Add((type, name, spec));
+    public static void AddData(ItemType type, string name, string description, params int[] spec) {
+        data.Add((type, name, description, spec));
         if (type == ItemType.weapon) weapons.Add((name, spec[4]));
         if (type == ItemType.shield) shields.Add((name, spec[4]));
         if (type == ItemType.arrow) arrows.Add((name, spec[4]));
@@ -43,6 +43,11 @@ public class ItemData {
         if (type == ItemType.wand) wands.Add((name, spec[0]));
         if (type == ItemType.scroll) scrolls.Add((name, spec[0]));
         if (type == ItemType.pot) pots.Add((name, spec[0]));
+    }
+
+    public static string GetDescription(Item item) {
+        var found = data.Find(d => d.name == item.Name);
+        return found.description;
     }
 }
 

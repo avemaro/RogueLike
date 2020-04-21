@@ -32,14 +32,14 @@ public static class ItemMaker {
         }
     }
 
-    static Item SelectItem(Floor floor, Cell cell, List<(string naem, int prob)> probs) {
+    static Item SelectItem(Floor floor, Cell cell, List<(string name, int prob)> probs) {
         var rand = Random.Range(0, 256);
         var accum = 0;
         foreach (var (name, prob) in probs) {
             accum += prob;
             if (rand < accum) return Create(floor, cell, name);
         }
-        throw new System.Exception();
+        throw new System.Exception(probs[0].name + probs[0].prob);
     }
 
     public static Item Create(Floor floor, Cell cell, string name) {

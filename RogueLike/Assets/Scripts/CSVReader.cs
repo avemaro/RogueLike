@@ -31,7 +31,7 @@ public class CSVReader : MonoBehaviour
             if (line[0] == "shield") type = ItemType.shield;
             if (line[0] == "bracelet") type = ItemType.bracelet;
             if (line[0] == "arrow") type = ItemType.arrow;
-            ItemData.AddData(type, line[1], int.Parse(line[2]), int.Parse(line[3]),
+            ItemData.AddData(type, line[1], line[2], int.Parse(line[3]), int.Parse(line[4]),
                 0, 0, int.Parse(line[6]));
         }
 
@@ -47,9 +47,9 @@ public class CSVReader : MonoBehaviour
         foreach (var line in csvDatas) {
             if (line[0] == "drag") type = ItemType.drag;
             if (line[0] == "food") type = ItemType.food;
-            ItemData.AddData(type, line[1], int.Parse(line[2]), int.Parse(line[3]),
-                int.Parse(line[4]), int.Parse(line[5]), int.Parse(line[6]),
-                int.Parse(line[7]), int.Parse(line[8]));
+            ItemData.AddData(type, line[1], line[2], int.Parse(line[3]), int.Parse(line[4]),
+                int.Parse(line[5]), int.Parse(line[6]), int.Parse(line[7]),
+                int.Parse(line[8]), int.Parse(line[9]));
         }
 
         csvDatas = new List<string[]>();
@@ -66,7 +66,7 @@ public class CSVReader : MonoBehaviour
             if (line[0] == "pot") type = ItemType.pot;
             //Debug.Log(line[1]);
             //Debug.Log(line[2]);
-            ItemData.AddData(type, line[1], int.Parse(line[2]));
+            ItemData.AddData(type, line[1], line[2], int.Parse(line[3]));
         }
     }
 
