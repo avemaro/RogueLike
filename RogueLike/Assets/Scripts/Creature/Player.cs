@@ -112,6 +112,10 @@ public class Player: Creature {
         foreach (var piece in Floor.Pieces)
             piece.Attack();
         PassTurn();
+
+        var effectPosition = Position + direction.GetValue();
+        EffectPrinter.AddEffect(effectPosition.x, effectPosition.y, 'ド');
+
         return true;
     }
 

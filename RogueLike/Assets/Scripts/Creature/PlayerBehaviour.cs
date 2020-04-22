@@ -15,14 +15,14 @@ public class PlayerBehaviour : MonoBehaviour {
     [SerializeField] string Satiation;
     [SerializeField] string Position;
 
-    public GameObject attackUp;
-    public GameObject attackUpRight;
-    public GameObject attackRight;
-    public GameObject attackDownRight;
-    public GameObject attackDown;
-    public GameObject attackDownLeft;
-    public GameObject attackLeft;
-    public GameObject attackUpLeft;
+    //public GameObject attackUp;
+    //public GameObject attackUpRight;
+    //public GameObject attackRight;
+    //public GameObject attackDownRight;
+    //public GameObject attackDown;
+    //public GameObject attackDownLeft;
+    //public GameObject attackLeft;
+    //public GameObject attackUpLeft;
 
     public float timeOut = 0.1f;
     private float timeElapsed;
@@ -59,17 +59,17 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public void Attack() {
         player.Attack();
-        switch (player.direction) {
-            case Direction.up: attackUp.SetActive(true); return;
-            case Direction.upRight: attackUpRight.SetActive(true); return;
-            case Direction.right: attackRight.SetActive(true); return;
-            case Direction.downRight: attackDownRight.SetActive(true); return;
-            case Direction.down: attackDown.SetActive(true); return;
-            case Direction.downLeft: attackDownLeft.SetActive(true); return;
-            case Direction.left: attackLeft.SetActive(true); return;
-            case Direction.upLeft: attackUpLeft.SetActive(true); return;
-            default: return;
-        }
+        //switch (player.direction) {
+        //    case Direction.up: attackUp.SetActive(true); return;
+        //    case Direction.upRight: attackUpRight.SetActive(true); return;
+        //    case Direction.right: attackRight.SetActive(true); return;
+        //    case Direction.downRight: attackDownRight.SetActive(true); return;
+        //    case Direction.down: attackDown.SetActive(true); return;
+        //    case Direction.downLeft: attackDownLeft.SetActive(true); return;
+        //    case Direction.left: attackLeft.SetActive(true); return;
+        //    case Direction.upLeft: attackUpLeft.SetActive(true); return;
+        //    default: return;
+        //}
     }
 
     public void Spawn(Chess piece) {

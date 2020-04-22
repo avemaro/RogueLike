@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1c2d2631e55784781ede34cb8f9756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1860425640}
   width: 15
   height: 11
 --- !u!224 &1737247686 stripped
@@ -2581,8 +2581,7 @@ PrefabInstance:
         type: 3}
       propertyPath: floorPrefab
       value: 
-      objectReference: {fileID: 7800540521327442333, guid: 57d20387abe444b4d8c8a025178bc98f,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5277362578631750544, guid: 3633cb595faa542b695efa7f8490c5d6,
         type: 3}
       propertyPath: bagPrinter

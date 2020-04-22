@@ -12,12 +12,23 @@ public class EffectPrinterBehaviour : MonoBehaviour
     Text text;
     EffectPrinter effectPrinter;
 
+    public float timeOut = 0.5f;
+    private float timeElapsed;
+
     private void Start() {
         text = gameObject.GetComponent<Text>();
         gameManager.effectPrinter = this;
+        effectPrinter = new EffectPrinter(gameManager.floor);
     }
 
     private void Update() {
+        timeElapsed += Time.deltaTime;
+
+        if (timeElapsed >= timeOut) {
+            effectPrinter.ClearText();
+            timeElapsed = 0.0f;
+        }
         text.text = effectPrinter.GetText(width, height);
+
     }
 }

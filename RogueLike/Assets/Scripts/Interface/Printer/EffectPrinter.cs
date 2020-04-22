@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,6 +40,10 @@ public class EffectPrinter {
         }
 
         return effectText.ToArray();
+    }
+
+    internal void ClearText() {
+        effects = new List<(int x, int y, char data)>();
     }
 
     char GetChar(int x, int y) {
