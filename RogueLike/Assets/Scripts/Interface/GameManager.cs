@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     public Text floorPrefab;
     public MapPrinter mapPrinter;
     public FloorPrinterBehaviour floorPrinter;
+    public EffectPrinterBehaviour effectPrinter;
     public BagPrinter bagPrinter;
     public PlayerBehaviour playerBehaviour;
-    public GameObject effects;
 
     // Start is called before the first frame update
     void Start() {
