@@ -159,6 +159,16 @@ public class Floor {
         return null;
     }
 
+    public Cell GetDeadEnd(Cell from, Direction direction, List<TerrainType> blockTerrans) {
+        var nextCell = GetTerrainCell(from);
+
+        while (true) {
+            nextCell = nextCell.Next(direction);
+            if (blockTerrans.Contains(nextCell.type)) break;
+        }
+        return nextCell;
+    }
+
     public Trap GetTrap(int x, int y) {
         foreach (var trap in Traps)
             if (trap.Position == (x, y)) return trap;

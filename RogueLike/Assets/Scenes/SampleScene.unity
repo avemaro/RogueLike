@@ -644,6 +644,7 @@ MonoBehaviour:
   gameManager: {fileID: 1860425640}
   width: 15
   height: 11
+  timeOut: 0.2
 --- !u!224 &1737247686 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1640117498570569484, guid: 507d1d703241e456e98b9df96dbe7634,
@@ -2581,7 +2582,8 @@ PrefabInstance:
         type: 3}
       propertyPath: floorPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7800540521327442333, guid: 57d20387abe444b4d8c8a025178bc98f,
+        type: 3}
     - target: {fileID: 5277362578631750544, guid: 3633cb595faa542b695efa7f8490c5d6,
         type: 3}
       propertyPath: bagPrinter

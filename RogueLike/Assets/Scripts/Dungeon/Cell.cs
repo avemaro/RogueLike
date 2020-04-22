@@ -56,6 +56,16 @@ public class Cell : IEquatable<Cell>, IEquatable<(int x, int y)> {
         }
     }
 
+    public static List<Cell> GetCells(Cell from, Cell to, Direction direction) {
+        var cells = new List<Cell>();
+        var nextCell = from;
+        for (var i = 0; i < 10; i++) {
+            cells.Add(nextCell);
+            if (nextCell == to) return cells;
+            nextCell = nextCell.Next(direction);
+        }
+        return cells;
+    }
 
 
     public bool Equals(Cell other) {

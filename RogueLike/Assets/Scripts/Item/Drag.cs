@@ -68,7 +68,13 @@ public class DragonHerb : Drag {
 
         var enemy = Floor.GetEnemy(player.Position, player.direction,
             new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
-        if (enemy == null) return;
-        enemy.IsAttacked(player);
+        if (enemy != null) {
+            enemy.IsAttacked(player);
+            EffectPrinter.AddEffect(player.Front, enemy.Position, player.direction, '火');
+        } else {
+            var deadEnd = Floor.GetDeadEnd(player.Position, player.direction,
+                new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
+            EffectPrinter.AddEffect(player.Front, deadEnd, player.direction, '火');
+        }
     }
 }

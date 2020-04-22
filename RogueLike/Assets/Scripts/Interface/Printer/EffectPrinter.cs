@@ -62,4 +62,14 @@ public class EffectPrinter {
         effects.Add((x, y, data));
     }
 
+    public static void AddEffect(Cell cell, char data) {
+        AddEffect(cell.x, cell.y, data);
+    }
+
+    public static void AddEffect(Cell from, Cell to, Direction direction ,char data) {
+        foreach (var cell in Cell.GetCells(from, to, direction)) {
+            AddEffect(cell, data);
+        }
+    }
+
 }
