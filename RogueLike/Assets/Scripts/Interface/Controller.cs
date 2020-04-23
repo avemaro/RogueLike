@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    static readonly (KeyCode, Direction)[] keyCodes = {
+    static readonly (KeyCode key, Direction direction)[] keyCodes = {
         (KeyCode.W, Direction.up), (KeyCode.E, Direction.upRight),
         (KeyCode.D, Direction.right), (KeyCode.C, Direction.downRight),
         (KeyCode.X, Direction.down), (KeyCode.Z, Direction.downLeft),
         (KeyCode.A, Direction.left), (KeyCode.Q, Direction.upLeft)
     };
 
-    Floor floor;
-    //Player player;
     PlayerBehaviour playerBehaviour;
     public GameManager gameManager;
 
-    KeyCode keyInput;
 
     public float timeOut　= 0.1f;
     private float timeElapsed;
@@ -24,8 +21,6 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        floor = gameManager.floor;
-        //player = floor.Player;
         playerBehaviour = gameManager.playerBehaviour;
     }
 
@@ -33,17 +28,11 @@ public class Controller : MonoBehaviour
         timeElapsed += Time.deltaTime;
 
         if (timeElapsed >= timeOut) {
-            ProcessInput();
+            ProcessInput2();
             timeElapsed = 0.0f;
         }
 
-        if (Input.GetKeyUp(KeyCode.I))
-            gameManager.bagPrinter.gameObject.SetActive(true);
-        //gameManager.bagPrinter.ToggleVisible();
-
-        //foreach (var keycode in keyCodes)
-        //    if (Input.GetKeyUp(keycode.Item1))
-        //        keyInput = keycode.Item1;
+        ProcessInput();
     }
 
 
@@ -52,54 +41,35 @@ public class Controller : MonoBehaviour
     {
         if (gameManager.bagPrinter.IsVisible) return;
 
-        //foreach (var keycode in keyCodes)
-        //    if (keycode.Item1 == keyInput)
-        //        player.Move(keycode.Item2);
-        //keyInput = KeyCode.F1;
-        //if (Input.GetKey(keycode.Item1))
-        //player.Move(keycode.Item2);
+        foreach (var (key, direction) in keyCodes)
+            if (Input.GetKeyUp(key))
+                playerBehaviour.Move(direction);
 
-        if (Input.GetKey(KeyCode.W)) {
-            playerBehaviour.Move(Direction.up);
-            return;
-        }
-        if (Input.GetKey(KeyCode.E)) {
-            playerBehaviour.Move(Direction.upRight);
-            return;
-        }
-        if (Input.GetKey(KeyCode.D)) {
-            playerBehaviour.Move(Direction.right);
-            return;
-        }
-        if (Input.GetKey(KeyCode.C)) {
-            playerBehaviour.Move(Direction.downRight);
-            return;
-        }
-        if (Input.GetKey(KeyCode.X)) {
-            playerBehaviour.Move(Direction.down);
-            return;
-        }
-        if (Input.GetKey(KeyCode.Z)) {
-            playerBehaviour.Move(Direction.downLeft);
-            return;
-        }
-        if (Input.GetKey(KeyCode.A)) {
-            playerBehaviour.Move(Direction.left);
-            return;
-        }
-        if (Input.GetKey(KeyCode.Q)) {
-            playerBehaviour.Move(Direction.upLeft);
-            return;
-        }
-
-        if (Input.GetKey(KeyCode.S)) {
+        if (Input.GetKeyUp(KeyCode.S))
             playerBehaviour.Attack();
-        }
-        if (Input.GetKey(KeyCode.M)) {
+
+        if (Input.GetKeyUp(KeyCode.M))
             gameManager.ShowMap();
-        }
-        if (Input.GetKey(KeyCode.P)) {
+
+        if (Input.GetKeyUp(KeyCode.P))
             playerBehaviour.Spawn(Chess.Pawn);
-        }
+
+        if (Input.GetKeyUp(KeyCode.I))
+            gameManager.bagPrinter.gameObject.SetActive(true);
+
+    }
+
+    void ProcessInput2() {
+        if (gameManager.bagPrinter.IsVisible) return;
+
+        if (!Input.GetKey(KeyCode.Space)) return;
+
+        foreach (var (key, direction) in keyCodes)
+            if (Input.GetKey(key))
+                playerBehaviour.Move(direction);
+
+        if (Input.GetKey(KeyCode.S))
+            playerBehaviour.Attack();
+
     }
 }

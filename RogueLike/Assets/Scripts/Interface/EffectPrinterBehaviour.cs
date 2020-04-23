@@ -25,7 +25,7 @@ public class EffectPrinterBehaviour : MonoBehaviour
         timeElapsed += Time.deltaTime;
 
         if (timeElapsed >= timeOut) {
-            effectPrinter.ClearText();
+            effectPrinter.ClearEffects();
             timeElapsed = 0.0f;
         }
         text.text = effectPrinter.GetText(width, height);

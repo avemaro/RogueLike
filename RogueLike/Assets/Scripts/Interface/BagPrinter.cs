@@ -36,6 +36,7 @@ public class BagPrinter : MonoBehaviour
         foreach (var child in itemList.GetComponentsInChildren<Text>())
             Destroy(child.gameObject);
 
+        if (player is null) return;
         //foreach (var item in player.Items) {
         for (var i = 0; i < player.Items.Count; i++) {
             var itemPrinter = Instantiate(itemPrinterPrefab, itemList.transform);
@@ -70,15 +71,21 @@ public class BagPrinter : MonoBehaviour
             if (Input.GetKeyUp(keyCodes[i]))
                 SelectItem(i);
 
-        if (Input.GetKeyUp(KeyCode.U)) {
+        if (Input.GetKeyUp(KeyCode.W) && selectedItem > 0)
+            SelectItem(selectedItem - 1);
+
+        if (Input.GetKeyUp(KeyCode.X) && selectedItem < player.Items.Count - 1)
+            SelectItem(selectedItem + 1);
+
+        if (Input.GetKeyUp(KeyCode.U))
             Use();
-        }
-        if (Input.GetKeyUp(KeyCode.E)) {
+
+        if (Input.GetKeyUp(KeyCode.E))
             Equip();
-        }
-        if (Input.GetKeyUp(KeyCode.T)) {
+
+        if (Input.GetKeyUp(KeyCode.T))
             Throw();
-        }
+
         if (Input.GetKeyUp(KeyCode.I))
             gameObject.SetActive(false);
 

@@ -42,7 +42,7 @@ public class EffectPrinter {
         return effectText.ToArray();
     }
 
-    internal void ClearText() {
+    internal void ClearEffects() {
         effects = new List<(int x, int y, char data)>();
     }
 
