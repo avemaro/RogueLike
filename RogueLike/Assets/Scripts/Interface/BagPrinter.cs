@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class BagPrinter : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BagPrinter : MonoBehaviour
     KeyCode.Alpha8, KeyCode.Alpha9 };
 
     public GameManager gameManager;
+    public TapController tapController;
     Player player;
 
     public GameObject itemList;
@@ -37,9 +39,17 @@ public class BagPrinter : MonoBehaviour
             Destroy(child.gameObject);
 
         if (player is null) return;
-        //foreach (var item in player.Items) {
         for (var i = 0; i < player.Items.Count; i++) {
             var itemPrinter = Instantiate(itemPrinterPrefab, itemList.transform);
+            itemPrinter.name = i.ToString();
+            itemPrinter.AddComponent<EventTrigger>();
+            EventTrigger trigger = itemPrinter.GetComponent<EventTrigger>();
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerDown;
+            var index = i;
+            entry.callback.AddListener((eventDate) => { SelectItem(index); });
+            trigger.triggers.Add(entry);
+
             var textComponent = itemPrinter.GetComponent<Text>();
             textComponent.text = player.Items[i].ToString();
             if (i == selectedItem) {
@@ -94,16 +104,25 @@ public class BagPrinter : MonoBehaviour
     public void Use() {
         player.Use(selectedItem);
         gameObject.SetActive(false);
+        tapController.gameObject.SetActive(true);
+    }
+
+    public void Use(int index) {
+        player.Use(index);
+        gameObject.SetActive(false);
+        tapController.gameObject.SetActive(true);
     }
 
     public void Throw() {
         player.Throw(selectedItem);
         gameObject.SetActive(false);
+        tapController.gameObject.SetActive(true);
     }
 
     public void Equip() {
         player.Equip(selectedItem);
         gameObject.SetActive(false);
+        tapController.gameObject.SetActive(true);
     }
 
     public void SelectItem(int index) {

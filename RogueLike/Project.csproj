@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Interface\Printer\EffectPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\Printer\FloorPrinter.cs" />
     <Compile Include="Assets\Scripts\Interface\StatusPrinter.cs" />
+    <Compile Include="Assets\Scripts\Interface\TapController.cs" />
     <Compile Include="Assets\Scripts\Item\Bracelet.cs" />
     <Compile Include="Assets\Scripts\Item\Drag.cs" />
     <Compile Include="Assets\Scripts\Item\Equipment.cs" />
