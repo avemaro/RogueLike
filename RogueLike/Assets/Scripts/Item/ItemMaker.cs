@@ -58,11 +58,11 @@ public static class ItemMaker {
         var data = ItemData.GetData(name);
         switch (data.Type) {
             case ItemType.weapon:
-                return new Weapon(floor, cell, data.Spec[0], name);
+                return new Weapon(floor, cell, data.Spec[6], name);
             case ItemType.shield:
-                return new Shield(floor, cell, data.Spec[1], name);
+                return new Shield(floor, cell, data.Spec[7], name);
             case ItemType.arrow:
-                return new Arrow(floor, cell, data.Spec[0], name); ;
+                return new Arrow(floor, cell, data.Spec[6], name); ;
             case ItemType.food:
                 return new Drag(floor, cell, name, data.Spec);
             case ItemType.bracelet:
@@ -78,8 +78,6 @@ public static class ItemMaker {
             default:
                 break;
         }
-        
-
 
         throw new System.Exception(name);
     }

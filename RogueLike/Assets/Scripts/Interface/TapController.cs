@@ -9,14 +9,8 @@ public class TapController : MonoBehaviour
     public GameManager gameManager;
     PlayerBehaviour playerBehaviour;
     GameObject bagObject;
-    //public GameObject right;
-    //public GameObject upRight;
-    //public GameObject up;
-    //public GameObject upLeft;
-    //public GameObject left;
-    //public GameObject downLeft;
-    //public GameObject down;
-    //public GameObject downRight;
+
+    int indexOfTapDown = -1;
 
     Vector2 center;
     // Start is called before the first frame update
@@ -73,44 +67,43 @@ public class TapController : MonoBehaviour
         }
     }
 
-    public void TapRight() {
-        playerBehaviour.Move(Direction.right);
+    public void Tap(int index) {
+        if (index == 8) {
+            playerBehaviour.Attack();
+            return;
+        }
+
+        var direction = DirectionExtend.GetDirection(index);
+        playerBehaviour.Move(direction);
     }
-    public void TapUpRight() {
-        playerBehaviour.Move(Direction.upRight);
+
+    public void TapDown(int index) {
+        indexOfTapDown = index;
     }
-    public void TapUp() {
-        playerBehaviour.Move(Direction.up);
+
+    public void TapUp(int index) {
+        indexOfTapDown = -1;
     }
-    public void TapUpLeft() {
-        playerBehaviour.Move(Direction.upLeft);
+
+    public void Enter(int index) {
+        if (indexOfTapDown != 8) return;
+        playerBehaviour.Look(DirectionExtend.GetDirection(index));
     }
-    public void TapLeft() {
-        playerBehaviour.Move(Direction.left);
-    }
-    public void TapDownLeft() {
-        playerBehaviour.Move(Direction.downLeft);
-    }
-    public void TapDown() {
-        playerBehaviour.Move(Direction.down);
-    }
-    public void TapDownRight() {
-        playerBehaviour.Move(Direction.downRight);
-    }
-    public void TapCenter() {
-        playerBehaviour.Attack();
-    }
+
+
     public void TapItem() {
+        gameManager.DismissMap();
         if (bagObject.activeInHierarchy) {
             bagObject.SetActive(false);
-            gameObject.SetActive(true);
+            gameManager.SetFloorActive(true);
         }
         else {
             bagObject.SetActive(true);
-            gameObject.SetActive(false);
+            gameManager.SetFloorActive(false);
         }
     }
     public void TapMap() {
-        gameManager.ShowMap();
+        bagObject.SetActive(false);
+        gameManager.ToggleMap();
     }
 }

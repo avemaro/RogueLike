@@ -9,12 +9,17 @@ public class Equipment : Item {
     {
         isEquiped = !isEquiped;
     }
-        protected Equipment(Floor floor, Cell cell, char data) : base(floor, cell, data)
-    {
-    }
+
+    protected Equipment(Floor floor, Cell cell, char data) : base(floor, cell, data)
+    {}
 
     public Equipment(Floor floor, Cell cell, string name) : base(floor, cell, name)
-    {
+    {}
+
+    public override string ToString() {
+        var appendix = "";
+        if (isEquiped) appendix = "#";
+        return base.ToString() + appendix;
     }
 
     public override bool Throw(Player player) {

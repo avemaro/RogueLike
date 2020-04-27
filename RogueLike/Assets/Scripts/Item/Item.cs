@@ -52,6 +52,13 @@ public class Item : Stuff, IEquatable<Item>, IAttacker {
     public virtual void Work(Player player) {
     }
 
+    public virtual bool Put(Player player) {
+        player.Items.Remove(this);
+        Floor.Items.Add(this);
+        Position = player.Position;
+        return true;
+    }
+
     public virtual bool Throw(Player player) {
         Debug.Log("Throw");
         player.Items.Remove(this);

@@ -52,7 +52,19 @@ public class FloorPrinter {
             data = stuff.Image;
             if (!stuff.isVisible) data = '　';
         }
-        if (floor.Player.Position == (x, y)) data = '試';
+        if (floor.Player.Position == (x, y)) {
+            switch (floor.Player.direction) {
+                case Direction.up: return '┻';
+                case Direction.upRight: return '┗';
+                case Direction.right: return '┣';
+                case Direction.downRight: return '┏';
+                case Direction.down: return '┳';
+                case Direction.downLeft: return '┓';
+                case Direction.left: return '┫';
+                case Direction.upLeft: return '┛';
+            }
+            //data = '試';
+        }
         return data;
     }
 

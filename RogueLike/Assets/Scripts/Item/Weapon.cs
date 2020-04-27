@@ -56,12 +56,6 @@ public class Weapon : Equipment {
 
         return true;
     }
-
-    public override string ToString() {
-        var appendix = "";
-        if (isEquiped) appendix = "#";
-        return base.ToString() + appendix;
-    }
 }
 
 public class NullWeapon : Weapon {

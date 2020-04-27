@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,7 +59,6 @@ public class Player: Creature {
         }
     }
 
-
     public List<Item> Items { get; private set; } = new List<Item>();
     public Weapon weapon;
     public Shield shield;
@@ -96,6 +96,10 @@ public class Player: Creature {
         Floor.Work();
     }
 
+    public void Look(Direction direction) {
+        this.direction = direction;
+    }
+
     public override bool Move(Direction direction) {
         if (!base.Move(direction)) return false;
         PickUp();
@@ -124,6 +128,17 @@ public class Player: Creature {
         Use(item);
     }
 
+    public void Put(int index) {
+        var item = GetItem(index);
+        if (item == null) return;
+
+        if (weapon == item) weapon = new NullWeapon(Floor, Position, "");
+        if (shield == item) shield = new NullShiled(Floor, Position, "");
+
+        item.Put(this);
+        PassTurn();
+    }
+
     public void Use(Item item) {
         if (item == null) return;
         item.Work(this);
@@ -134,7 +149,7 @@ public class Player: Creature {
         var item = GetItem(index);
         if (item == null) return;
 
-        if (weapon == item) weapon = new NullWeapon(Floor, Position, ""); ;
+        if (weapon == item) weapon = new NullWeapon(Floor, Position, "");
         if (shield == item) shield = new NullShiled(Floor, Position, "");
 
         item.Throw(this);

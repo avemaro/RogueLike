@@ -23,13 +23,21 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ShowMap() {
+    public void SetFloorActive(bool isActive) {
+        floorPrinter.gameObject.SetActive(isActive);
+    }
+
+    public void ToggleMap() {
         if (mapPrinter.gameObject.activeInHierarchy) {
             mapPrinter.gameObject.SetActive(false);
-            floorPrinter.gameObject.SetActive(true);
+            SetFloorActive(true);
         } else {
             mapPrinter.gameObject.SetActive(true);
-            floorPrinter.gameObject.SetActive(false);
+            SetFloorActive(false);
         }
+    }
+
+    public void DismissMap() {
+        mapPrinter.gameObject.SetActive(false);
     }
 }

@@ -103,27 +103,35 @@ public class BagPrinter : MonoBehaviour
 
     public void Use() {
         player.Use(selectedItem);
-        gameObject.SetActive(false);
-        tapController.gameObject.SetActive(true);
+        CloseBag();
     }
 
     public void Use(int index) {
         player.Use(index);
-        gameObject.SetActive(false);
-        tapController.gameObject.SetActive(true);
+        CloseBag();
     }
 
     public void Throw() {
         player.Throw(selectedItem);
-        gameObject.SetActive(false);
-        tapController.gameObject.SetActive(true);
+        CloseBag();
+    }
+
+    public void Put() {
+        player.Put(selectedItem);
+        CloseBag();
     }
 
     public void Equip() {
         player.Equip(selectedItem);
-        gameObject.SetActive(false);
-        tapController.gameObject.SetActive(true);
+        CloseBag();
     }
+
+    void CloseBag() {
+        gameObject.SetActive(false);
+        gameManager.SetFloorActive(true);
+        //tapController.gameObject.SetActive(true);
+    }
+
 
     public void SelectItem(int index) {
         selectedItem = index;

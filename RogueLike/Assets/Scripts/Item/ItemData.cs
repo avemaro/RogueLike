@@ -28,26 +28,41 @@ public class ItemData {
 
     public static ItemData GetData(string name) {
         var found = data.Find(d => d.name == name);
-        //Debug.Log(found);
         return new ItemData(found.type, found.name, found.spec);
     }
 
-    public static void AddData(ItemType type, string name, string description, params int[] spec) {
+    public static void AddData(string typeName, string name, string description, params int[] spec) {
+        var type = GetType(typeName);
         data.Add((type, name, description, spec));
-        if (type == ItemType.weapon) weapons.Add((name, spec[4]));
-        if (type == ItemType.shield) shields.Add((name, spec[4]));
-        if (type == ItemType.arrow) arrows.Add((name, spec[4]));
-        if (type == ItemType.bracelet) bracelets.Add((name, spec[4]));
-        if (type == ItemType.drag) drags.Add((name, spec[6]));
-        if (type == ItemType.food) foods.Add((name, spec[6]));
-        if (type == ItemType.wand) wands.Add((name, spec[0]));
-        if (type == ItemType.scroll) scrolls.Add((name, spec[0]));
-        if (type == ItemType.pot) pots.Add((name, spec[0]));
+        if (type == ItemType.weapon) weapons.Add((name, spec[9]));
+        if (type == ItemType.shield) shields.Add((name, spec[9]));
+        if (type == ItemType.arrow) arrows.Add((name, spec[9]));
+        if (type == ItemType.bracelet) bracelets.Add((name, spec[9]));
+        if (type == ItemType.drag) drags.Add((name, spec[9]));
+        if (type == ItemType.food) foods.Add((name, spec[9]));
+        if (type == ItemType.wand) wands.Add((name, spec[9]));
+        if (type == ItemType.scroll) scrolls.Add((name, spec[9]));
+        if (type == ItemType.pot) pots.Add((name, spec[9]));
     }
 
     public static string GetDescription(Item item) {
-        var found = data.Find(d => d.name == item.Name);
-        return found.description;
+        var (type, name, description, spec) = data.Find(d => d.name == item.Name);
+        return description;
+    }
+
+    public static ItemType GetType(string type) {
+        switch (type) {
+            case "weapon": return ItemType.weapon;
+            case "shield": return ItemType.shield;
+            case "bracelet": return ItemType.bracelet;
+            case "arrow": return ItemType.arrow;
+            case "food": return ItemType.food;
+            case "scroll": return ItemType.scroll;
+            case "wand": return ItemType.wand;
+            case "drag": return ItemType.drag;
+            case "pot": return ItemType.pot;
+            default: return ItemType.none;
+        }
     }
 }
 

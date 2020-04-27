@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wand : Item {
     protected int durability = 3;
-    (State, int)[] states;
+    readonly (State, int)[] states;
 
     public Wand(Floor floor, Cell cell, string name, params (State, int)[] states) : base(floor, cell, name) {
         Floor = floor;
@@ -39,12 +39,12 @@ public class Wand : Item {
         if (states == null) return;
         foreach (var state in states)
             enemy.states.Add(state);
-
     }
 
     public override void Work(Player player) {
+        if (durability == 0) return;
         durability--;
-        if (durability <= 0) player.Items.Remove(this);
+        if (durability < 0) player.Items.Remove(this);
 
         var enemy = Floor.GetEnemy(player.Position, player.direction,
             new List<TerrainType>() { TerrainType.wall, TerrainType.breakableWall });
@@ -52,5 +52,9 @@ public class Wand : Item {
         Work(player, enemy);
 
         return;
+    }
+
+    public override string ToString() {
+        return base.ToString() + "[" + durability + "]";
     }
 }

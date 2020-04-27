@@ -11,12 +11,6 @@ public class Shield : Equipment
         this.DP = DP;
     }
 
-    public override string ToString()
-    {
-        var appendix = "";
-        if (isEquiped) appendix = "#";
-        return base.ToString() + appendix;
-    }
 }
 
 public class NullShiled: Shield

@@ -49,7 +49,7 @@ public class Controller : MonoBehaviour
             playerBehaviour.Attack();
 
         if (Input.GetKeyUp(KeyCode.M))
-            gameManager.ShowMap();
+            gameManager.ToggleMap();
 
         if (Input.GetKeyUp(KeyCode.P))
             playerBehaviour.Spawn(Chess.Pawn);

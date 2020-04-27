@@ -51,6 +51,10 @@ public class PlayerBehaviour : MonoBehaviour {
         }
     }
 
+    public void Look(Direction direction) {
+        player.Look(direction);
+    }
+
     public void Move(Direction direction) {
         if (moveDirections.Count == 0)
             moveDirections.Add(direction);
