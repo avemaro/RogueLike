@@ -19,7 +19,7 @@ public class Weapon : Equipment {
     }
 
     public Weapon(Floor floor, Cell cell, int AP, string name, params Direction[] directions): base(floor, cell, name) {
-        Image = '武';
+        Image = "武";
         Name = name;
         this.AP = AP;
         this.directions = new List<Direction>(directions);
@@ -65,7 +65,7 @@ public class NullWeapon : Weapon {
 
 public class PickAxe : Weapon {
     public PickAxe(Floor floor, Cell cell, int AP, string name, params Direction[] directions) : base(floor, cell, AP, name, directions) {
-        Image = '武';
+        Image = "武";
         Name = name;
         ID = 'つ';
     }
@@ -82,7 +82,7 @@ public class PickAxe : Weapon {
 public class Arrow : Weapon {
     public Arrow(Floor floor, Cell cell, int AP, string name, params Direction[] directions) : base(floor, cell, AP, name, directions) {
         ID = '矢';
-        Image = '矢';
+        Image = "矢";
         Name = name;
     }
 

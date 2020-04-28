@@ -6,6 +6,6 @@ public class Bracelet: Equipment
 {
     public Bracelet(Floor floor, Cell cell, string name) : base(floor, cell, name)
     {
-        Image = '腕';
+        Image = "腕";
     }
 }

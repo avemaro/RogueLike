@@ -19,7 +19,7 @@ public class FloorPrinter {
             var line = "";
             for (var x = -width / 2; x < width / 2 + 1; x++) {
                 var position = center + (x, y);
-                char data = GetChar(position.x, position.y);
+                string data = GetString(position.x, position.y);
                 line += data;
             }
             floorText.Add(line);
@@ -41,29 +41,33 @@ public class FloorPrinter {
         return text;
     }
 
-    char GetChar(int x, int y) {
-        char data = '◆';
+    string GetString(int x, int y) {
+        string data = "◆";
         if (x < 0 || y < 0 |
             x >= floor.floorSize.x || y >= floor.floorSize.y) return data;
-            data = (char)floor.GetTerrain(x, y);
-        if (floor.StairPosition == (x, y)) data = '階';
+            data = floor.GetTerrain(x, y).GetString();
+        if (floor.StairPosition == (x, y)) data = "階";
         var stuff = floor.GetStuff(x, y);
         if (stuff != null) {
             data = stuff.Image;
-            if (!stuff.isVisible) data = '　';
+            //Debug.Log(data);
+            //if (stuff is Enemy)
+            //    if (((Enemy)stuff).IsFoundTarget)
+            //        data = "<color=#ff0000>" + data + "</color>";
+
+            if (!stuff.isVisible) data = "　";
         }
         if (floor.Player.Position == (x, y)) {
             switch (floor.Player.direction) {
-                case Direction.up: return '┻';
-                case Direction.upRight: return '┗';
-                case Direction.right: return '┣';
-                case Direction.downRight: return '┏';
-                case Direction.down: return '┳';
-                case Direction.downLeft: return '┓';
-                case Direction.left: return '┫';
-                case Direction.upLeft: return '┛';
+                case Direction.up: return "┻";
+                case Direction.upRight: return "┗";
+                case Direction.right: return "┣";
+                case Direction.downRight: return "┏";
+                case Direction.down: return "┳";
+                case Direction.downLeft: return "┓";
+                case Direction.left: return "┫";
+                case Direction.upLeft: return "┛";
             }
-            //data = '試';
         }
         return data;
     }
@@ -73,7 +77,7 @@ public class FloorPrinter {
         for (var y = 0; y < floor.floorSize.y; y++) {
             var str = "";
             for (var x = 0; x < floor.floorSize.x; x++)
-                str += GetChar(x, y);
+                str += GetString(x, y);
             floorData.Add(str);
             Debug.Log(str);
         }

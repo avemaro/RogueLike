@@ -12,7 +12,7 @@ public class Drag : Item {
 
     public Drag(Floor floor, Cell cell, string name, params int[] specs): base(floor, cell, name)
     {
-        Image = '薬';
+        Image = "薬";
         HP = specs[0];
         HP_MaxHP = specs[1];
         MaxHP = specs[2];
@@ -23,7 +23,7 @@ public class Drag : Item {
 
     public Drag(Floor floor, Cell cell, string name, int HP, int HP_MaxHP, int MaxHP,
         int Satiation, int M_MaxSatiation, int MaxSatiation): base(floor, cell, name) {
-        Image = '薬';
+        Image = "薬";
         this.HP = HP;
         this.HP_MaxHP = HP_MaxHP;
         this.MaxHP = MaxHP;

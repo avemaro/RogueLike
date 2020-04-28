@@ -13,7 +13,7 @@ public class Trap: Stuff, IAttacker {
     public int AP { get; set; } = 20;
 
     private Trap(Floor floor, Cell cell, char data) {
-        Image = data;
+        Image = data.ToString();
         Floor = floor;
         Position = cell;
         ID = data;

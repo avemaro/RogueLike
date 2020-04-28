@@ -69,6 +69,7 @@ public class Cell : IEquatable<Cell>, IEquatable<(int x, int y)> {
 
 
     public bool Equals(Cell other) {
+        if (other is null) return false;
         return other.x == x && other.y == y;
     }
 

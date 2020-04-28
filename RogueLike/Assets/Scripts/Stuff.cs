@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Stuff {
-    public char Image { get; protected set; }
+    public virtual string Image { get; protected set; }
     public string Name { get; protected set; }
     public virtual int Exp { get; set; }
 

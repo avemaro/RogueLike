@@ -10,7 +10,7 @@ public class Wand : Item {
         Floor = floor;
         Position = cell;
         this.states = states;
-        Image = '杖';
+        Image = "杖";
         Name = name;
     }
 

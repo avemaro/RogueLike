@@ -6,7 +6,7 @@ public class Pot : Item {
     readonly List<Item> contents = new List<Item>();
 
     public Pot(Floor floor, Cell cell, string name): base(floor, cell, name) {
-        Image = '壺';
+        Image = "壺";
     }
 
     public override void Work(Player player) {

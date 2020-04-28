@@ -10,7 +10,7 @@ public class Piece : Creature {
         player = floor.Player;
         Position = position;
         ID = 'Ｐ';
-        Image = 'Ｐ';
+        Image = "Ｐ";
         MaxHP = 10;
         HP = 10;
         AP = 2;

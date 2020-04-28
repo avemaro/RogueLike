@@ -12,4 +12,13 @@ public static class TerrainTypeExtend {
         }
         return TerrainType.land;
     }
+
+    public static string GetString(this TerrainType type) {
+        switch (type) {
+            case TerrainType.wall: return "◆";
+            case TerrainType.breakableWall: return "◆";
+            case TerrainType.land: return "　";
+            default: return "◇";
+        }
+    }
 }

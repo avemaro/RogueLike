@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scroll : Item {
     public Scroll(Floor floor, Cell cell, string name): base(floor, cell, name) {
-        Image = '巻';
+        Image = "巻";
         AP = 10;
     }
 

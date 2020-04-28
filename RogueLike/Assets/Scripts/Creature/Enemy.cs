@@ -12,9 +12,16 @@ public class Enemy : Creature {
     }
 
     public Brain Brain { get; private set; }
+    public bool IsFoundTarget { get => Floor.Player.Position == Brain.Destination; }
+
+    public override string Image { get {
+            Debug.Log(IsFoundTarget);
+            if (IsFoundTarget) return "<color=#ff0000>" + ID.ToString() + "</color>";
+            return ID.ToString();
+        } }
 
     protected Enemy(Floor floor, Cell cell, char data) {
-        Image = '敵';
+        //Image = "敵";
         Floor = floor;
         floor.Enemies.Add(this);
         Position = cell;
@@ -23,7 +30,7 @@ public class Enemy : Creature {
     }
 
     public Enemy(Floor floor, Cell cell, string name, char ID, params int[] spec) {
-        Image = ID;
+        this.ID = ID;
         Floor = floor;
         floor.Enemies.Add(this);
         Position = cell;
