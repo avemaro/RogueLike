@@ -6,6 +6,7 @@ public class CSVReader : MonoBehaviour
 {
     public TextAsset ItemDatabase;
     public TextAsset EnemyDatabase;
+    public TextAsset KobamiDatabase;
 
     List<string[]> csvData = new List<string[]>(); // CSVの中身を入れるリスト;
 
@@ -41,6 +42,22 @@ public class CSVReader : MonoBehaviour
                 intList.Add(int.Parse(line[i]));
             }
             EnemyData.AddData(line[0].ToCharArray()[0], line[1], intList.ToArray());
+        }
+
+        reader = new StringReader(KobamiDatabase.text);
+        csvData = new List<string[]>();
+
+        while (reader.Peek() != -1) {
+            string line = reader.ReadLine(); // 一行ずつ読み込み
+            csvData.Add(line.Split(',')); // , 区切りでリストに追加
+        }
+
+        foreach (var line in csvData) {
+            var intList = new List<int>();
+            for (var i = 0; i < line.Length; i++) {
+                intList.Add(int.Parse(line[i]));
+            }
+            EnemyData.AddDistribution(intList.ToArray());
         }
     }
 

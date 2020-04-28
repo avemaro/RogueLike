@@ -1,16 +1,18 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Creature/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dungeon/Room.cs">
     <Files>
       <File FileName="Assets/Scripts/Creature/Player.cs" Line="150" Column="34" />
-      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" />
-      <File FileName="Assets/Scripts/Creature/EnemyMaker.cs" />
-      <File FileName="Assets/Scripts/Item/ItemData.cs" />
-      <File FileName="Assets/Scripts/Creature/EnemyData.cs" Line="23" Column="1" />
-      <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="28" Column="33" />
+      <File FileName="Assets/Scripts/Item/ItemData.cs" Line="23" Column="21" />
+      <File FileName="Assets/Scripts/Creature/EnemyData.cs" Line="20" Column="5" />
+      <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="23" Column="6" />
+      <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" Line="55" Column="14" />
+      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="28" Column="47" />
+      <File FileName="Assets/Scripts/Dungeon/Room.cs" Line="22" Column="12" />
       <File FileName="Assets/Scripts/Item/Equipment.cs" Line="13" Column="53" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/Item.cs" NotebookId="1" />
       <File FileName="Assets/Scripts/Item/ItemMaker.cs" NotebookId="1" />
-      <File FileName="Assets/Scripts/CSVReader.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/CSVReader.cs" Line="47" Column="49" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/EnemyMaker.cs" Line="4" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

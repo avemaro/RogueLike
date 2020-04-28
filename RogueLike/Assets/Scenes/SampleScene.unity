@@ -1895,6 +1895,11 @@ PrefabInstance:
       propertyPath: EnemyDatabase
       value: 
       objectReference: {fileID: 4900000, guid: a6ce076649cdf48f894100e907d08cdd, type: 3}
+    - target: {fileID: 2712425153063037224, guid: 5ab61a7811332415d87f4ccc5cce8477,
+        type: 3}
+      propertyPath: KobamiDatabase
+      value: 
+      objectReference: {fileID: 4900000, guid: ffaa74d72c9fd411d93e46b103189da0, type: 3}
     - target: {fileID: 2712425153063037225, guid: 5ab61a7811332415d87f4ccc5cce8477,
         type: 3}
       propertyPath: m_LocalPosition.x

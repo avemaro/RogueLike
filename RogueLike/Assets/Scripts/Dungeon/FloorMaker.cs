@@ -7,8 +7,6 @@ public class FloorMaker {
     static readonly int height = 30;
 
     public static Floor Create() {
-        EnemyData.InitData();
-
         var floor = new Floor(width, height);
         FloorInit(floor);
 
@@ -89,18 +87,12 @@ public class FloorMaker {
 
 
     public static Floor Create(string[] floorData) {
-        //ItemData.InitData();
-        EnemyData.InitData();
-
         var floor = new Floor(width, height);
         FloorInit(floor, floorData);
         return floor;
     }
 
     public static Floor Create(string text) {
-        //ItemData.InitData();
-        EnemyData.InitData();
-
         var floor = new Floor(width, height);
         List<string> floorData = new List<string>();
 

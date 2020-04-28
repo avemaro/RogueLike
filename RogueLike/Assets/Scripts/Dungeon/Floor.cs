@@ -178,6 +178,7 @@ public class Floor {
     public Cell GetVacantPosition(TerrainType type) {
         while (true) {
             var cell = GetPosition(type);
+            if (cell == StairPosition) continue;
             if (GetStuff(cell.x, cell.y) == null) return cell;
         }
     }
