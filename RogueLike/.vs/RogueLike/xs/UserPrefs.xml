@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Equipment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Creature/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/Creature/Player.cs" Line="222" Column="2" />
+      <File FileName="Assets/Scripts/Creature/Player.cs" Line="205" Column="6" />
       <File FileName="Assets/Scripts/Item/ItemData.cs" />
       <File FileName="Assets/Scripts/Creature/EnemyData.cs" />
       <File FileName="Assets/Scripts/Dungeon/FloorMaker.cs" />
