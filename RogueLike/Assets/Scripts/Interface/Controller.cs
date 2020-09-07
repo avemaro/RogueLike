@@ -51,9 +51,6 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.M))
             gameManager.ToggleMap();
 
-        if (Input.GetKeyUp(KeyCode.P))
-            playerBehaviour.Spawn(Chess.Pawn);
-
         if (Input.GetKeyUp(KeyCode.I))
             gameManager.bagPrinter.gameObject.SetActive(true);
 

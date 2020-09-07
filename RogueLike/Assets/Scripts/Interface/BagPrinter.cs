@@ -102,27 +102,27 @@ public class BagPrinter : MonoBehaviour
     }
 
     public void Use() {
-        player.Use(selectedItem);
+        player.hand.Use(selectedItem);
         CloseBag();
     }
 
     public void Use(int index) {
-        player.Use(index);
+        player.hand.Use(index);
         CloseBag();
     }
 
     public void Throw() {
-        player.Throw(selectedItem);
+        player.hand.Throw(selectedItem);
         CloseBag();
     }
 
     public void Put() {
-        player.Put(selectedItem);
+        player.hand.Put(selectedItem);
         CloseBag();
     }
 
     public void Equip() {
-        player.Equip(selectedItem);
+        player.hand.Equip(selectedItem);
         CloseBag();
     }
 

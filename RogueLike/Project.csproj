@@ -62,7 +62,6 @@
     <Compile Include="Assets/Scripts/Creature/EnemiesBehaviour.cs" />
     <Compile Include="Assets/Scripts/Item/Herb.cs" />
     <Compile Include="Assets/Scripts/Item/Weapon.cs" />
-    <Compile Include="Assets/Scripts/Creature/Chess.cs" />
     <Compile Include="Assets/Scripts/Dungeon/FloorMaker.cs" />
     <Compile Include="Assets/Scripts/Creature/EnemyMaker.cs" />
     <Compile Include="Assets/Scripts/Item/Item.cs" />
@@ -86,7 +85,6 @@
     <Compile Include="Assets/Scripts/Interface/StatusPrinter.cs" />
     <Compile Include="Assets/Scripts/Dungeon/TerrainType.cs" />
     <Compile Include="Assets/Scripts/ListExtension.cs" />
-    <Compile Include="Assets/Scripts/Creature/Piece.cs" />
     <Compile Include="Assets/Scripts/Interface/Controller.cs" />
     <Compile Include="Assets/Scripts/Interface/GameManager.cs" />
     <Compile Include="Assets/Scripts/CSVReader.cs" />
@@ -103,6 +101,8 @@
     <Compile Include="Assets/Scripts/Dungeon/Trap.cs" />
     <Compile Include="Assets/Scripts/Item/Shield.cs" />
     <Compile Include="Assets/Scripts/Creature/Creature.cs" />
+    <Compile Include="Assets/Scripts/Creature/Stomach.cs" />
+    <Compile Include="Assets/Scripts/Creature/Hand.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/Project.asmdef" />

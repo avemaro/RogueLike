@@ -15,7 +15,6 @@ public class Enemy : Creature {
     public bool IsFoundTarget { get => Floor.Player.Position == Brain.Destination; }
 
     public override string Image { get {
-            Debug.Log(IsFoundTarget);
             if (IsFoundTarget) return "<color=#ff0000>" + ID.ToString() + "</color>";
             return ID.ToString();
         } }
@@ -76,7 +75,6 @@ public class Enemy : Creature {
                 //Debug.Log("EnemyAttack");
                 return Brain.Target.IsAttacked(this);
             }
-            if (Floor.GetPiece(to) != null) return Floor.GetPiece(to).IsAttacked(this);
         }
        return false;
     }

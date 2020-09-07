@@ -23,7 +23,7 @@ namespace Tests
             var item = ItemMaker.Create("MedicinalHerb");
             player.HP -= 5;
             var hp = player.HP;
-            player.Use(item);
+            player.hand.Use(item);
             Assert.Greater(player.HP, hp);
         }
 
@@ -35,11 +35,11 @@ namespace Tests
             player.HP -= 30;
 
             var item = ItemMaker.Create("MedicinalHerb");
-            player.Use(item);
+            player.hand.Use(item);
             Assert.AreEqual(96, player.HP);
-            player.Use(item);
+            player.hand.Use(item);
             Assert.AreEqual(100, player.HP);
-            player.Use(item);
+            player.hand.Use(item);
             Assert.AreEqual(101, player.HP);
             Assert.AreEqual(101, player.MaxHP);
         }
@@ -59,7 +59,7 @@ namespace Tests
             floor.Show();
             player = floor.Player;
             var item = ItemMaker.Create("EyewashHerb");
-            player.Use(item);
+            player.hand.Use(item);
             floor.Show();
         }
 
@@ -68,7 +68,7 @@ namespace Tests
             Assert.AreEqual(15, player.HP);
             Assert.AreEqual(15, player.MaxHP);
             var item = ItemMaker.Create("LifeHerb");
-            player.Use(item);
+            player.hand.Use(item);
             Assert.AreEqual(16, player.HP);
             Assert.AreEqual(20, player.MaxHP);
         }
@@ -77,7 +77,7 @@ namespace Tests
         public void StomachEnlargingSeed() {
             Assert.AreEqual(100, player.Satiation);
             var item = ItemMaker.Create("StomachEnlargingSeed");
-            player.Use(item);
+            player.hand.Use(item);
             Assert.AreEqual(110, player.MaxSatiation);
         }
 
@@ -85,13 +85,13 @@ namespace Tests
         public void WeaponTest() {
             Assert.AreEqual(5, player.AP);
             var item = ItemMaker.Create("SpikedClub");
-            player.Equip(item);
+            player.hand.Equip(item);
             Assert.AreEqual(6, player.AP);
             item = ItemMaker.Create("Glaive");
-            player.Equip(item);
+            player.hand.Equip(item);
             Assert.AreEqual(6, player.AP);
             item = ItemMaker.Create("Katana");
-            player.Equip(item);
+            player.hand.Equip(item);
             Assert.AreEqual(7, player.AP);
         }
 
@@ -100,7 +100,7 @@ namespace Tests
             player.Position = new Cell(4, 4);
             player.direction = Direction.up;
             var item = ItemMaker.Create(floor, new Cell(0, 0), "Kamaitachi");
-            player.Equip(item);
+            player.hand.Equip(item);
             var enemy0 = Enemy.Create(floor, new Cell(3, 3), '武');
             var enemy1 = Enemy.Create(floor, new Cell(4, 3), '武');
             var enemy2 = Enemy.Create(floor, new Cell(5, 3), '武');
@@ -118,7 +118,7 @@ namespace Tests
         public void NotKamaitachiTest() {
             player.Position = new Cell(4, 4);
             player.direction = Direction.up;
-            player.weapon = Weapon.Create(floor, player.Position, '拳');
+            player.hand.weapon = Weapon.Create(floor, player.Position, '拳');
             var enemy0 = Enemy.Create(floor, new Cell(3, 3), '武');
             var enemy1 = Enemy.Create(floor, new Cell(4, 3), '武');
             var enemy2 = Enemy.Create(floor, new Cell(5, 3), '武');

@@ -69,8 +69,4 @@ public class PlayerBehaviour : MonoBehaviour {
         if (moveDirections.Count != 0)
            moveDirections.RemoveAt(0);
     }
-
-    public void Spawn(Chess piece) {
-
-    }
 }

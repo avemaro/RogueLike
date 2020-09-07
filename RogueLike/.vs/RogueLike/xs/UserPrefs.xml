@@ -1,11 +1,15 @@
 ﻿<Properties StartupConfiguration="{EB30F39B-9870-4DC4-A5DC-4F3DFBF06240}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Item.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Creature/Player.cs">
     <Files>
       <File FileName="Assets/Scripts/Creature/Brain.cs" Line="108" Column="6" />
-      <File FileName="Assets/Scripts/Creature/Creature.cs" Line="5" Column="36" />
-      <File FileName="Assets/Scripts/Stuff.cs" Line="5" Column="30" />
-      <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Item/Item.cs" Line="9" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Creature.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/Stuff.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/Creature/Player.cs" Line="49" Column="6" />
+      <File FileName="Assets/Scripts/Interface/Controller.cs" Line="73" Column="1" />
+      <File FileName="Assets/Scripts/Creature/Enemy.cs" Line="12" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Stomach.cs" Line="9" Column="14" NotebookId="1" />
+      <File FileName="Assets/Scripts/Creature/Hand.cs" Line="71" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Dungeon/Floor.cs" Line="8" Column="31" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
@@ -16,6 +20,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.BasicTests PreferredExecutionTarget="bc6f312e-8936-4a5a-b1e0-3c93c0fa61b3" />
+  <MonoDevelop.Ide.ItemProperties.BasicTests PreferredExecutionTarget="aab4b69f-0052-4685-bd96-d5fa521d00b6" />
   <MultiItemStartupConfigurations />
 </Properties>

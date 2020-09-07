@@ -39,7 +39,6 @@ public abstract class Creature : Stuff, IAttacker {
     public Cell RightBack { get { return Position.Next(direction.TurnLeft().Reverse()); } }
     public Cell LeftBack { get { return Position.Next(direction.TurnRight().Reverse()); } }
 
-
     protected List<TerrainType> blockingTerrain = new List<TerrainType>()
     { TerrainType.wall, TerrainType.water, TerrainType.breakableWall };
 

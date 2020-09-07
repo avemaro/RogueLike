@@ -16,7 +16,7 @@ namespace Tests
             var item = ItemMaker.Create("ScrollOfConfusion");
             foreach (var enemy in floor.GetEnemies(room))
                 Assert.False(enemy.IsState(State.Confusion));
-            player.Use(item);
+            player.hand.Use(item);
             foreach (var enemy in floor.GetEnemies(room))
                 Assert.True(enemy.IsState(State.Confusion));
         }

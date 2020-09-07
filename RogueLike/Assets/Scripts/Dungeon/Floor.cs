@@ -11,7 +11,6 @@ public class Floor {
 
     public List<Room> Rooms { get; private set; } = new List<Room>();
 
-    public List<Piece> Pieces { get; private set; } = new List<Piece>();
     public List<Enemy> Enemies { get; private set; } = new List<Enemy>();
     public List<Item> Items { get; private set; } = new List<Item>();
     public List<Trap> Traps { get; private set; } = new List<Trap>();
@@ -34,7 +33,6 @@ public class Floor {
 
     public void Work() {
         Enemies.RemoveAll(enemy => enemy.IsState(State.Dead));
-        Pieces.RemoveAll(piece => piece.IsState(State.Dead));
 
         foreach (var enemy in Enemies)
             enemy.Work();
@@ -43,7 +41,6 @@ public class Floor {
         if (StairPosition == Player.Position) GoNextFloor();
 
         Enemies.RemoveAll(enemy => enemy.IsState(State.Dead));
-        Pieces.RemoveAll(piece => piece.IsState(State.Dead));
 
         printer.GetSrroundings();
     }
@@ -55,8 +52,6 @@ public class Floor {
         Terrains = newFloor.Terrains;
         StairPosition = newFloor.StairPosition;
         Player.Position = newFloor.Player.Position;
-        Player.StorePieces();
-        Pieces = newFloor.Pieces;
         Rooms = newFloor.Rooms;
         Traps = newFloor.Traps;
     }
@@ -98,8 +93,6 @@ public class Floor {
     public Stuff GetStuff(int x, int y) {
         var enemy = GetEnemy(x, y);
         if (enemy != null) return enemy;
-        var piece = GetPiece(new Cell(x, y));
-        if (piece != null) return piece;
         var item = GetItem(x, y);
         if (item != null) return item;
         var trap = GetTrap(x, y);
@@ -118,14 +111,7 @@ public class Floor {
         if (Player.Position == cell) return Player;
         var enemy = GetEnemy(cell);
         if (enemy != null) return enemy;
-        var piece = GetPiece(cell);
-        if (piece != null) return piece;
-        return null;
-    }
 
-    public Piece GetPiece(Cell cell) {
-        foreach (var piece in Pieces)
-            if (piece.Position == cell) return piece;
         return null;
     }
 
@@ -209,7 +195,6 @@ public class Floor {
 
     public void Remove(Creature creature) {
         if (creature is Enemy) Enemies.Remove((Enemy)creature);
-        if (creature is Piece) Pieces.Remove((Piece)creature);
     }
 
     public Room GetRoom(Cell position) {

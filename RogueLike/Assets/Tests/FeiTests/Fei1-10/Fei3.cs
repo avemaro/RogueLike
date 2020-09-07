@@ -48,7 +48,7 @@ namespace Tests
             Assert.NotNull(enemy);
 
             player.Move(Direction.up);
-            player.Use(0);
+            player.hand.Use(0);
             floor.Show();
             Assert.AreEqual(0, player.Items.Count);
             Assert.False(player.IsState(State.Dead));

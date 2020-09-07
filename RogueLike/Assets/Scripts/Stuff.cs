@@ -13,12 +13,9 @@ public abstract class Stuff {
     public bool isVisible = true;
 
     public static Stuff Create(Floor floor, Cell cell, char data) {
-        var item = Item.Create(floor, cell, data);
-        if (item != null) return item;
-        var enemy = Enemy.Create(floor, cell, data);
-        if (enemy != null) return enemy;
-        var trap = Trap.Create(floor, cell, data);
-        if (trap != null) return trap;
+        if (Item.Create(floor, cell, data) is Item item) return item;
+        if (Enemy.Create(floor, cell, data) is Enemy enemy) return enemy;
+        if (Trap.Create(floor, cell, data) is Trap trap) return trap;
         return null;
     }
 
